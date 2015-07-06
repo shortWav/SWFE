@@ -6,55 +6,100 @@
   <link rel="stylesheet" href="css/vendor/normalize.css">
   <link rel="stylesheet" href="css/vendor/angular-material.css">
   <link rel="stylesheet" href="css/vendor/font-awesome.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="http://fonts.googleapis.com/css?family=Philosopher|Monofett|Audiowide" rel="stylesheet">
   <link rel="stylesheet" href="css/vendor/materialize.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body ng-app="App">
+    <!-- Logo -->
+     <nav style="background-color: transparent" >
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">
         <h1 style="font-size: 40px" class="md-toolbar-tools shortWav">shortWav</h1>
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- Sidebar NAV-->
 <div ng-controller="AppCtrl" layout="column" style="height:500px;">
+
+  <!-- left sidebar -->
   <section layout="row" flex>
     <md-sidenav class="md-sidenav-left rust" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+     <!-- Menu Icon -->
       <md-toolbar class="md-theme-indigo" >
-        <h1 class="md-toolbar-tools">Menu</h1>
+        <h1 class="md-toolbar-tools"><i class="fa fa-bars"></i></h1>
       </md-toolbar>
+          <!-- Close button (when small) -->
       <md-content layout-padding ng-controller="LeftCtrl">
-
         <md-button ng-click="close()" class="md-primary" hide-gt-md>
           Close
         </md-button>
+        <!-- Left Side content -->
       </md-content>
+        <div class="menu-stuff">
+          <ul class="collection">
+            <li><a href="#" class="collection-item"><i class="fa fa-headphones"></i>Listen</a></li>
+            <li><a href="#" class="collection-item"><i class="material-icons">settings_input_antenna</i>Stations</a></li>
+          </ul>
+        </div>
     </md-sidenav>
+    <!-- Main Content -->
+
     <md-content flex layout-padding>
       <div layout="column" layout-fill layout-align="top center">
         <div>
           <md-button ng-click="toggleLeft()"
             class="md-primary" hide-gt-md>
-            Menu
+            <i class="fa fa-bars"></i>Menu
           </md-button>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eius modi laborum, consectetur perferendis atque voluptatum illum sapiente dolores, illo aut id blanditiis veritatis tempora sed vitae ex minima! Molestiae!</p>
         </div>
-        <div>
+        <!-- Buttons -->
+        <div class="login-buttons">
           <md-button ng-click="toggleRight()"
-            class="md-primary">
+            class="md-primary cust-button">
             Login
+          </md-button>
+           <md-button
+            class="md-primary cust-button">
+            Register
           </md-button>
         </div>
       </div>
       <div flex></div>
     </md-content>
+
+        <!-- Right Nav -->
     <md-sidenav class="md-sidenav-right rust" md-component-id="right">
       <md-toolbar class="md-theme-light">
 
-        <h1 class="md-toolbar-tools">Sidenav Right</h1>
+        <h1 class="md-toolbar-tools">Login</h1>
       </md-toolbar>
       <md-content ng-controller="RightCtrl" layout-padding>
-        <form>
+      <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Listeners">
+        <md-content class="md-padding">
+          <h3 class="md-display-2">Listeners</h3>
+          <p>Login for listeners goes here</p>
+        </md-content>
+      </md-tab>
+      <md-tab  label="Bands">
+        <md-content class="md-padding">
+          <h3 class="md-display-2">Bands</h3>
+          <p>Login for Bands goes here</p>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+       <!--  <form>
           <md-input-container>
             <label for="testInput">Test input</label>
             <input type="text" id="testInput"
                    ng-model="data" md-sidenav-focus>
           </md-input-container>
-        </form>
+        </form> -->
         <md-button ng-click="close()" class="md-primary">
           Close
         </md-button>
@@ -63,9 +108,13 @@
   </section>
 </div>
 
-  <div class="container">
+<footer>
+<span>
+    <i class="fa fa-soundcloud"></i>
+      Powered by Soundcloud
+  </span>
+</footer>
 
-  </div>
 
   <!-- VENDOR -->
   <script src="js/vendor/jquery.js"></script>
