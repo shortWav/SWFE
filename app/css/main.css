@@ -1,6 +1,7 @@
 body {
   font-family: 'Philosopher', sans-serif;
-  background-color: black; }
+  background-color: #3c4d52;
+  color: white; }
 
 h1 {
   font-family: 'Audiowide', cursive; }
@@ -8,5 +9,41 @@ h1 {
 h3 {
   font-family: 'Monofett', cursive; }
 
+footer {
+  text-align: center;
+  height: 50px;
+  background-color: black;
+  color: white;
+  font-family: 'Audiowide', cursive; }
+
 .rust {
   background-color: #a8604f; }
+
+.shortWav {
+  color: white; }
+
+.login-buttons {
+  text-align: center; }
+
+.menu-stuff {
+  font-size: 20px; }
+  .menu-stuff li {
+    padding: 5px; }
+  .menu-stuff i {
+    margin-right: 10px; }
+  .menu-stuff .collection {
+    border: transparent; }
+  .menu-stuff .collection-item {
+    background-color: black;
+    border-radius: 5px; }
+
+.cust-button {
+  font-family: 'Monofett', cursive;
+  font-size: 30px;
+  color: white; }
+
+md-sidenav {
+  border-radius: 5px; }
+
+md-backdrop {
+  height: auto; }
