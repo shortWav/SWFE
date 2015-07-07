@@ -1,6 +1,6 @@
-## Welcome to My Angular Project
+## Welcome to shortWav
 
-> I am your Readme.md file, you should probably update me.
+> Frontend: Nick Leach, Jim Leach  Backend: Tyler Day
 
 
 ## Usage
