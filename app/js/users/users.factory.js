@@ -17,7 +17,7 @@
 
       var _successLog = function(data){
         $cookies.put('token', data.sessionToken);
-      };
+      };r
 
       var loginUserBand = function(){
 
