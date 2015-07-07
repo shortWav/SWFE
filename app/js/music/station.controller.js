@@ -2,9 +2,9 @@
 
   'use strict';
 
-  angular.module('App', [])
+  angular.module('App')
 
-  .controller('SationCtrl', ['$scope', 'MusicFactory',
+  .controller('StationCtrl', ['$scope', 'MusicFactory',
     function ($scope, MusicFactory) {
 
 
