@@ -23,7 +23,7 @@
       .accentPalette('blue-grey');
 
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise(('/'));
 
 
     $stateProvider
@@ -39,7 +39,21 @@
 
 
       });
-  }]);
+
+
+  }])
+
+   .run(['UsersFactory', '$rootScope',
+
+    function (UsersFactory, $rootScope) {
+
+      $rootScope.$on('$stateChangeStart', function () {
+        UsersFactory.checkUser();
+      });
+
+    }
+
+  ]);
 
 
 

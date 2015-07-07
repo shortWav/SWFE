@@ -9,7 +9,7 @@
         $scope.register = function(x){
 
           UsersFactory.registerListener(x);
-        }
+        };
 
 
     }]);

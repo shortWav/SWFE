@@ -15,17 +15,37 @@ footer{
   background-color: black;
   color: white;
   font-family: 'Audiowide', cursive;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow:hidden;
 
 }
+// card color
+md-card{
+  background-color: rgb(103, 103, 103);
+}
+md-sidenav{
+  border-radius: 5px;
+}
+// fixes size of right nav
+md-backdrop{
+  height: auto;
+}
+// makes things rusty
 .rust{
   background-color: rgb(168, 96, 79)
 }
+// logo
 .shortWav{
   color: white;
 }
 .login-buttons{
   text-align: center;
 }
+
+// left side menu stuffs
 .menu-stuff{
   font-size: 20px;
   li{
@@ -47,9 +67,12 @@ footer{
   font-size: 30px;
   color: white;
 }
-md-sidenav{
-  border-radius: 5px;
+.form{
+  padding: 20px;
 }
-md-backdrop{
-  height: auto;
+.fa-headphones{
+  margin: 10px;
+}
+.logOutButton{
+  visibility: hidden;
 }

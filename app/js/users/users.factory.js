@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('App')
-    .factory('UsersFactory', [ '$http', 'PARSE', '$cookies',
-      function ($http, PARSE, $cookies) {
+    .factory('UsersFactory', [ '$http', 'PARSE', '$cookies', '$state',
+      function ($http, PARSE, $cookies, $state) {
       //listener constructor
       var Listener = function(options){
         this.first = options.first_name;
@@ -14,17 +14,52 @@
         this.email = options.email;
 
       };
+      var _routeUser = function(st){
+          if(st === undefined) {
+            // route to Login Page
+            // $state.go('home');
+            console.log('you not logged in');
+          } else{
+            $('#logOut').removeClass('logOutButton');
+
+          }
+
+      };
+
+      var _updateToken = function(st){
+         if (st !== undefined) {
+            PARSE.CONFIG.headers['X-Parse-Session-Token'] = st;
+          }
+          _routeUser(st);
+      };
 
       var _successLog = function(data){
-        $cookies.put('token', data.sessionToken);
-      };r
+        $cookies.put('sessionToken', data.sessionToken);
+        $cookies.put('userObjectId', data.objectId);
+        // $('#menuStuff').html('<ul class="collection"><li><a href="#" class="collection-item">Listen</a></li><li><a href="#" class="collection-item"><i class="material-icons">settings_input_antenna</i>Stations</a></li></ul><md-button ng-click="logOut()" class="md-raised md-primary">Log Out</md-button>');
+        $('#logOut').removeClass('logOutButton');
+      };
+      var checkUser = function(){
+          var st = $cookies.get('sessionToken');
+          _updateToken(st);
+      };
 
       var loginUserBand = function(){
+
+
 
       };
 
 
-      var loginUserListener = function(){
+      var loginUserListener = function(user){
+           $http({
+            method: 'GET',
+            url: PARSE.URL + 'login',
+            headers: PARSE.CONFIG.headers,
+            params: user
+          }).success( function (data) {
+            _successLog(data);
+          });
 
       };
 
@@ -32,30 +67,25 @@
         var newUser = new Listener(user);
        $http.post(PARSE.URL + 'users', newUser, PARSE.CONFIG)
         .success( function(data){
-          _successLog(data)
+          _successLog(data);
         });
 
 
       };
 
 
-      var checkUser = function(){
-
-      };
-
-
-      var _routeUser = function(){
-
-      };
-
-
-      var _updateToken = function(){
-
-      };
 
 
       var logOut = function(){
-
+           $http.post(PARSE.URL + 'logout', {}, PARSE.CONFIG)
+            .success( function () {
+              $cookies.remove('sessionToken');
+              $cookies.remove('userObjectId');
+              $state.go('home');
+              PARSE.CONFIG.headers['X-Parse-Session-Token'] = '';
+              $('#logOut').addClass('logOutButton');
+            }
+          );
       };
 
 

@@ -14,7 +14,21 @@ footer {
   height: 50px;
   background-color: black;
   color: white;
-  font-family: 'Audiowide', cursive; }
+  font-family: 'Audiowide', cursive;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden; }
+
+md-card {
+  background-color: #676767; }
+
+md-sidenav {
+  border-radius: 5px; }
+
+md-backdrop {
+  height: auto; }
 
 .rust {
   background-color: #a8604f; }
@@ -42,8 +56,11 @@ footer {
   font-size: 30px;
   color: white; }
 
-md-sidenav {
-  border-radius: 5px; }
+.form {
+  padding: 20px; }
 
-md-backdrop {
-  height: auto; }
+.fa-headphones {
+  margin: 10px; }
+
+.logOutButton {
+  visibility: hidden; }

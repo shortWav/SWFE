@@ -3,8 +3,15 @@
     "use strict";
 
     angular.module('App')
-    .controller('LoginCtrl', ['$scope',
-      function ($scope) {
+    .controller('LoginCtrl', ['$scope', 'UsersFactory',
+      function ($scope, UsersFactory) {
+
+        $scope.loginListener = function(user){
+
+          UsersFactory.loginUserListener(user);
+
+        };
+
 
     }]);
 

@@ -3,38 +3,30 @@
   'use strict';
   angular.module('App')
 
-   .controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $mdUtil, $log) {
+   .controller('AppCtrl',['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log','UsersFactory',
+    function ($scope, $timeout, $mdSidenav, $mdUtil, $log, UsersFactory) {
+    $scope.logOut = function(){
+      UsersFactory.logOut();
+    };
     $scope.toggleLeft = buildToggler('left');
     $scope.toggleRight = buildToggler('right');
-    /**
-     * Build handler to open/close a SideNav; when animation finishes
-     * report completion in console
-     */
     function buildToggler(navID) {
       var debounceFn =  $mdUtil.debounce(function(){
             $mdSidenav(navID)
-              .toggle()
-              .then(function () {
-                $log.debug("toggle " + navID + " is done");
-              });
+              .toggle();
           },300);
       return debounceFn;
     }
-  })
-  .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+  }])
+  .controller('LeftCtrl',['$scope', '$timeout', '$mdSidenav', '$log', 'UsersFactory',
+   function ($scope, $timeout, $mdSidenav, $log, UsersFactory) {
     $scope.close = function () {
-      $mdSidenav('left').close()
-        .then(function () {
-          $log.debug("close LEFT is done");
-        });
+      $mdSidenav('left').close();
     };
-  })
+  }])
   .controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.close = function () {
-      $mdSidenav('right').close()
-        .then(function () {
-          $log.debug("close RIGHT is done");
-        });
+      $mdSidenav('right').close();
     };
   });
 
