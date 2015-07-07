@@ -49,7 +49,9 @@
     <!-- Main Content -->
 
     <md-content flex layout-padding>
-      <div layout="column" layout-fill layout-align="top center">
+      <div class="container" layout="column" layout-fill layout-align="top center" ui-view>
+        <!-- view -->
+        <!-- Home Page -->
         <div>
           <md-button ng-click="toggleLeft()"
             class="md-primary" hide-gt-md>
@@ -57,7 +59,7 @@
           </md-button>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eius modi laborum, consectetur perferendis atque voluptatum illum sapiente dolores, illo aut id blanditiis veritatis tempora sed vitae ex minima! Molestiae!</p>
         </div>
-        <!-- Buttons -->
+          <!-- Buttons -->
         <div class="login-buttons">
           <md-button ng-click="toggleRight()"
             class="md-primary cust-button">
@@ -128,8 +130,16 @@
 
   <!-- MAIN -->
   <script src="js/main.js"></script>
-
   <script src="js/sidebar.js"></script>
+
+  <!-- factories -->
+  <script src="js/music/music.factory.js"></script>
+
+  <!-- controllers -->
+  <script src="js/music/station.controller.js"></script>
+  <script src="js/music/player.controller.js"></script>
+
+
 
 
 </body>
