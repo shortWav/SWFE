@@ -1,0 +1,35 @@
+        <hr />
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- init soundManager2 player -->
+                <sound-manager></sound-manager>
+
+                <p>
+                    Currently Playing: {{ currentPlaying.title }} by {{ currentPlaying.user.username }} ({{ currentPostion }} / {{ currentDuration }})
+                </p>
+
+                <div class="seekBase" seek-track>
+                    <div class="seekLoad" ng-style="{width : ( progress + '%' ) }"></div>
+                </div>
+                <br />
+                <button play-music>Play</button>
+                -
+                <button pause-music>Pause</button>
+                -
+                <button stop-music>Stop</button>
+                -
+                <button repeat-music>Repeat ({{ repeat }})</button>
+                -
+                <button play-pause-toggle data-play="Play!" data-pause="Pause!">Play Toggle</button>
+
+                Is Playing: {{ isPlaying }}
+                <br/>
+                <br/>Volume: {{ volume }} -
+                <button music-volume data-type="increase">+</button>
+                -
+                <button music-volume data-type="decrease">-</button>
+                -
+                <button mute-music>Mute ({{ mute }})</button>
+                <br/>
+                <br/>
