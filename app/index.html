@@ -94,12 +94,22 @@
           </div>
             </md-content>
           </md-tab>
-        <md-tab  label="Bands">
+        <md-tab  label="Artists">
           <md-content class="md-padding">
-            <h3 class="md-display-2">Bands</h3>
+            <h3 class="md-display-2">Artists</h3>
 
             <!-- bandslogin -->
-            <p>Login for Bands goes here</p>
+             <form ng-submit="loginArtist(user)" ng-controller="LoginCtrl">
+              <div class="input-field col s6">
+                <input ng-model="user.artist_name" id="artist_name" type="text" class="validate">
+                <label for="artist_name">Artist</label>
+              </div>
+              <div class="input-field col s12">
+                <input ng-model="user.password" id="password" type="password" class="validate">
+                <label for="password">Password</label>
+              </div>
+               <button>Sign In</button>
+            </form>
           </md-content>
         </md-tab>
       </md-tabs>
@@ -150,6 +160,7 @@
   <!-- controllers -->
   <script src="js/music/player.controller.js"></script>
   <script src="js/users/register.controller.js"></script>
+  <script src="js/users/artistregister.controller.js"></script>
   <script src="js/users/login.controller.js"></script>
   <script src="js/music/station.controller.js"></script>
 

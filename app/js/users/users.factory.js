@@ -14,6 +14,14 @@
         this.email = options.email;
 
       };
+
+      var Artist = function(options){
+        this.artist = options.artist_name;
+        this.country = options.country;
+        this.city = options.city;
+        this.state = options.state;
+      };
+
       var _routeUser = function(st){
           if(st === undefined) {
             // route to Login Page
@@ -70,7 +78,14 @@
           _successLog(data);
         });
 
+      };
 
+      var registerArtist = function(user){
+        var newArtist = new Artist(user);
+        $http.post(PARSE.URL + 'users', newArtist, PARSE.CONFIG)
+        .success(function(data){
+          _successLog(data);
+        });
       };
 
 
@@ -95,6 +110,7 @@
         loginUserBand : loginUserBand,
         loginUserListener : loginUserListener,
         registerListener : registerListener,
+        registerArtist : registerArtist,
         checkUser : checkUser,
         _routeUser : _routeUser,
         _updateToken : _updateToken,
