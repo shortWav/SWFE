@@ -3,8 +3,17 @@
     "use strict";
 
     angular.module('App')
-    .factory('UsersFactory', [ '$http', 'PARSE', '$cookies', '$state',
-      function ($http, PARSE, $cookies, $state) {
+    .factory('UsersFactory', [ '$http', 'PARSE', '$cookies', '$state', '$mdUtil','$mdSidenav',
+      function ($http, PARSE, $cookies, $state, $mdUtil, $mdSidenav) {
+
+      var toggleRight = buildToggler('right');
+      function buildToggler(navID) {
+        var debounceFn =  $mdUtil.debounce(function(){
+              $mdSidenav(navID)
+                .toggle();
+            },300);
+        return debounceFn;
+      }
       //listener constructor
       var Listener = function(options){
         this.first = options.first_name;
@@ -58,6 +67,7 @@
             headers: PARSE.CONFIG.headers,
             params: user
           }).success( function (data) {
+              toggleRight();
             _successLog(data);
           });
 
