@@ -3,6 +3,8 @@
   'use strict';
  angular.module('App', ['ngMaterial', 'ui.router', 'ngCookies'])
 
+
+
   .constant('PARSE', {
     URL: 'https://api.parse.com/1/',
     CONFIG: {
@@ -36,8 +38,11 @@
         url: '/:register',
         templateUrl: 'js/templates/register.tpl.html',
         controller: 'RegisterCtrl'
-
-
+      })
+      .state('artistregister',{
+        url: '/:artistregister',
+        templateUrl: 'js/templates/artistregister.tpl.html',
+        controller: 'ArtistRegisterCtrl'
       });
 
 

@@ -1,0 +1,50 @@
+<md-card>
+<div class="md-padding">
+<div class="row form">
+    <form class="col s12" ng-submit="artistregister(user)">
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="artist_name">Artist Name</label>
+          <input ng-model="user.artist_name"id="artist_name" type="text" class="validate">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="country">Country</label>
+          <input ng-model="user.country" id="country" type="text" class="validate">
+
+        </div>
+      </div>
+      <div class="row">
+         <md-input-container>
+        <label>City</label>
+        <input type="text"/>
+      </md-input-container>
+      <md-select placeholder="State" ng-model="ctrl.userState">
+        <md-option ng-repeat="state in ctrl.states" value="{{state.abbrev}}">{{state.abbrev}}</md-option>
+      </md-select>
+
+
+
+
+<!--         <div class="input-field col s6">
+          <input ng-model="user.city" id="city" type="text" class="validate">
+          <label for="city">City</label>
+        </div>
+        <div class="input-field col s6">
+          <input ng-model="user.state" id="state" type="text" class="validate">
+          <label for="state">State</label>
+        </div>
+ -->      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="password">Password</label>
+          <input ng-model="user.password" id="password" type="password" class="validate">
+
+        </div>
+      </div>
+    <button>Register</button>
+    </form>
+  </div>
+  </div>
+  </md-card>
