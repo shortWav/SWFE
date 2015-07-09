@@ -1,7 +1,9 @@
 body {
   font-family: 'Philosopher', sans-serif;
   background-color: #3c4d52;
-  color: white; }
+  color: white;
+  min-height: 800px;
+  max-height: 1000px; }
 
 h1 {
   font-family: 'Audiowide', cursive; }
@@ -29,6 +31,9 @@ md-sidenav {
 
 md-backdrop {
   height: auto; }
+
+md-autocomplete {
+  color: black; }
 
 .rust {
   background-color: #a8604f; }

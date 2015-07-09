@@ -44,6 +44,11 @@
         url: '/player',
         templateUrl: 'js/templates/player.tpl.html',
         controller: 'PlayerCtrl'
+      })
+      .state('find-station',{
+        url:'/find-station',
+        templateUrl: 'js/templates/station.tpl.html',
+        controller: 'StationCtrl'
       });
 
 
