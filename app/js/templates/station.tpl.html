@@ -1,1 +1,14 @@
-<h1>Hello</h1>
+<h1>Find a Station</h1>
+
+<div layout="column" ng-controller="StationCtrl as ctrl">
+      <md-autocomplete flex
+            md-search-text-change="null"
+            md-selected-item-change='null'
+            md-selected-item="ctrl.selectedItem"
+            md-search-text="ctrl.searchText"
+            md-items="item in ctrl.querySearch(ctrl.searchText)"
+            md-item-text="item.title"
+            md-floating-label="Search Tracks">
+          <span md-highlight-text="ctrl.searchText">{{item.title}}</span>
+        </md-autocomplete>
+</div>

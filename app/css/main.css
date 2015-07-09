@@ -32,6 +32,9 @@ md-sidenav {
 md-backdrop {
   height: auto; }
 
+md-autocomplete {
+  color: black; }
+
 .rust {
   background-color: #a8604f; }
 

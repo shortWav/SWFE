@@ -35,14 +35,19 @@
         controller: 'AppCtrl'
       })
       .state('register',{
-        url: '/:register',
+        url: '/register',
         templateUrl: 'js/templates/register.tpl.html',
         controller: 'RegisterCtrl'
       })
       .state('artistregister',{
-        url: '/:artistregister',
+        url: '/artistregister',
         templateUrl: 'js/templates/artistregister.tpl.html',
         controller: 'ArtistRegisterCtrl'
+      })
+      .state('find-station',{
+        url:'/find-station',
+        templateUrl: 'js/templates/station.tpl.html',
+        controller: 'StationCtrl'
       });
 
 

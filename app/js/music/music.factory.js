@@ -4,8 +4,8 @@
 
   angular.module('App')
 
-  .factory('MusicFactory', ['$scope', '$http','angularPlayer',
-    function ($scope, $http, angularPlayer) {
+  .factory('MusicFactory', ['$http','angularPlayer',
+    function ($http, angularPlayer) {
 
   var endpoint = 'https://api.soundcloud.com/users/14646252/tracks.json?client_id=242a1e223a2af256f37ce3648bb93104';
 
