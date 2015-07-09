@@ -9,6 +9,8 @@
 
   var endpoint = 'https://api.soundcloud.com/users/14646252/tracks.json?client_id=242a1e223a2af256f37ce3648bb93104';
 
+
+    // Track constructor
       var Track = function(options){
         this.title = options.title;
         this.user = options.user;
@@ -27,9 +29,19 @@
         };
       };
 
+      // Get random track from the list and play it.
     var playRandom = function(){
 
-      return $http.get(endpoint);
+      return $http.get(endpoint).success( function(data){
+      var track = data[Math.floor(Math.random()*data.length)];
+
+       $scope.songs = new Track(track);
+
+
+      }).then($timeout(function(){
+        $scope.songs.play();
+      }, 1000));
+
     };
 
     return {

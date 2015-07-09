@@ -1,35 +1,149 @@
-<md-card>
-<div class="row form">
-    <form class="col s12" ng-submit="register(user)">
-      <div class="row">
-        <div class="input-field col s6">
-          <input ng-model="user.first_name"id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input ng-model="user.last_name" id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input ng-model="user.user_name" id="user_name" type="text" class="validate">
-          <label for="user_name">User Name</label>
-        </div>
-      </div>
+<div>
+  <md-content class="md-padding">
+    <md-tabs md-dynamic-height md-border-bottom>
+      <!-- Listener Tab -->
+      <md-tab label="Listener">
+        <md-content class="md-padding">
+          <md-card>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <input ng-model="user.password" id="password" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input ng-model="user.email" id="email" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-      </div>
-    <button>Register</button>
-    </form>
-  </div>
-  </md-card>
+
+
+          <!-- Register listener form -->
+
+
+            <div class="row form">
+                <form class="col s12" ng-submit="register(user)">
+
+                  <!-- First name -->
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input ng-model="user.first_name"id="first_name" type="text" class="validate">
+                      <label for="first_name">First Name</label>
+                    </div>
+                    <!-- Last Name -->
+                    <div class="input-field col s6">
+                      <input ng-model="user.last_name" id="last_name" type="text" class="validate">
+                      <label for="last_name">Last Name</label>
+                    </div>
+                    <!-- Username -->
+                    <div class="input-field col s6">
+                      <input ng-model="user.user_name" id="user_name" type="text" class="validate">
+                      <label for="user_name">User Name</label>
+                    </div>
+                  </div>
+
+                  <!-- Password -->
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input ng-model="user.password" id="password" type="password" class="validate">
+                      <label for="password">Password</label>
+                    </div>
+                  </div>
+                  <!-- Email -->
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input ng-model="user.email" id="email" type="email" class="validate">
+                      <label for="email">Email</label>
+                    </div>
+                  </div>
+
+
+                <button>Register</button>
+                </form>
+              </div>
+            </md-card
+
+          </md-content>
+
+        </md-tab>
+
+
+        <!-- Artist tab -->
+        <md-tab label="Artist">
+          <md-content class="md-padding">
+
+          <!-- Register Artist form -->
+            <md-card>
+              <div class="md-padding">
+                <div class="row form">
+                  <form class="col s12" ng-submit="artistRegister(artist)">
+
+                  <!-- Artist Name -->
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <label for="artist_name">Artist Name</label>
+                      <input ng-model="artist.artist_name" id="artist_name" type="text" class="validate">
+                    </div>
+                  </div>
+
+                  <!-- Country -->
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <md-autocomplete flex required
+                        ng-model="artist.country"
+                        md-search-text-change="null"
+                        md-selected-item-change='null'
+                        md-input-name="autocompleteField"
+                        md-no-cache="noCache"
+                        md-selected-item="selectedItem"
+                        md-search-text="searchText"
+                        md-items="item in querySearch(searchText)"
+                        md-item-text="item.display"
+                        md-floating-label="Country">
+                        <md-item-template>
+                          <span md-highlight-text="searchText">{{item.display}}</span>
+                        </md-item-template>
+                        <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
+                          <div ng-message="required">You <b>must</b> have a country.</div>
+                          <div ng-message="minlength">Your entry is not long enough.</div>
+                          <div ng-message="maxlength">Your entry is too long.</div>
+                        </div>
+                      </md-autocomplete>
+                    </div>
+                  </div>
+
+                  <!-- City -->
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <label for="artist_city">City</label>
+                      <input ng-model="artist.city" id="artist_city" type="text" class="validate">
+
+                      <md-select placeholder="State" ng-model="artist.state">
+                        <md-option ng-repeat="state in states" value="{{state.abbrev}}">{{state.abbrev}}</md-option>
+                      </md-select>
+                    </div>
+                  </div>
+
+                   <!-- Username -->
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <label for="artist_username">Username</label>
+                      <input ng-model="artist.username" id="artist_username" type="text" class="validate">
+                    </div>
+                  </div>
+
+                  <!-- Password -->
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <label for="password">Password</label>
+                      <input ng-model="artist.password" id="password" type="password" class="validate">
+                    </div>
+                  </div>
+
+                  <button>Register</button>
+
+                </form>
+
+
+                </div>
+              </div>
+            </md-card>
+
+
+
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</div>
 

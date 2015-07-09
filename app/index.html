@@ -13,6 +13,7 @@
 </head>
 <body ng-app="App">
     <!-- Logo -->
+
   <nav style="background-color: transparent" >
     <div class="nav-wrapper">
       <a href="#/" class="brand-logo">
@@ -23,11 +24,11 @@
 
 
   <!-- Sidebar NAV-->
-<div ng-controller="AppCtrl" layout="column" style="height:500px;">
+<div ng-controller="AppCtrl" layout="column" style="min-height:500px; max-height: 600px;">
 
   <!-- left sidebar -->
   <section layout="row" flex>
-    <md-sidenav class="md-sidenav-left rust" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <md-sidenav style="height: 600px;" class="md-sidenav-left rust" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
      <!-- Menu Icon -->
       <md-toolbar class="md-theme-indigo" >
         <h1 class="md-toolbar-tools"><i class="fa fa-bars"></i></h1>
@@ -54,6 +55,8 @@
 
         </div>
     </md-sidenav>
+
+
     <!-- Main Content -->
 
     <md-content flex layout-padding>
@@ -63,6 +66,8 @@
       </div>
       <div flex></div>
     </md-content>
+
+
 
         <!-- Right Nav -->
     <md-sidenav class="md-sidenav-right rust" md-component-id="right">
@@ -94,12 +99,22 @@
           </div>
             </md-content>
           </md-tab>
-        <md-tab  label="Bands">
+        <md-tab  label="Artists">
           <md-content class="md-padding">
-            <h3 class="md-display-2">Bands</h3>
+            <h3 class="md-display-2">Artists</h3>
 
             <!-- bandslogin -->
-            <p>Login for Bands goes here</p>
+             <form ng-submit="loginArtist(user)" ng-controller="LoginCtrl">
+              <div class="input-field col s6">
+                <input ng-model="user.artist_name" id="artist_name" type="text" class="validate">
+                <label for="artist_name">Artist</label>
+              </div>
+              <div class="input-field col s12">
+                <input ng-model="user.password" type="password" class="validate">
+                <label for="password">Password</label>
+              </div>
+               <button>Sign In</button>
+            </form>
           </md-content>
         </md-tab>
       </md-tabs>
@@ -132,10 +147,14 @@
   <script src="js/vendor/angular.js"></script>
   <script src="js/vendor/angular-cookies.js"></script>
   <script src="js/vendor/angular-ui-router.js"></script>
+  <script src="//connect.soundcloud.com/sdk-2.0.0.js"></script>
   <script src="js/vendor/materialize.js"></script>
   <script src="js/vendor/angular-animate.js"></script>
   <script src="js/vendor/angular-aria.js"></script>
   <script src="js/vendor/angular-material.js"></script>
+
+  <script src="js/vendor/angular-messages.js"></script>
+
   <script src="js/vendor/angular-soundmanager2.js"></script>
   <!-- MAIN -->
   <script src="js/main.js"></script>
@@ -149,11 +168,25 @@
   <!-- controllers -->
   <script src="js/music/player.controller.js"></script>
   <script src="js/users/register.controller.js"></script>
+  <script src="js/users/artistregister.controller.js"></script>
   <script src="js/users/login.controller.js"></script>
   <script src="js/music/station.controller.js"></script>
 
 
 
+<script>
+// $(document).ready(function() {
+//     $('select').material_select();
+//   });
+
+//
+   SC.connect(function() {
+        SC.get('/me', function(me) {
+          alert('Hello, ' + me.username);
+        });
+      });
+
+</script>
 
 
 
