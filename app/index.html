@@ -24,11 +24,11 @@
 
 
   <!-- Sidebar NAV-->
-<div ng-controller="AppCtrl" layout="column" style="height:500px;">
+<div ng-controller="AppCtrl" layout="column" style="min-height:500px; max-height: 600px;">
 
   <!-- left sidebar -->
   <section layout="row" flex>
-    <md-sidenav class="md-sidenav-left rust" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <md-sidenav style="height: 600px;" class="md-sidenav-left rust" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
      <!-- Menu Icon -->
       <md-toolbar class="md-theme-indigo" >
         <h1 class="md-toolbar-tools"><i class="fa fa-bars"></i></h1>
@@ -173,9 +173,20 @@
   <script src="js/music/station.controller.js"></script>
 
 
-<script>$(document).ready(function() {
-    $('select').material_select();
-  });</script>
+
+<script>
+// $(document).ready(function() {
+//     $('select').material_select();
+//   });
+
+//
+   SC.connect(function() {
+        SC.get('/me', function(me) {
+          alert('Hello, ' + me.username);
+        });
+      });
+
+</script>
 
 
 
