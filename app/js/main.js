@@ -1,7 +1,8 @@
 ;( function(){
 
   'use strict';
- angular.module('App', ['ngMaterial', 'ui.router', 'ngCookies', 'ngMessages'])
+ angular.module('App', ['ngMaterial', 'ui.router', 'angularSoundManager',
+  'ngCookies', 'ngMessages'])
 
 
 
@@ -35,14 +36,14 @@
         controller: 'AppCtrl'
       })
       .state('register',{
-        url: '/:register',
+        url: '/register',
         templateUrl: 'js/templates/register.tpl.html',
         controller: 'RegisterCtrl'
       })
-      .state('artistregister',{
-        url: '/:artistregister',
-        templateUrl: 'js/templates/artistregister.tpl.html',
-        controller: 'ArtistRegisterCtrl'
+      .state('player',{
+        url: '/player',
+        templateUrl: 'js/templates/player.tpl.html',
+        controller: 'PlayerCtrl'
       });
 
 

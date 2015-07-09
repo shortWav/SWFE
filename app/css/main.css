@@ -64,3 +64,9 @@ md-backdrop {
 
 .logOutButton {
   visibility: hidden; }
+
+.playpage {
+  font-family: 'Audiowide', cursive; }
+
+.playb button {
+  background-color: #676767; }

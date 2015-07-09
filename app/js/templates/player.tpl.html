@@ -1,10 +1,11 @@
         <hr />
 
         <div class="row">
+        <div class="hi"></div>
             <div class="col-md-12">
                 <!-- init soundManager2 player -->
                 <sound-manager></sound-manager>
-
+                <div class="playpage">
                 <p>
                     Currently Playing: {{ currentPlaying.title }} by {{ currentPlaying.user.username }} ({{ currentPostion }} / {{ currentDuration }})
                 </p>
@@ -13,23 +14,56 @@
                     <div class="seekLoad" ng-style="{width : ( progress + '%' ) }"></div>
                 </div>
                 <br />
-                <button play-music>Play</button>
-                -
-                <button pause-music>Pause</button>
-                -
-                <button stop-music>Stop</button>
-                -
-                <button repeat-music>Repeat ({{ repeat }})</button>
-                -
-                <button play-pause-toggle data-play="Play!" data-pause="Pause!">Play Toggle</button>
+                <div class="playb">
 
-                Is Playing: {{ isPlaying }}
+                <button play-music>
+                <i class="small material-icons">play_arrow
+                </i>
+                </button>
+
+                -
+                <button pause-music>
+                <i class="small material-icons">pause</i>
+                </button>
+
+                -
+                <button stop-music>
+                <i class="small material-icons">stop</i>
+                </button>
+
+                -
+                <button repeat-music><i class="small material-icons">replay</i>
+                <!-- ({{ repeat }}) -->
+                </button>
+
+                -
+                <!-- play toggle -->
+                <button id="played" play-pause-toggle>
+
+                    <i id="playIcon" class="small material-icons">play_arrow</i>
+
+                    <!--  Is Playing:  -->
+                    <!-- ({{ isPlaying }}) -->
+                </button>
+
+
                 <br/>
                 <br/>Volume: {{ volume }} -
-                <button music-volume data-type="increase">+</button>
+                <button music-volume data-type="increase">
+                <i class="small material-icons">volume_up</i>
+                </button>
+
                 -
-                <button music-volume data-type="decrease">-</button>
+                <button music-volume data-type="decrease">
+                    <i class="small material-icons">volume_down</i>
+                </button>
+
                 -
-                <button mute-music>Mute ({{ mute }})</button>
+                <button id='muteButton' mute-music>
+                    <i id="muteIcon" class="small material-icons">volume_mute</i>
+                    <!-- ({{ mute }}) -->
+                </button>
+                </div>
                 <br/>
                 <br/>
+                </div>
