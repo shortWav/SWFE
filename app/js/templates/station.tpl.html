@@ -4,13 +4,43 @@
 <div ng-controller="StationCtrl" layout="column" layout-align="center center" style="padding:40px">
 
   <div layout="column" layout-align="center center" style="height: 100px;">
-    <md-select ng-model="user" md-on-open="loadUsers()" style="min-width: 200px;">
-      <md-select-label>{{ user ? user : 'Select Genre' }}</md-select-label>
-      <md-option ng-value="user" ng-repeat="user in genre track by $index">{{user}}</md-option>
-    </md-select>
 
-    <!-- <p class="md-caption">You have assigned the task to: {{ user ? user.name : 'No one yet' }}</p> -->
+
+    <form ng-submit="loadStation()">
+
+      <!-- Select genre/ need to change to country -->
+
+      <md-select ng-model="g.genre" md-on-open="loadGenres()"  style="min-width: 200px;">
+
+        <md-select-label>{{ g ? g.genre : 'Select Genre' }}</md-select-label>
+
+        <md-option class="md-accent" ng-value="g" ng-repeat="g in genre track by $index">{{g}}
+        </md-option>
+
+      </md-select>
+
+
+      <!-- Select song / need to change to genre -->
+
+       <md-select ng-model="g.songs" md-on-open="loadTracks(g)" style="min-width: 200px;">
+
+        <md-select-label>{{ g ? g.songs : 'Songs' }}</md-select-label>
+
+        <md-option ng-value="g.title" ng-repeat="g in genreSongs track by $index">{{g.title}}
+        </md-option>
+
+      </md-select>
+
+
+
+      <!-- <p class="md-caption">You have assigned the task to: {{ g ? g.name : 'No one yet' }}</p> -->
+
+      <md-button class="md-raised md-primary">Play!</md-button>
+
+    </form>
+
   </div>
+
 </div>
 
-
+<div class="player" ui-view></div>
