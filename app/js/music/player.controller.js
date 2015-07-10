@@ -76,7 +76,6 @@
       $('#moon').removeClass('moon-orbit-animation');
       $('#satellite').removeClass('satellite-orbit-animation');
 
-
   });
 
 
