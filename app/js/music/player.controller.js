@@ -73,6 +73,8 @@
   $('#stopIt').on('click', function(){
       var play = "play_arrow";
       $('#playIcon').text(play);
+      $('#moon').removeClass('moon-orbit-animation');
+      $('#satellite').removeClass('satellite-orbit-animation');
 
   });
 

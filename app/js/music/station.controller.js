@@ -4,14 +4,14 @@
 
   angular.module('App')
 
-  .controller('StationCtrl',
+  .controller('StationCtrl', ['$timeout', '$scope', '$http', '$state', 'MusicFactory',
 
-    function($timeout, $scope, $http) {
+    function($timeout, $scope, $http, $state, $MusicFactory) {
 
       // track index
-      var endpoint = 'https://api.soundcloud.com/users/14646252/tracks.json?client_id=242a1e223a2af256f37ce3648bb93104';
+      var endpoint = 'https://api.soundcloud.com/users/19342225/tracks.json?client_id=242a1e223a2af256f37ce3648bb93104';
 
-        // prototype that makes all strings capitalized
+        // prototype that makes all first letters in strings capitalized
         Array.prototype.upperCaseThis = function(){
 
         for (var i = 0;  i < this.length; i += 1){
@@ -95,7 +95,12 @@
 
     };
 
+    $scope.loadStation = function(){
 
-  });
+      $state.go('find-station.radio');
+
+    };
+
+  }]);
 
 }());
