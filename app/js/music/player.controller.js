@@ -33,7 +33,6 @@
       var track = data[Math.floor(Math.random()*data.length)];
 
        $scope.songs = new Track(track);
-       console.log($scope.songs);
 
       }).then($timeout(function(){
         $scope.songs.play();
