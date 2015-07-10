@@ -8,6 +8,12 @@
 
     function($timeout, $scope, $http, $state, $MusicFactory) {
 
+      $scope.isOpen = false;
+      $scope.demo = {
+        isOpen: false,
+        count: 0,
+        selectedAlignment: 'md-left'
+      };
       // track index
       var endpoint = 'https://api.soundcloud.com/users/19342225/tracks.json?client_id=242a1e223a2af256f37ce3648bb93104';
 
