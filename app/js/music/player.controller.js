@@ -4,9 +4,9 @@
 
   angular.module('App')
 
-  .controller('PlayerCtrl', ['$scope', 'MusicFactory', '$timeout', 'angularPlayer',
+  .controller('PlayerCtrl', ['$scope', 'MusicFactory', '$timeout', 'angularPlayer', '$sce',
 
-   function ($scope, MusicFactory, $timeout, angularPlayer) {
+   function ($scope, MusicFactory, $timeout, angularPlayer, $sce) {
 
 
 
@@ -33,7 +33,7 @@
       var track = data[Math.floor(Math.random()*data.length)];
 
        $scope.songs = new Track(track);
-
+       console.log($scope.songs);
 
       }).then($timeout(function(){
         $scope.songs.play();
@@ -73,6 +73,9 @@
   $('#stopIt').on('click', function(){
       var play = "play_arrow";
       $('#playIcon').text(play);
+      $('#moon').removeClass('moon-orbit-animation');
+      $('#satellite').removeClass('satellite-orbit-animation');
+
 
   });
 

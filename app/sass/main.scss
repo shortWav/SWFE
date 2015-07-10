@@ -26,7 +26,7 @@ footer{
 }
 // card color
 md-card{
-  background-color: rgb(103, 103, 103);
+  background-color: #282828;
 }
 md-sidenav{
   border-radius: 5px;
@@ -90,7 +90,7 @@ md-option{
   font-family: 'Audiowide', cursive;
 }
 .playb{
-  button{
+  .md-button{
   background-color: rgb(103, 103, 103);  }
 }
 .volbutton{
@@ -110,9 +110,21 @@ md-option{
 li {
   cursor: pointer;
 }
+
+.artiststuff{
+  img{
+    width: 40%;
+  }
+}
+.playerholder{
+  margin: 20px auto;
+}
+
 .animation-rotation {
     height: 600px;
     position: relative;
+    margin-top: 70px;
+    margin-right: 50px;
 }
 
 .earth {
