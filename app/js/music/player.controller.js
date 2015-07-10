@@ -44,6 +44,8 @@
     $('#played').on('click', function(){
       var play = "play_arrow";
       var pause = "pause";
+      $('#moon').toggleClass('moon-orbit-animation');
+      $('#satellite').toggleClass('satellite-orbit-animation');
 
       if ($scope.isPlaying === true){
         $('#playIcon').text(play);
@@ -67,6 +69,14 @@
       }
 
     });
+
+  $('#stopIt').on('click', function(){
+      var play = "play_arrow";
+      $('#playIcon').text(play);
+
+  });
+
+
 
 
   }]);

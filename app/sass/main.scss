@@ -93,6 +93,9 @@ md-option{
   button{
   background-color: rgb(103, 103, 103);  }
 }
+.volbutton{
+  font-size: 10px;
+}
 .seekBase {
   height: 30px;
   width: 90%;
@@ -126,7 +129,12 @@ li {
   -webkit-animation: rotate360 10s linear infinite;
   animation: rotate360 10s linear infinite;
 }
-
+.earthtext{
+  font-size: 44px;
+  margin-left: 16px;
+  margin-top: 22px;
+  color: grey;
+}
 .satellite-orbit {
     position: absolute;
     top: 50%;
@@ -137,7 +145,10 @@ li {
     height: 200px;
     border: 1px solid #BDB09A;
     border-radius: 50%;
-    -webkit-animation: rotate360 20s linear infinite;
+
+}
+.satellite-orbit-animation{
+  -webkit-animation: rotate360 20s linear infinite;
     animation: rotate360 20s linear infinite;
 }
 
@@ -173,7 +184,10 @@ li {
     height: 295px;
     border: 1px solid #BDB09A;
     border-radius: 50%;
-    -webkit-animation: rotate360 60s linear infinite;
+
+}
+.moon-orbit-animation{
+   -webkit-animation: rotate360 60s linear infinite;
     animation: rotate360 60s linear infinite;
 }
 

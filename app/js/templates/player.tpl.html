@@ -3,7 +3,7 @@
         <div class="hi"></div>
 
             <div layout="row" layout-wrap>
-                <div flex="75">
+                <div flex="100">
                 <!-- init soundManager2 player -->
                 <sound-manager></sound-manager>
                 <div class="playpage">
@@ -17,58 +17,63 @@
                 <br />
                 <div class="playb">
 
-
-                <button stop-music>
-                <i class="small material-icons">stop</i>
-                </button>
-
-                -
-                <button repeat-music><i class="small material-icons">replay</i>
-                <!-- ({{ repeat }}) -->
-                </button>
-
-                -
                 <!-- play toggle -->
-                <button id="played" play-pause-toggle>
+                <md-button class="md-fab md-primary"id="played" play-pause-toggle>
 
                     <i id="playIcon" class="small material-icons">pause</i>
 
                     <!--  Is Playing:  -->
                     <!-- ({{ isPlaying }}) -->
-                </button>
+                </md-button>
 
 
+                -
+                <md-button class="md-fab md-mini" id="stopIt" stop-music>
+                <i class="small material-icons">stop</i>
+                </md-button>
+
+                -
+                <md-button class="md-fab md-mini"repeat-music><i class="small material-icons">replay</i>
+                <!-- ({{ repeat }}) -->
+                </md-button>
+
+                -
+
+                <div class="volbutton">
+<!--
                 <br/>
-                <br/>Volume: {{ volume }} -
-                <button music-volume data-type="increase">
+                <br/> -->Volume: {{ volume }} -
+                <md-button class="md-fab md-mini"music-volume data-type="increase">
                 <i class="small material-icons">volume_up</i>
-                </button>
+                </md-button>
 
                 -
-                <button music-volume data-type="decrease">
+                <md-button class="md-fab md-mini" music-volume data-type="decrease">
                     <i class="small material-icons">volume_down</i>
-                </button>
+                </md-button>
 
                 -
-                <button id='muteButton' mute-music>
+                <md-button class="md-fab md-mini" id='muteButton' mute-music>
                     <i id="muteIcon" class="small material-icons">volume_mute</i>
                     <!-- ({{ mute }}) -->
-                </button>
+                </md-button>
+                </div>
                 </div>
                 <br/>
                 <br/>
                 </div>
                 </div>
-                    <div flex="25">
+                    <div flex="50">
                     <div class="animation-rotation">
                         <div class="earth">
+                        <h1 class="earthtext">sw</h1>
                         </div>
-                        <div class="satellite-orbit">
+                        <div id="satellite" class="satellite-orbit satellite-orbit-animation">
                             <div class="satellite1">
                                 <div class="satellite2"></div>
                             </div>
                         </div>
-                        <div class="moon-orbit">
+                        <div id="moon" class="moon-orbit moon-orbit-animation">
                             <div class="moon"></div>
                         </div>
                     </div>
