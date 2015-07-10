@@ -5,11 +5,11 @@
 
   <div layout="column" layout-align="center center" style="height: 100px;">
     <md-select ng-model="user" md-on-open="loadUsers()" style="min-width: 200px;">
-      <md-select-label>{{ user ? user.genre : 'Select Title' }}</md-select-label>
-      <md-option ng-value="user" ng-repeat="user in users">{{user.genre}}</md-option>
+      <md-select-label>{{ user ? user : 'Select Genre' }}</md-select-label>
+      <md-option ng-value="user" ng-repeat="user in genre track by $index">{{user}}</md-option>
     </md-select>
 
-    <p class="md-caption">You have assigned the task to: {{ user ? user.name : 'No one yet' }}</p>
+    <!-- <p class="md-caption">You have assigned the task to: {{ user ? user.name : 'No one yet' }}</p> -->
   </div>
 </div>
 

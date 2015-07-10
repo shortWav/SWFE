@@ -1,8 +1,9 @@
-        <hr />
 
         <div class="row">
         <div class="hi"></div>
-            <div class="col-md-12">
+
+            <div layout="row" layout-wrap>
+                <div flex="75">
                 <!-- init soundManager2 player -->
                 <sound-manager></sound-manager>
                 <div class="playpage">
@@ -16,17 +17,7 @@
                 <br />
                 <div class="playb">
 
-                <button play-music>
-                <i class="small material-icons">play_arrow
-                </i>
-                </button>
 
-                -
-                <button pause-music>
-                <i class="small material-icons">pause</i>
-                </button>
-
-                -
                 <button stop-music>
                 <i class="small material-icons">stop</i>
                 </button>
@@ -40,7 +31,7 @@
                 <!-- play toggle -->
                 <button id="played" play-pause-toggle>
 
-                    <i id="playIcon" class="small material-icons">play_arrow</i>
+                    <i id="playIcon" class="small material-icons">pause</i>
 
                     <!--  Is Playing:  -->
                     <!-- ({{ isPlaying }}) -->
@@ -67,3 +58,19 @@
                 <br/>
                 <br/>
                 </div>
+                </div>
+                    <div flex="25">
+                    <div class="animation-rotation">
+                        <div class="earth">
+                        </div>
+                        <div class="satellite-orbit">
+                            <div class="satellite1">
+                                <div class="satellite2"></div>
+                            </div>
+                        </div>
+                        <div class="moon-orbit">
+                            <div class="moon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
