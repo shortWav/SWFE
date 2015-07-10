@@ -24,7 +24,7 @@
                     <div class="playb">
 
                     <!-- play toggle -->
-                      <md-button class="md-fab md-primary"id="played" play-pause-toggle>
+                      <md-button class="md-fab md-primary" ng-click="played(x)" play-pause-toggle>
 
                           <i id="playIcon" class="small material-icons">pause</i>
 
@@ -34,7 +34,7 @@
 
 
                     -
-                      <md-button class="md-fab md-mini" id="stopIt" stop-music>
+                      <md-button class="md-fab md-mini" ng-click="stopIt()" stop-music>
                         <i class="small material-icons">stop</i>
                       </md-button>
 
@@ -59,7 +59,7 @@
                         </md-button>
 
                       -
-                        <md-button class="md-fab md-mini" id='muteButton' mute-music>
+                        <md-button class="md-fab md-mini" ng-click="muteButton(x)" mute-music>
                             <i id="muteIcon" class="small material-icons">volume_mute</i>
                             <!-- ({{ mute }}) -->
                         </md-button>

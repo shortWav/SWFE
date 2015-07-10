@@ -41,42 +41,23 @@
 
 
       //toggle play pause icon
-    $('#played').on('click', function(){
-      var play = "play_arrow";
-      var pause = "pause";
-      $('#moon').toggleClass('moon-orbit-animation');
-      $('#satellite').toggleClass('satellite-orbit-animation');
+ $scope.played = function(x){
+  x = $scope.isPlaying;
+  MusicFactory.togglePlay(x);
 
-      if ($scope.isPlaying === true){
-        $('#playIcon').text(play);
-
-      } else {
-        $('#playIcon').text(pause);
-
-      }
-
-    });
+ };
       // toggle mute icon
-  $('#muteButton').on('click', function(){
+ $scope.muteButton = function(x){
+  x = $scope.mute;
+  MusicFactory.toggleMute(x);
 
-      var muted = "volume_off";
-      var sound = "volume_mute";
+ };
 
-      if ($scope.mute === false) {
-        $('#muteIcon').text(sound);
-        } else{
-          $('#muteIcon').text(muted);
-      }
+ $scope.stopIt = function(){
 
-    });
+  MusicFactory.stopToggle();
 
-  $('#stopIt').on('click', function(){
-      var play = "play_arrow";
-      $('#playIcon').text(play);
-      $('#moon').removeClass('moon-orbit-animation');
-      $('#satellite').removeClass('satellite-orbit-animation');
-
-  });
+ };
 
 
 
