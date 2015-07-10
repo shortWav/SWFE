@@ -78,6 +78,7 @@ md-option {
   font-family: 'Audiowide', cursive; }
 
 .playb .md-button {
+  padding: 5px;
   background-color: #676767; }
 
 .volbutton {
