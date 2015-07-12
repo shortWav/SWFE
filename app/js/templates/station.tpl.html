@@ -1,13 +1,14 @@
 <h5>Find a Station</h5>
 
 
-<div ng-controller="StationCtrl" layout="column" layout-align="center center" style="padding:40px">
+<div layout="column" layout-align="center center" style="padding:40px">
 
-  <div layout="column" layout-align="center center" style="height: 100px;">
+  <div layout="row" style="height: 100px;">
 
 
-    <form ng-submit="loadStation()">
+    <form ng-submit="loadStation(g)">
 
+  <div layout="row">
       <!-- Select genre/ need to change to country -->
 
       <md-select ng-model="g.genre" md-on-open="loadGenres()"  style="min-width: 200px;">
@@ -35,8 +36,8 @@
 
       <!-- <p class="md-caption">You have assigned the task to: {{ g ? g.name : 'No one yet' }}</p> -->
 
-      <md-button class="md-raised md-primary">Play!</md-button>
-
+      <md-button class="md-raised md-primary" clear-playlist>Play!</md-button>
+  </div>
     </form>
 
   </div>
