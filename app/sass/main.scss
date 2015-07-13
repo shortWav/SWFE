@@ -165,6 +165,19 @@ li {
 .playerholder{
   margin: 20px auto;
 }
+.thumbupicon{
+  float: right;
+  color: grey;
+}
+.favmusicicon{
+  float: right;
+  color: grey;
+}
+.description{
+  height: 200px;
+  overflow: scroll;
+  white-space: pre-wrap;
+}
 
 .animation-rotation {
     height: 600px;
