@@ -56,8 +56,6 @@
         $scope.songs.push(new Track(x));
 
       });
-      console.log($scope.songs)
-
       }).then($timeout(function(){
         $scope.songs.forEach( function(x){
             angularPlayer.addTrack(x);
