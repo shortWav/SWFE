@@ -29,13 +29,49 @@
         };
       };
 
-    MusicFactory.playRandom().success( function(data){
-      var track = data[Math.floor(Math.random()*data.length)];
+      function shuffle(array) {
 
-       $scope.songs = new Track(track);
+        // delcare some variables
+        var currentIndex = array.length,
+        temporaryValue,
+        randomIndex ;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+          // Pick a remaining element...
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+
+          // And swap it with the current element.
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+      }
+
+    MusicFactory.playRandom().success( function(data){
+
+      shuffle(data);
+      $scope.songs = [];
+      data.forEach( function(x){
+
+        $scope.songs.push(new Track(x));
+
+      });
+
 
       }).then($timeout(function(){
-        $scope.songs.play();
+        $scope.songs.forEach( function(x){
+            angularPlayer.addTrack(x);
+
+        });
+          // then play the bitch
+          angularPlayer.play($scope.songs);
+          angularPlayer.repeatToggle();
+
       }, 1000));
 
 
