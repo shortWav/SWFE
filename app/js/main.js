@@ -1,7 +1,7 @@
 ;( function(){
 
   'use strict';
- angular.module('App', ['ngMaterial', 'ui.router', 'angularSoundManager',
+ angular.module('App', ['ngMaterial', 'ui.router', 'angularSoundManager', 'td.easySocialShare',
   'ngCookies', 'ngMessages'])
 
 

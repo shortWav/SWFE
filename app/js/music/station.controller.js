@@ -130,11 +130,6 @@
         this.soundcloudLink = options.permalink_url;
         this.wavePic = options.wavform_url;
         this.url = options.stream_url + '?client_id=242a1e223a2af256f37ce3648bb93104';
-        this.play = function(){
-          angularPlayer.addTrack($scope.songs);
-          angularPlayer.play($scope.songs);
-
-        };
       };
 
 

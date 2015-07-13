@@ -16,11 +16,14 @@
 <body ng-app="App">
     <!-- Logo -->
 
-  <nav style="background-color: transparent" >
+  <nav style="background-color: transparent" class="my-nav">
     <div class="nav-wrapper">
       <a href="#/" class="brand-logo">
         <h1 style="font-size: 40px" class="md-toolbar-tools shortWav">shortWav<i class="fa fa-headphones"></i></h1>
       </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+       <div share-links="Facebook, Twitter" share-title="shortWav Radio" share-square="true"></div>
+      </ul>
     </div>
   </nav>
 
@@ -45,11 +48,22 @@
         <div id="menuStuff" class="menu-stuff">
         <ul class="collection">
           <li>
-            <a href="#/player" class="collection-item">Listen</a>
+            <a href="#/player" class="collection-item">Listen Now</a>
           </li>
           <li>
-            <a href="#/find-station" class="collection-item"><i class="material-icons">settings_input_antenna</i>Stations
+            <a href="#/find-station" class="collection-item"><i class="material-icons">settings_input_antenna</i>
+            Find a Station
             </a>
+          </li>
+          <li>
+            <a href="#/register" class="collection-item">Register</a>
+          </li>
+          <li>
+
+            <md-button ng-click="toggleRight()"
+                  class="collection-item">
+                  Login
+            </md-button>
           </li>
 
           </ul>
@@ -157,6 +171,8 @@
   <script src="js/vendor/angular-material.js"></script>
 
   <script src="js/vendor/angular-messages.js"></script>
+
+  <script src="js/vendor/easy-social-share.js"></script>
 
   <script src="js/vendor/angular-soundmanager2.js"></script>
   <!-- MAIN -->
