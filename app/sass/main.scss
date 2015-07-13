@@ -110,16 +110,34 @@ md-option{
   width: 0;
   background-color: #E0EAF1;
 }
+.avatar-holder{
+  position: relative;
+}
+.avatar{
+  width: 140px;
+  img{
+    width: 150%;
+    opacity: 0.5;
+  }
+}
+.playtitle{
+  font-family: 'Audiowide', cursive;
+}
+.albumart{
+
+  img{
+    position: absolute;
+    top: 100px;
+    left: 120px;
+    width: 27%;
+  }
+
+}
 
 li {
   cursor: pointer;
 }
 
-.artiststuff{
-  img{
-    width: 40%;
-  }
-}
 .playerholder{
   margin: 20px auto;
 }

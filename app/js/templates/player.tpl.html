@@ -11,14 +11,15 @@
                 <sound-manager></sound-manager>
                   <div class="playpage">
                     <p>
-                        Currently Playing: {{ currentPlaying.title }} by {{ currentPlaying.user.username }} ({{ currentPostion }} / {{ currentDuration }})
+                        <h5>{{ currentPlaying.title }}</h5> <h6 style='font-size: 10px'> by </h6>{{ currentPlaying.user.username }}
 
                     </p>
+
 
                     <div class="seekBase" seek-track>
                         <div class="seekLoad" ng-style="{width : ( progress + '%' ) }"></div>
                     </div>
-
+                    ({{ currentPostion }} / {{ currentDuration }})
 
                     <br />
                     <div class="playb">
@@ -72,10 +73,21 @@
                   </div>
                   <div class="artiststuff" flex>
 
-                  <img ng-src='{{ currentPlaying.albumArt }}'>
-                 <strong> {{ currentPlaying.title }} </strong>
+                   <div class="avatar-holder">
+                      <div class="avatar">
+                      <img ng-src="{{currentPlaying.user.avatar_url}}">
+                      </div>
+                      <div class="albumart">
+                        <img ng-src="{{ currentPlaying.albumArt }}">
+                      </div>
+                    </div>
+
+
 
                  <h5> {{ currentPlaying.user.username }}</h5>
+                  <div class="playtitle">
+                  {{ currentPlaying.title }}
+                  </div>
 
                   <p>{{ currentPlaying.description}}</p>
                   {{ currentPlaying.soundcloudLink }}
