@@ -12,7 +12,7 @@
       var endpoint = 'https://api.soundcloud.com/users/19342225/tracks.json?client_id=242a1e223a2af256f37ce3648bb93104';
 
         // prototype that makes all first letters in strings capitalized
-        Array.prototype.upperCaseThis = function(){
+      Array.prototype.upperCaseThis = function(){
 
         for (var i = 0;  i < this.length; i += 1){
 
@@ -22,6 +22,30 @@
         return this;
 
       };
+
+      // shuffle array function
+      function shuffle(array) {
+
+        // delcare some variables
+        var currentIndex = array.length,
+        temporaryValue,
+        randomIndex ;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+          // Pick a remaining element...
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+
+          // And swap it with the current element.
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+      }
 
 
         $scope.genres= [];
@@ -138,6 +162,7 @@
 
    // load the station of choice
     $scope.loadStation = function(x){
+      $scope.songs= [];
 
       var genre = x.genre;
 
@@ -182,17 +207,25 @@
 
         });
 
-        // get a random track from the array
+        shuffle(filtered);
 
-        var randomTrack = filtered[Math.floor(Math.random()*filtered.length)];
+        filtered.forEach( function(x){
+          $scope.songs.push(new Track(x));
+        });
 
-        // run it through the constructor
-        $scope.songs= new Track(randomTrack);
+
+
+
 
         }).then($timeout(function(){
 
+         $scope.songs.forEach( function(x){
+            angularPlayer.addTrack(x);
+
+        });
           // then play the bitch
-          $scope.songs.play();
+          angularPlayer.play($scope.songs);
+          angularPlayer.repeatToggle();
 
       }, 1000));
 

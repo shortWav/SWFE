@@ -1,47 +1,51 @@
-<h5>Find a Station</h5>
+<md-card>
+  <md-card-content>
+  <h5>Find a Station</h5>
 
 
-<div layout="column" layout-align="center center" style="padding:40px">
+  <div layout="column" layout-align="center center" style="padding:40px">
 
-  <div layout="row" style="height: 100px;">
-
-
-    <form ng-submit="loadStation(g)">
-
-  <div layout="row">
-      <!-- Select genre/ need to change to country -->
-
-      <md-select ng-model="g.genre" md-on-open="loadGenres()"  style="min-width: 200px;">
-
-        <md-select-label>{{ g ? g.genre : 'Select Genre' }}</md-select-label>
-
-        <md-option class="md-accent" ng-value="g" ng-repeat="g in genre track by $index">{{g}}
-        </md-option>
-
-      </md-select>
+    <div layout="row" style="height: 100px;">
 
 
-      <!-- Select song / need to change to genre -->
+      <form ng-submit="loadStation(g)">
 
-       <md-select ng-model="g.songs" md-on-open="loadTracks(g)" style="min-width: 200px;">
+    <div layout="row">
+        <!-- Select genre/ need to change to country -->
 
-        <md-select-label>{{ g ? g.songs : 'Songs' }}</md-select-label>
+        <md-select ng-model="g.genre" md-on-open="loadGenres()"  style="min-width: 200px;">
 
-        <md-option ng-value="g.title" ng-repeat="g in genreSongs track by $index">{{g.title}}
-        </md-option>
+          <md-select-label>{{ g ? g.genre : 'Select Genre' }}</md-select-label>
 
-      </md-select>
+          <md-option class="md-accent" ng-value="g" ng-repeat="g in genre track by $index">{{g}}
+          </md-option>
+
+        </md-select>
+
+
+        <!-- Select song / need to change to genre -->
+
+         <md-select ng-model="g.songs" md-on-open="loadTracks(g)" style="min-width: 200px;">
+
+          <md-select-label>{{ g ? g.songs : 'Songs' }}</md-select-label>
+
+          <md-option ng-value="g.title" ng-repeat="g in genreSongs track by $index">{{g.title}}
+          </md-option>
+
+        </md-select>
 
 
 
-      <!-- <p class="md-caption">You have assigned the task to: {{ g ? g.name : 'No one yet' }}</p> -->
+        <!-- <p class="md-caption">You have assigned the task to: {{ g ? g.name : 'No one yet' }}</p> -->
 
-      <md-button class="md-raised md-primary" clear-playlist>Play!</md-button>
+        <md-button class="md-mini md-primary" clear-playlist>Play Station</md-button>
+    </div>
+      </form>
+
+    </div>
+
   </div>
-    </form>
+  </md-card-content>
+</md-card>
 
-  </div>
-
-</div>
-
-<div class="player" ui-view></div>
+  <div class="player" ui-view></div>
