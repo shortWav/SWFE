@@ -1,6 +1,9 @@
 
       <md-card style="min-width: 500px">
       <md-card-content>
+       <i class="small material-icons favmusicicon" ng-click="favit()">library_music</i>
+       <i class="mini material-icons thumbupicon" ng-click="thumbit()">thumb_up</i>
+
         <div class="hi"></div>
 
           <div layout="row" class="playerholder" layout-wrap>
@@ -88,9 +91,10 @@
                   <div class="playtitle">
                   {{ currentPlaying.title }}
                   </div>
-
+                  <div class="description">
                   <p>{{ currentPlaying.description}}</p>
-                  {{ currentPlaying.soundcloudLink }}
+                  </div>
+                  <a href="{{ currentPlaying.soundcloudLink }}">view on Soundcloud</a>
 
 
 
