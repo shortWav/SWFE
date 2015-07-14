@@ -18,6 +18,15 @@
       return debounceFn;
     }
   }])
+   .directive('listenerNav', [function () {
+     return {
+       restrict: 'EA',
+       templateUrl: 'js/templates/listener-nav.tpl.html',
+       link: function (scope, iElement, iAttrs) {
+
+       }
+     };
+   }])
   .controller('LeftCtrl',['$scope', '$timeout', '$mdSidenav', '$log', 'UsersFactory',
    function ($scope, $timeout, $mdSidenav, $log, UsersFactory) {
     $scope.close = function () {

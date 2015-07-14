@@ -9,7 +9,7 @@
 
         // Register Listener
 
-         $scope.register = function(newListener){
+        $scope.register = function(newListener){
 
           UsersFactory.registerListener(newListener);
         };
@@ -18,6 +18,11 @@
         $scope.artistRegister = function(newArtist){
             UsersFactory.registerArtist(newArtist);
         };
+
+        $scope.authenticate = function(provider) {
+          $auth.authenticate(provider);
+        };
+
 
 
         // State Selector

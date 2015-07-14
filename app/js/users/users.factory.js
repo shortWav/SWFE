@@ -72,6 +72,7 @@
         $cookies.put('userObjectId', data.objectId);
         // $('#menuStuff').html('<ul class="collection"><li><a href="#" class="collection-item">Listen</a></li><li><a href="#" class="collection-item"><i class="material-icons">settings_input_antenna</i>Stations</a></li></ul><md-button ng-click="logOut()" class="md-raised md-primary">Log Out</md-button>');
         $('#logOut').removeClass('logOutButton');
+        // ng-show/hide
       };
 
 

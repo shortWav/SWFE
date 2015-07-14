@@ -1,7 +1,7 @@
 ;( function(){
 
   'use strict';
- angular.module('App', ['ngMaterial', 'ui.router', 'angularSoundManager', 'td.easySocialShare',
+ angular.module('App', ['ngMaterial', 'ui.router', 'angularSoundManager', 'td.easySocialShare', 'satellizer',
   'ngCookies', 'ngMessages'])
 
 
@@ -15,8 +15,8 @@
       }
     }
   })
-   .config(['$mdThemingProvider', '$stateProvider', '$urlRouterProvider',
-    function($mdThemingProvider, $stateProvider, $urlRouterProvider) {
+   .config(['$mdThemingProvider', '$stateProvider', '$urlRouterProvider', '$authProvider',
+    function($mdThemingProvider, $stateProvider, $urlRouterProvider, $authProvider) {
 
 
     $mdThemingProvider.theme('default')
@@ -25,8 +25,17 @@
 
       .accentPalette('blue-grey');
 
+    $authProvider.oauth2({
+      name: 'soundcloud',
+      url: '/auth/soundcloud',
+      redirectUri: window.location.origin,
+      clientId: clientId,
+      authorizationEndpoint: 'https://foursquare.com/oauth2/authenticate'
+    });
+
 
     $urlRouterProvider.otherwise(('/'));
+
 
 
     $stateProvider
@@ -55,6 +64,7 @@
         templateUrl: 'js/templates/station-player.tpl.html',
         controller:'StationCtrl'
       });
+
 
 
   }])
