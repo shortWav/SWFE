@@ -34,7 +34,7 @@
     });
 
 
-    $urlRouterProvider.otherwise(('/'));
+    $urlRouterProvider.otherwise('/');
 
 
 
@@ -42,6 +42,11 @@
       .state('home', {
         url: '/',
         templateUrl: 'js/templates/home.tpl.html',
+        controller: 'AppCtrl'
+      })
+      .state('home.devs',{
+        url:'/dev',
+        templateUrl: 'js/templates/dev.tpl.html',
         controller: 'AppCtrl'
       })
       .state('register',{
@@ -64,8 +69,6 @@
         templateUrl: 'js/templates/station-player.tpl.html',
         controller:'StationCtrl'
       });
-
-
 
   }])
 
