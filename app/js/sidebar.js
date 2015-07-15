@@ -3,10 +3,13 @@
   'use strict';
   angular.module('App')
 
-   .controller('AppCtrl',['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log','UsersFactory', '$state',
+   .controller('AppCtrl',['$scope', '$timeout',
+    '$mdSidenav', '$mdUtil', '$log','UsersFactory', '$state',
+
     function ($scope, $timeout, $mdSidenav, $mdUtil, $log, UsersFactory, $state) {
     $scope.logOut = function(){
       UsersFactory.logOut();
+      $scope.checkUser();
     };
     $scope.toggleLeft = buildToggler('left');
     $scope.toggleRight = buildToggler('right');
@@ -20,6 +23,11 @@
           },300);
       return debounceFn;
     }
+
+    $scope.checkUser = function(){
+      UsersFactory.checkUser();
+    };
+
 
     $scope.theDevs= [
     {

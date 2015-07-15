@@ -46,8 +46,8 @@
         <!-- Left Side content -->
       </md-content>
         <div id="menuStuff" class="menu-stuff">
-          <default-nav></default-nav>
-          <!-- <listener-nav></listener-nav> -->
+          <default-nav ng-hide="currentUserSignedIn"></default-nav>
+          <listener-nav ng-show="currentUserSignedIn"></listener-nav>
           <!-- <artist-nav></artist-nav> -->
           <md-button id="logOut" ng-click="logOut()" class="md-raised md-primary logOutButton">Log Out</md-button>
 

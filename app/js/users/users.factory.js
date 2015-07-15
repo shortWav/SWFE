@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('App')
-    .factory('UsersFactory', [ '$http', 'HEROKU', '$cookies', '$state', '$mdUtil','$mdSidenav',
-      function ($http, HEROKU, $cookies, $state, $mdUtil, $mdSidenav) {
+    .factory('UsersFactory', [ '$http', 'HEROKU', '$cookies', '$state', '$mdUtil','$mdSidenav', '$rootScope',
+      function ($http, HEROKU, $cookies, $state, $mdUtil, $mdSidenav, $rootScope) {
 
 
 
@@ -54,6 +54,8 @@
           } else{
             $('#logOut').removeClass('logOutButton');
             // $state.go('home');
+            $rootScope.currentUserSignedIn = true;
+            // $rootScope.currentUser.name = data.name;
             return false;
           }
 
@@ -76,6 +78,7 @@
         $cookies.put('last_name', data.user.last_name);
         $cookies.put('username', data.user.username);
         $cookies.put('email', data.user.email);
+        $rootScope.currentUserSignedIn = true;
 
         $('#logOut').removeClass('logOutButton');
 
@@ -129,15 +132,16 @@
 
       // Log out
       var logOut = function(){
-           $http.post(PARSE.URL + 'logout', {}, PARSE.CONFIG)
-            .success( function () {
-              $cookies.remove('sessionToken');
-              $cookies.remove('userObjectId');
-              $state.go('home');
-              PARSE.CONFIG.headers['X-Parse-Session-Token'] = '';
+              $cookies.remove('access_token');
+              $cookies.remove('first_name');
+              $cookies.remove('last_name');
+              $cookies.remove('username');
+              $cookies.remove('email');
+               $rootScope.currentUserSignedIn = false;
+        // $rootScope.currentUser.name = data.name;
+              // $state.go('home');
               $('#logOut').addClass('logOutButton');
-            }
-          );
+
       };
 
 
