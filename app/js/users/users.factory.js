@@ -3,8 +3,9 @@
     "use strict";
 
     angular.module('App')
-    .factory('UsersFactory', [ '$http', 'PARSE', '$cookies', '$state', '$mdUtil','$mdSidenav',
-      function ($http, PARSE, $cookies, $state, $mdUtil, $mdSidenav) {
+    .factory('UsersFactory', [ '$http', 'HEROKU', '$cookies', '$state', '$mdUtil','$mdSidenav',
+      function ($http, HEROKU, $cookies, $state, $mdUtil, $mdSidenav) {
+
 
 
 
@@ -22,8 +23,8 @@
 
       //listener constructor
       var Listener = function(options){
-        this.first = options.first_name;
-        this.last = options.last_name;
+        this.first_name = options.first_name;
+        this.last_name = options.last_name;
         this.username = options.user_name;
         this.password = options.password;
         this.email = options.email;
@@ -49,10 +50,11 @@
           if(st === undefined) {
             // route to Login Page
             // $state.go('home');
-            console.log('you not logged in');
+           return true;
           } else{
             $('#logOut').removeClass('logOutButton');
-
+            // $state.go('home');
+            return false;
           }
 
       };
@@ -60,7 +62,7 @@
       // If the cookie is there update the headers
       var _updateToken = function(st){
          if (st !== undefined) {
-            PARSE.CONFIG.headers['X-Parse-Session-Token'] = st;
+            HEROKU.CONFIG.headers['Access-Token'] = st;
           }
           _routeUser(st);
       };
@@ -68,17 +70,21 @@
 
       // Function after a successfull login
       var _successLog = function(data){
-        $cookies.put('sessionToken', data.sessionToken);
-        $cookies.put('userObjectId', data.objectId);
-        // $('#menuStuff').html('<ul class="collection"><li><a href="#" class="collection-item">Listen</a></li><li><a href="#" class="collection-item"><i class="material-icons">settings_input_antenna</i>Stations</a></li></ul><md-button ng-click="logOut()" class="md-raised md-primary">Log Out</md-button>');
+
+        $cookies.put('access_token', data.user.access_token);
+        $cookies.put('first_name', data.user.first_name);
+        $cookies.put('last_name', data.user.last_name);
+        $cookies.put('username', data.user.username);
+        $cookies.put('email', data.user.email);
+
         $('#logOut').removeClass('logOutButton');
-        // ng-show/hide
+
       };
 
 
       // Check to see if user has a cookie
       var checkUser = function(){
-          var st = $cookies.get('sessionToken');
+          var st = $cookies.get('access_token');
           _updateToken(st);
       };
 
@@ -90,12 +96,7 @@
 
 
       var loginUserListener = function(user){
-           $http({
-            method: 'GET',
-            url: PARSE.URL + 'login',
-            headers: PARSE.CONFIG.headers,
-            params: user
-          }).success( function (data) {
+           $http.post(HEROKU.URL +'users/login', user).success( function (data) {
               toggleRight();
             _successLog(data);
           });
@@ -106,7 +107,7 @@
       // Register a new listener
       var registerListener = function(user){
         var newUser = new Listener(user);
-       $http.post(PARSE.URL + 'users', newUser, PARSE.CONFIG)
+       $http.post(HEROKU.URL + 'users', newUser)
         .success( function(data){
           _successLog(data);
         });
@@ -116,11 +117,7 @@
       // register a new Artist
       var registerArtist = function(user){
         // var newArtist = new Artist(user);
-        SC.connect(function() {
-        SC.get('/me', function(me) {
-          alert('Hello, ' + me.username);
-        });
-      });
+
         // $http.post(PARSE.URL + 'users', newArtist, PARSE.CONFIG)
         // .success(function(data){
         //   _successLog(data);

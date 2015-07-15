@@ -6,12 +6,11 @@
 
 
 
-  .constant('PARSE', {
-    URL: 'https://api.parse.com/1/',
+  .constant('HEROKU', {
+    URL: 'https://arcane-badlands-3651.herokuapp.com/',
     CONFIG: {
       headers: {
-        'X-Parse-Application-Id' : 'GkMxrPGFdEYhr5shfAMSUNSSKVW2NS25VzJbhlKq',
-        'X-Parse-REST-API-Key'  : 'Jn5AheIL8l41LDNXcmZXtmu4wUBclpYUeskKzVFo'
+        'Access-Token': ''
       }
     }
   })
@@ -52,6 +51,11 @@
       .state('register',{
         url: '/register',
         templateUrl: 'js/templates/register.tpl.html',
+        controller: 'RegisterCtrl'
+      })
+      .state('register-artist',{
+        url: '/register-artist',
+        templateUrl: 'js/templates/artistregister.tpl.html',
         controller: 'RegisterCtrl'
       })
       .state('player',{

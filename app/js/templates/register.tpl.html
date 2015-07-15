@@ -13,6 +13,8 @@
 
             <div class="row form">
                 <form class="col s12" ng-submit="register(user)">
+                <h3>Listeners</h3>
+                    <hr/>
 
                   <!-- First name -->
                   <div class="row">
@@ -64,79 +66,17 @@
 
           <!-- Register Artist form -->
             <md-card>
-              <div class="md-padding">
-                <div class="row form">
-                  <form class="col s12" ng-submit="artistRegister(artist)">
+              <md-card-content class="artist-register">
 
-                  <!-- Artist Name -->
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <label for="artist_name">Artist Name</label>
-                      <input ng-model="artist.artist_name" id="artist_name" type="text" class="validate">
-                    </div>
-                  </div>
+              <h3>Artists</h3>
+              <hr/>
+              <label>Have a SoundCloud?</label>
+              <p>Connect your Soundcloud account you'll automatically upload all of your tracks to our database!</p>
 
-                  <!-- Country -->
-                  <div class="row">
-                    <div class="input-field col s6">
-                      <md-autocomplete flex required
-                        ng-model="artist.country"
-                        md-search-text-change="null"
-                        md-selected-item-change='null'
-                        md-input-name="autocompleteField"
-                        md-no-cache="noCache"
-                        md-selected-item="selectedItem"
-                        md-search-text="searchText"
-                        md-items="item in querySearch(searchText)"
-                        md-item-text="item.display"
-                        md-floating-label="Country">
-                        <md-item-template>
-                          <span md-highlight-text="searchText">{{item.display}}</span>
-                        </md-item-template>
-                        <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
-                          <div ng-message="required">You <b>must</b> have a country.</div>
-                          <div ng-message="minlength">Your entry is not long enough.</div>
-                          <div ng-message="maxlength">Your entry is too long.</div>
-                        </div>
-                      </md-autocomplete>
-                    </div>
-                  </div>
+              <a href="/#register-artist"class="waves-effect waves-light btn-large soundcloud-btn orange darken-3">
 
-                  <!-- City -->
-                  <div class="row">
-                    <div class="input-field col s6">
-                      <label for="artist_city">City</label>
-                      <input ng-model="artist.city" id="artist_city" type="text" class="validate">
-
-                      <md-select placeholder="State" ng-model="artist.state">
-                        <md-option ng-repeat="state in states" value="{{state.abbrev}}">{{state.abbrev}}</md-option>
-                      </md-select>
-                    </div>
-                  </div>
-
-                   <!-- Username -->
-                  <div class="row">
-                    <div class="input-field col s6">
-                      <label for="artist_username">Username</label>
-                      <input ng-model="artist.username" id="artist_username" type="text" class="validate">
-                    </div>
-                  </div>
-
-                  <!-- Password -->
-                  <div class="row">
-                    <div class="input-field col s6">
-                      <label for="password">Password</label>
-                      <input ng-model="artist.password" id="password" type="password" class="validate">
-                    </div>
-                  </div>
-
-                  <md-button class="md-raised">Register</md-button>
-
-                </form>
-
-
-                </div>
-              </div>
+              <i class="fa fa-soundcloud"></i> <h6>Connect with SoundCloud</h6></a>
+              </md-card-content>
             </md-card>
 
 

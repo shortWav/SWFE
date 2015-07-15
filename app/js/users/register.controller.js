@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('App')
-    .controller('RegisterCtrl', ['$scope', '$http', 'PARSE', 'UsersFactory', '$timeout', '$q', '$log',
-      function ($scope, $http, PARSE, UsersFactory, $timeout, $q, $log) {
+    .controller('RegisterCtrl', ['$scope', '$http', 'HEROKU', 'UsersFactory', '$timeout', '$q', '$log',
+      function ($scope, $http, HEROKU, UsersFactory, $timeout, $q, $log) {
 
 
         // Register Listener

@@ -1,50 +1,75 @@
 <md-card>
-<div class="md-padding">
-<div class="row form">
-    <form class="col s12" ng-submit="artistregister(user)">
-      <div class="row">
-        <div class="input-field col s6">
-          <label for="artist_name">Artist Name</label>
-          <input ng-model="user.artist_name"id="artist_name" type="text" class="validate">
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <label for="country">Country</label>
-          <input ng-model="user.country" id="country" type="text" class="validate">
+              <div class="md-padding">
+                <div class="row form">
+                  <form class="col s12" ng-submit="artistRegister(artist)">
 
-        </div>
-      </div>
-      <div class="row">
-         <md-input-container>
-        <label>City</label>
-        <input type="text"/>
-      </md-input-container>
-      <md-select placeholder="State" ng-model="ctrl.userState">
-        <md-option ng-repeat="state in ctrl.states" value="{{state.abbrev}}">{{state.abbrev}}</md-option>
-      </md-select>
+                  <!-- Artist Name -->
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <label for="artist_name">Artist Name</label>
+                      <input ng-model="artist.artist_name" id="artist_name" type="text" class="validate">
+                    </div>
+                  </div>
+
+                  <!-- Country -->
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <md-autocomplete flex required
+                        ng-model="artist.country"
+                        md-search-text-change="null"
+                        md-selected-item-change='null'
+                        md-input-name="autocompleteField"
+                        md-no-cache="noCache"
+                        md-selected-item="selectedItem"
+                        md-search-text="searchText"
+                        md-items="item in querySearch(searchText)"
+                        md-item-text="item.display"
+                        md-floating-label="Country">
+                        <md-item-template>
+                          <span md-highlight-text="searchText">{{item.display}}</span>
+                        </md-item-template>
+                        <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
+                          <div ng-message="required">You <b>must</b> have a country.</div>
+                          <div ng-message="minlength">Your entry is not long enough.</div>
+                          <div ng-message="maxlength">Your entry is too long.</div>
+                        </div>
+                      </md-autocomplete>
+                    </div>
+                  </div>
+
+                  <!-- City -->
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <label for="artist_city">City</label>
+                      <input ng-model="artist.city" id="artist_city" type="text" class="validate">
+
+                      <md-select placeholder="State" ng-model="artist.state">
+                        <md-option ng-repeat="state in states" value="{{state.abbrev}}">{{state.abbrev}}</md-option>
+                      </md-select>
+                    </div>
+                  </div>
+
+                   <!-- Username -->
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <label for="artist_username">Username</label>
+                      <input ng-model="artist.username" id="artist_username" type="text" class="validate">
+                    </div>
+                  </div>
+
+                  <!-- Password -->
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <label for="password">Password</label>
+                      <input ng-model="artist.password" id="password" type="password" class="validate">
+                    </div>
+                  </div>
+
+                  <md-button class="md-raised">Register</md-button>
+
+                </form>
 
 
-
-
-<!--         <div class="input-field col s6">
-          <input ng-model="user.city" id="city" type="text" class="validate">
-          <label for="city">City</label>
-        </div>
-        <div class="input-field col s6">
-          <input ng-model="user.state" id="state" type="text" class="validate">
-          <label for="state">State</label>
-        </div>
- -->      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <label for="password">Password</label>
-          <input ng-model="user.password" id="password" type="password" class="validate">
-
-        </div>
-      </div>
-    <button>Register</button>
-    </form>
-  </div>
-  </div>
+                </div>
+              </div>
   </md-card>

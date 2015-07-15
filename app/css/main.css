@@ -69,6 +69,35 @@ md-option {
 .login-buttons {
   text-align: center; }
 
+.soundcloud-btn {
+  font-weight: bold;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-transform: none;
+  position: relative;
+  margin: 10px auto; }
+  .soundcloud-btn a {
+    margin: 5px; }
+  .soundcloud-btn .fa {
+    position: absolute;
+    font-size: 45px;
+    left: 5px;
+    border-right: 1px solid #FA9556;
+    padding-right: 10px; }
+  .soundcloud-btn h6 {
+    display: inline-block;
+    margin-left: 50px;
+    font-weight: bolder; }
+
+.artist-register {
+  text-align: center; }
+  .artist-register label {
+    font-size: 15px; }
+
+md-input-container .ng-binding {
+  top: -10px;
+  left: 0px; }
+
 .menu-stuff {
   font-size: 20px; }
   .menu-stuff li {
@@ -94,6 +123,16 @@ md-option {
 
 .logOutButton {
   visibility: hidden; }
+
+.station-search {
+  position: relative; }
+
+.favmusicicon {
+  float: right;
+  color: grey;
+  position: absolute;
+  bottom: 20px;
+  cursor: pointer; }
 
 .playpage {
   font-family: 'Audiowide', cursive; }
@@ -140,10 +179,6 @@ li {
   margin: 20px auto; }
 
 .thumbupicon {
-  float: right;
-  color: grey; }
-
-.favmusicicon {
   float: right;
   color: grey; }
 
