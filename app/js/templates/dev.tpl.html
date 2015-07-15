@@ -1,12 +1,20 @@
 
-
+<md-card>
 <div class="devs">
 
   <ul>
     <li ng-repeat='d in theDevs'>{{ d.name }}
-      <div>
+
+      <div class='devpic'>
 
           <img ng-src="{{d.picture }}">
+
+          {{ d.description }}
+          <a href="{{d.github}}">
+          <i class="fa fa-github fa-2x"></i></a>
+          <a href="{{d.linkedin}}">
+          <i class="fa fa-linkedin-square fa-2x"></i>
+          </a>
 
       </div>
     </li>
@@ -15,5 +23,11 @@
 
 </div>
 <div class="dev" ui-view></div>
+</md-card>
 
-
+<!-- working on nested view -->
+<!--
+<img ng-src="{{d.picture }}">
+          <a ui-sref="d.????({dev: d.description})">
+    {{ d. }}
+  </a> -->

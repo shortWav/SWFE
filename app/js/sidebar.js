@@ -26,19 +26,25 @@
       id: 1,
       name: 'Nick Leach',
       description: 'Front End Developer',
-      picture: '/images/nick.jpeg'
+      picture: '/images/nick.jpeg',
+      github: 'https://github.com/nickleach',
+      linkedin: 'https://www.linkedin.com/pub/nick-leach/bb/599/279'
     },
     {
       id: 2,
       name: 'Jim Leach',
       description: 'Front End Developer',
-      picture: '/images/jim.jpeg'
+      picture: '/images/jim.jpeg',
+      github: 'https://github.com/jaleach',
+      linkedin: 'https://www.linkedin.com/pub/james-leach/2b/47b/b'
     },
     {
       id: 3,
       name: 'Tyler Day',
       description: 'Back End Developer',
-      picture: '/images/tyler.jpeg'
+      picture: '/images/tyler.jpeg',
+      github: 'https://github.com/TK2Day',
+      linkedin: 'got no shit here'
     }
     ];
 
