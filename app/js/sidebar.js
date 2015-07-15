@@ -3,13 +3,16 @@
   'use strict';
   angular.module('App')
 
-   .controller('AppCtrl',['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log','UsersFactory',
-    function ($scope, $timeout, $mdSidenav, $mdUtil, $log, UsersFactory) {
+   .controller('AppCtrl',['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log','UsersFactory', '$state',
+    function ($scope, $timeout, $mdSidenav, $mdUtil, $log, UsersFactory, $state) {
     $scope.logOut = function(){
       UsersFactory.logOut();
     };
     $scope.toggleLeft = buildToggler('left');
     $scope.toggleRight = buildToggler('right');
+    $scope.showDevs = function(){
+      $state.go('home.devs');
+    };
     function buildToggler(navID) {
       var debounceFn =  $mdUtil.debounce(function(){
             $mdSidenav(navID)
@@ -17,6 +20,28 @@
           },300);
       return debounceFn;
     }
+
+    $scope.theDevs= [
+    {
+      id: 1,
+      name: 'Nick Leach',
+      description: 'Front End Developer',
+      picture: '/images/nick.jpeg'
+    },
+    {
+      id: 2,
+      name: 'Jim Leach',
+      description: 'Front End Developer',
+      picture: '/images/jim.jpeg'
+    },
+    {
+      id: 3,
+      name: 'Tyler Day',
+      description: 'Back End Developer',
+      picture: '/images/tyler.jpeg'
+    }
+    ];
+
   }])
    .directive('listenerNav', [function () {
      return {
