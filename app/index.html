@@ -46,34 +46,9 @@
         <!-- Left Side content -->
       </md-content>
         <div id="menuStuff" class="menu-stuff">
-        <ul class="collection" ng-if="!_routeUser()">
-          <li>
-
-      <a href="#/player" class="collection-item">
-        <i class="material-icons">settings_input_antenna</i>
-      Listen Now
-      </a>
-    </li>
-
-    <li>
-
-      <a href="#/find-station" class="collection-item">
-        <i class="material-icons">search</i>
-        Find a Station
-      </a>
-
-    </li>
-          <li>
-            <a href="#/register" class="collection-item">Register</a>
-          </li>
-          <li>
-
-            <md-button ng-click="toggleRight()"
-                  class="collection-item">
-                  Login
-            </md-button>
-          </li>
-          </ul>
+          <default-nav></default-nav>
+          <!-- <listener-nav></listener-nav> -->
+          <!-- <artist-nav></artist-nav> -->
           <md-button id="logOut" ng-click="logOut()" class="md-raised md-primary logOutButton">Log Out</md-button>
 
 
