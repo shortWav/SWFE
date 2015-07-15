@@ -43,13 +43,22 @@
     ];
 
   }])
+   .directive('defaultNav', [function () {
+     return {
+       restrict: 'E',
+       templateUrl: 'js/templates/sidebar/default-nav.tpl.html'
+     };
+   }])
    .directive('listenerNav', [function () {
      return {
+       restrict: 'E',
+       templateUrl: 'js/templates/sidebar/listener-nav.tpl.html'
+     };
+   }])
+   .directive('artistNav', [function () {
+     return {
        restrict: 'EA',
-       templateUrl: 'js/templates/listener-nav.tpl.html',
-       link: function (scope, iElement, iAttrs) {
-
-       }
+       templateUrl: 'js/templates/sidebar/artist-nav.tpl.html'
      };
    }])
   .controller('LeftCtrl',['$scope', '$timeout', '$mdSidenav', '$log', 'UsersFactory',
