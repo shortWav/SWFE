@@ -9,7 +9,7 @@
     function($timeout, $scope, $http, $state, MusicFactory, angularPlayer, $rootScope) {
 
       // track index
-      var endpoint = 'https://api.soundcloud.com/users/19342225/tracks.json?client_id=242a1e223a2af256f37ce3648bb93104';
+      var endpoint = 'https://api.soundcloud.com/users/14646252/tracks.json?client_id=242a1e223a2af256f37ce3648bb93104';
 
         // prototype that makes all first letters in strings capitalized
       Array.prototype.upperCaseThis = function(){

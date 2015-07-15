@@ -61,7 +61,7 @@
       })
       .state('find-station.radio',{
         url:'/station',
-        templateUrl: 'js/templates/station-player.tpl.html',
+        templateUrl: 'js/templates/player.tpl.html',
         controller:'StationCtrl'
       });
 

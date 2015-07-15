@@ -46,15 +46,23 @@
         <!-- Left Side content -->
       </md-content>
         <div id="menuStuff" class="menu-stuff">
-        <ul class="collection">
+        <ul class="collection" ng-if="!_routeUser()">
           <li>
-            <a href="#/player" class="collection-item">Listen Now</a>
-          </li>
-          <li>
-            <a href="#/find-station" class="collection-item"><i class="material-icons">settings_input_antenna</i>
-            Find a Station
-            </a>
-          </li>
+
+      <a href="#/player" class="collection-item">
+        <i class="material-icons">settings_input_antenna</i>
+      Listen Now
+      </a>
+    </li>
+
+    <li>
+
+      <a href="#/find-station" class="collection-item">
+        <i class="material-icons">search</i>
+        Find a Station
+      </a>
+
+    </li>
           <li>
             <a href="#/register" class="collection-item">Register</a>
           </li>
@@ -190,6 +198,7 @@
 
   <script src="js/users/users.factory.js"></script>
   <script src="js/music/music.factory.js"></script>
+
 
   <!-- controllers -->
   <script src="js/music/player.controller.js"></script>
