@@ -44,6 +44,21 @@ footer {
 .my-nav ul {
   font-size: 20px; }
 
+.meetdev {
+  font-family: 'Audiowide', cursive;
+  font-size: 20px; }
+
+.devs {
+  margin-left: 20px;
+  font-size: 18px;
+  font-family: 'Audiowide', cursive; }
+  .devs .fa {
+    color: grey; }
+
+.devpic img {
+  width: 20%;
+  border-radius: 64px; }
+
 md-card {
   background-color: #282828; }
 

@@ -44,7 +44,7 @@
         templateUrl: 'js/templates/home.tpl.html',
         controller: 'AppCtrl'
       })
-      .state('home.devs',{
+      .state('devs',{
         url:'/dev',
         templateUrl: 'js/templates/dev.tpl.html',
         controller: 'AppCtrl'

@@ -51,6 +51,28 @@ footer{
     font-size: 20px;
   }
 }
+// Dev stuff
+.meetdev{
+  font-family: 'Audiowide', cursive;
+  font-size: 20px;
+}
+.devs{
+
+  margin-left: 20px;
+  font-size: 18px;
+  font-family: 'Audiowide', cursive;
+  .fa{
+  color: grey;
+  }
+}
+
+.devpic{
+  img{
+  width: 20%;
+  border-radius: 64px;
+
+  }
+}
 // card color
 md-card{
   background-color: #282828;
