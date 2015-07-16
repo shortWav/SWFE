@@ -1,0 +1,70 @@
+
+        <div class="home" layout-wrap ng-controller="ListenerCtrl">
+          <md-button ng-click="toggleLeft()"
+            class="md-primary" hide-gt-md>
+            <i class="fa fa-bars"></i>Menu
+          </md-button>
+          <!-- <div class="home-header">
+            <h1 style="font-size: 40px" class="shortWav">shortWav<i class="fa fa-headphones"></i></h1>
+                <span>
+                  <i class="fa fa-soundcloud"></i>
+                      Powered by Soundcloud
+                </span>
+          </div> -->
+
+          <div flex>
+            <md-card>
+              <md-card-content class="listener-header">
+                <label for="user-first">Welcome Back,</label>
+                <h3 id="user-first" class="user-first">{{ name }}</h3>
+               </md-card-content>
+            </md-card>
+          </div>
+
+          <div layout='row' layout-wrap>
+
+              <div flex="33">
+
+                <md-card>
+                  <md-card-content>
+                    <h5>My Stations</h5>
+                    <p>You have no saved stations... yet</p>
+                  </md-card-content>
+                </md-card>
+              </div>
+
+              <div class="middle-icons" flex="33">
+                <md-card>
+                  <md-card-content>
+                  <!-- <h5>Tune to a station</h5> -->
+                  <i class="large material-icons">radio</i>
+                  </md-card-content>
+                </md-card>
+
+                <!-- <hr/> -->
+
+                <md-card>
+                  <md-card-content>
+                <!-- <h5>Listen Now</h5> -->
+                    <i class="large material-icons">settings_input_antenna</i>
+                 </md-card-content>
+                </md-card>
+
+              </div>
+
+              <div flex="33">
+                <md-card>
+                  <md-card-content>
+                    <h5>My Favorite Tracks</h5>
+                    <p>You don't seem to like any tracks</p>
+                  </md-card-content>
+                </md-card>
+              </div>
+
+
+          </div>
+
+
+        </div>
+
+

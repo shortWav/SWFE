@@ -18,7 +18,10 @@
 
   <nav style="background-color: transparent" class="my-nav">
     <div class="nav-wrapper">
-      <a href="#/" class="brand-logo">
+      <a href="#/" class="brand-logo" ng-hide="currentUserSignedIn">
+        <h1 style="font-size: 40px" class="md-toolbar-tools shortWav">shortWav<i class="fa fa-headphones"></i></h1>
+      </a>
+      <a href="#/dashboard" class="brand-logo" ng-show="currentUserSignedIn">
         <h1 style="font-size: 40px" class="md-toolbar-tools shortWav">shortWav<i class="fa fa-headphones"></i></h1>
       </a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -176,6 +179,9 @@
   <!-- controllers -->
   <script src="js/music/player.controller.js"></script>
   <script src="js/users/register.controller.js"></script>
+
+  <script src="js/users/listener.controller.js"></script>
+
   <script src="js/users/artistregister.controller.js"></script>
   <script src="js/users/login.controller.js"></script>
   <script src="js/music/station.controller.js"></script>

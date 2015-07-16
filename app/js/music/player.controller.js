@@ -4,9 +4,21 @@
 
   angular.module('App')
 
-  .controller('PlayerCtrl', ['$scope', 'MusicFactory', '$timeout', 'angularPlayer', '$sce',
+  .controller('PlayerCtrl', ['$scope', 'MusicFactory', '$timeout', 'angularPlayer', '$sce', '$mdUtil','$mdSidenav',
 
-   function ($scope, MusicFactory, $timeout, angularPlayer, $sce) {
+   function ($scope, MusicFactory, $timeout, angularPlayer, $sce, $mdUtil, $mdSidenav) {
+    // nav toggles
+      $scope.toggleLeft = buildToggler('left');
+      $scope.toggleRight = buildToggler('right');
+
+
+      function buildToggler(navID) {
+        var debounceFn =  $mdUtil.debounce(function(){
+              $mdSidenav(navID)
+                .toggle();
+            },300);
+        return debounceFn;
+      }
 
 
 

@@ -27,7 +27,24 @@
      };
 
 
+   }])
+   .directive('notLogged', [function () {
+     return {
+       restrict: 'E',
+       templateUrl: 'js/templates/not-logged-in.tpl.html'
+     };
+
+
+   }])
+   .directive('listenerDash', [function () {
+     return {
+       restrict: 'E',
+       templateUrl: 'js/templates/dashboards/listener-dash.tpl.html'
+     };
+
+
    }]);
+
 
 
 

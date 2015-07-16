@@ -1,0 +1,64 @@
+    <!-- Home Page -->
+        <div class="home" layout-wrap>
+          <md-button ng-click="toggleLeft()"
+            class="md-primary" hide-gt-md>
+            <i class="fa fa-bars"></i>Menu
+          </md-button>
+          <div class="home-header">
+            <h1 style="font-size: 40px" class="shortWav">shortWav<i class="fa fa-headphones"></i></h1>
+                <span>
+                  <i class="fa fa-soundcloud"></i>
+                      Powered by Soundcloud
+                </span>
+          </div>
+
+          <div flex>
+            <md-card>
+              <md-card-content>
+
+                <article>
+                    <p>Welcome to shortWav radio, the online radio station that supports local artists around the world and helps get their music heard!</p>
+
+                    <p>Create a <a href="#/find-station">custom station</a> or click <a href="#/player">Listen Now</a> to hear a random song from our database!</p>
+                </article>
+                   <!-- Buttons -->
+                <div class="login-buttons">
+                  <md-button ng-click="toggleRight()"
+                    class="md-primary cust-button">
+                    Login
+                  </md-button>
+                   <a href="#/register">
+                     <md-button
+                      class="md-primary cust-button">
+                      Register
+                    </md-button>
+                   </a>
+                </div>
+               </md-card-content>
+            </md-card>
+          </div>
+
+          <div layout='row' layout-wrap>
+
+              <div flex="50">
+
+                <md-card>
+                  <md-card-content>
+                    <h5>Listeners</h5>
+                    <p>Register to save your favorite stations and songs</p>
+                  </md-card-content>
+                </md-card>
+              </div>
+
+              <div flex="50">
+              <md-card>
+                <md-card-content>
+                  <h5>Artists</h5>
+                  <p>Register as an artist to upload your tracks through soundcloud and get your music heard!!</p>
+                </md-card-content>
+              </md-card>
+              </div>
+          </div>
+
+
+        </div>

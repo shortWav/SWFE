@@ -3,7 +3,8 @@
     "use strict";
 
     angular.module('App')
-    .factory('UsersFactory', [ '$http', 'HEROKU', '$cookies', '$state', '$mdUtil','$mdSidenav', '$rootScope',
+    .factory('UsersFactory', [ '$http', 'HEROKU', '$cookies',
+      '$state', '$mdUtil','$mdSidenav', '$rootScope',
       function ($http, HEROKU, $cookies, $state, $mdUtil, $mdSidenav, $rootScope) {
 
 
@@ -78,6 +79,7 @@
         $cookies.put('username', data.user.username);
         $cookies.put('email', data.user.email);
         $rootScope.currentUserSignedIn = true;
+        $state.go('home');
 
       };
 
@@ -134,9 +136,9 @@
               $cookies.remove('last_name');
               $cookies.remove('username');
               $cookies.remove('email');
-               $rootScope.currentUserSignedIn = false;
+              $rootScope.currentUserSignedIn = false;
         // $rootScope.currentUser.name = data.name;
-              // $state.go('home');
+              $state.go('home');
 
       };
 

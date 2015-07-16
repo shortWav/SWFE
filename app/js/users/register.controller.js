@@ -3,9 +3,21 @@
     "use strict";
 
     angular.module('App')
-    .controller('RegisterCtrl', ['$scope', '$http', 'HEROKU', 'UsersFactory', '$timeout', '$q', '$log',
-      function ($scope, $http, HEROKU, UsersFactory, $timeout, $q, $log) {
+    .controller('RegisterCtrl', ['$scope', '$http', 'HEROKU', 'UsersFactory', '$timeout', '$q', '$log', '$mdUtil','$mdSidenav',
+      function ($scope, $http, HEROKU, UsersFactory, $timeout, $q, $log, $mdUtil, $mdSidenav) {
 
+        // nav toggles
+      $scope.toggleLeft = buildToggler('left');
+      $scope.toggleRight = buildToggler('right');
+
+
+      function buildToggler(navID) {
+        var debounceFn =  $mdUtil.debounce(function(){
+              $mdSidenav(navID)
+                .toggle();
+            },300);
+        return debounceFn;
+      }
 
         // Register Listener
 

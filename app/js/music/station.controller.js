@@ -4,9 +4,23 @@
 
   angular.module('App')
 
-  .controller('StationCtrl', ['$timeout', '$scope', '$http', '$state', 'MusicFactory', 'angularPlayer', '$rootScope',
+  .controller('StationCtrl', ['$timeout', '$scope', '$http', '$state', 'MusicFactory', 'angularPlayer', '$rootScope', '$mdUtil','$mdSidenav',
 
-    function($timeout, $scope, $http, $state, MusicFactory, angularPlayer, $rootScope) {
+    function($timeout, $scope, $http, $state, MusicFactory, angularPlayer, $rootScope, $mdUtil, $mdSidenav) {
+
+      // nav toggles
+      $scope.toggleLeft = buildToggler('left');
+      $scope.toggleRight = buildToggler('right');
+
+
+      function buildToggler(navID) {
+        var debounceFn =  $mdUtil.debounce(function(){
+              $mdSidenav(navID)
+                .toggle();
+            },300);
+        return debounceFn;
+      }
+
 
       // track index
       var endpoint = 'https://api.soundcloud.com/users/14646252/tracks.json?client_id=242a1e223a2af256f37ce3648bb93104';

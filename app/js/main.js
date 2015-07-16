@@ -14,8 +14,8 @@
       }
     }
   })
-   .config(['$mdThemingProvider', '$stateProvider', '$urlRouterProvider', '$authProvider',
-    function($mdThemingProvider, $stateProvider, $urlRouterProvider, $authProvider) {
+   .config(['$mdThemingProvider', '$stateProvider', '$urlRouterProvider',
+    function($mdThemingProvider, $stateProvider, $urlRouterProvider) {
 
 
     $mdThemingProvider.theme('default')
@@ -23,15 +23,6 @@
       .primaryPalette('grey')
 
       .accentPalette('blue-grey');
-
-    $authProvider.oauth2({
-      name: 'soundcloud',
-      url: '/auth/soundcloud',
-      redirectUri: window.location.origin,
-      clientId: clientId,
-      authorizationEndpoint: 'https://foursquare.com/oauth2/authenticate'
-    });
-
 
     $urlRouterProvider.otherwise('/');
 
