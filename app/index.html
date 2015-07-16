@@ -28,117 +28,119 @@
   </nav>
 
 
-  <!-- Sidebar NAV-->
-<div ng-controller="AppCtrl" layout="column" style="min-height:500px; max-height: 600px;">
+    <!-- Sidebar NAV-->
+  <div ng-controller="AppCtrl" layout="column" style="min-height:500px; max-height: 600px;">
 
-  <!-- left sidebar -->
-  <section layout="row" flex>
-    <md-sidenav style="height: 600px;" class="md-sidenav-left rust" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-     <!-- Menu Icon -->
-      <md-toolbar class="md-theme-indigo" >
-        <h1 class="md-toolbar-tools"><i class="fa fa-bars"></i></h1>
-      </md-toolbar>
-          <!-- Close button (when small) -->
-      <md-content layout-padding ng-controller="LeftCtrl">
-        <md-button ng-click="close()" class="md-primary" hide-gt-md>
-          Close
-        </md-button>
-        <!-- Left Side content -->
-      </md-content>
-        <div id="menuStuff" class="menu-stuff">
-          <default-nav ng-hide="currentUserSignedIn"></default-nav>
-          <listener-nav ng-show="currentUserSignedIn"></listener-nav>
-          <!-- <artist-nav></artist-nav> -->
-          <md-button id="logOut" ng-click="logOut()" class="md-raised md-primary logOutButton">Log Out</md-button>
-
-
-        </div>
-    </md-sidenav>
-
-
-    <!-- Main Content -->
-
-    <md-content flex layout-padding>
-      <div class="container" layout="column" layout-fill layout-align="top center" ui-view>
-        <!-- view -->
-
-      </div>
-      <div flex></div>
-    </md-content>
-
-
-
-        <!-- Right Nav -->
-    <md-sidenav class="md-sidenav-right rust" md-component-id="right">
-      <md-toolbar class="md-theme-light">
-
-        <h1 class="md-toolbar-tools">Login</h1>
-      </md-toolbar>
-      <md-content ng-controller="RightCtrl" layout-padding>
-        <md-tabs md-dynamic-height md-border-bottom>
-          <md-tab label="Listeners">
-            <md-content class="md-padding">
-              <h3 class="md-display-2">Listeners</h3>
-              <!-- Login -->
-            <div class="row">
-
-                  <!-- listeners login -->
-            <form ng-submit="loginListener(user)" ng-controller="LoginCtrl">
-              <div class="input-field col s6">
-                <input ng-model="user.username" id="user_name" type="text" class="validate">
-                <label for="user_name">User Name</label>
-              </div>
-              <div class="input-field col s12">
-                <input ng-model="user.password" id="password" type="password" class="validate">
-                <label for="password">Password</label>
-              </div>
-               <button>Sign In</button>
-
-            </form>
-          </div>
-            </md-content>
-          </md-tab>
-        <md-tab  label="Artists">
-          <md-content class="md-padding">
-            <h3 class="md-display-2">Artists</h3>
-
-            <!-- bandslogin -->
-             <form ng-submit="loginArtist(user)" ng-controller="LoginCtrl">
-              <div class="input-field col s6">
-                <input ng-model="user.artist_name" id="artist_name" type="text" class="validate">
-                <label for="artist_name">Artist</label>
-              </div>
-              <div class="input-field col s12">
-                <input ng-model="user.password" type="password" class="validate">
-                <label for="password">Password</label>
-              </div>
-               <button>Sign In</button>
-            </form>
-          </md-content>
-        </md-tab>
-      </md-tabs>
-         <!--  <form>
-            <md-input-container>
-              <label for="testInput">Test input</label>
-              <input type="text" id="testInput"
-                     ng-model="data" md-sidenav-focus>
-            </md-input-container>
-          </form> -->
-          <md-button ng-click="close()" class="md-primary">
+    <!-- left sidebar -->
+    <section layout="row" flex>
+      <md-sidenav style="height: 600px;" class="md-sidenav-left rust" md-component-id="left" md-is-locked-open=" $mdMedia('gt-md')">
+       <!-- Menu Icon -->
+        <md-toolbar class="md-theme-indigo" >
+          <h1 class="md-toolbar-tools"><i class="fa fa-bars"></i></h1>
+        </md-toolbar>
+            <!-- Close button (when small) -->
+        <md-content layout-padding ng-controller="LeftCtrl">
+          <md-button ng-click="close()" class="md-primary" hide-gt-md>
             Close
           </md-button>
-      </md-content>
-    </md-sidenav>
-  </section>
-</div>
+          <!-- Left Side content -->
+        </md-content>
+          <div id="menuStuff" class="menu-stuff">
+            <default-nav ng-hide="currentUserSignedIn"></default-nav>
+            <listener-nav ng-show="currentUserSignedIn"></listener-nav>
+            <!-- <artist-nav></artist-nav> -->
+          </div>
+      </md-sidenav>
 
-<footer>
-<h6>shortWav &copy;2015</h6>
-<span>
-    <i class="fa fa-soundcloud"></i>
-      Powered by Soundcloud
-  </span>
-</footer>
+
+      <!-- Main Content -->
+
+      <md-content flex layout-padding>
+        <div class="container" layout="column" layout-fill layout-align="top center" ui-view>
+          <!-- view -->
+
+        </div>
+        <div flex></div>
+      </md-content>
+
+
+
+          <!-- Right Nav -->
+      <md-sidenav class="md-sidenav-right rust" md-component-id="right">
+
+        <md-toolbar class="md-theme-light">
+          <h1 class="md-toolbar-tools">Login</h1>
+        </md-toolbar>
+
+        <md-content ng-controller="RightCtrl" layout-padding>
+          <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Listeners">
+              <md-content class="md-padding">
+
+                <h3 class="md-display-2">Listeners</h3>
+                <!-- Login -->
+                <div class="row">
+
+                    <!-- listeners login -->
+                  <form ng-submit="loginListener(user)" ng-controller="LoginCtrl">
+
+                    <div class="input-field col s6">
+                      <input ng-model="user.username" id="user_name" type="text" class="validate">
+                      <label for="user_name">User Name</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                      <input ng-model="user.password" id="password" type="password" class="validate">
+                      <label for="password">Password</label>
+                    </div>
+
+                    <button>Sign In</button>
+
+                  </form>
+
+                </div>
+              </md-content>
+            </md-tab>
+          <md-tab  label="Artists">
+            <md-content class="md-padding">
+              <h3 class="md-display-2">Artists</h3>
+
+              <!-- bandslogin -->
+               <form ng-submit="loginArtist(user)" ng-controller="LoginCtrl">
+                <div class="input-field col s6">
+                  <input ng-model="user.artist_name" id="artist_name" type="text" class="validate">
+                  <label for="artist_name">Artist</label>
+                </div>
+
+                <div class="input-field col s12">
+                  <input ng-model="user.password" type="password" class="validate">
+                  <label for="password">Password</label>
+                </div>
+
+                 <button>Sign In</button>
+
+              </form>
+            </md-content>
+          </md-tab>
+
+        </md-tabs>
+
+            <md-button ng-click="close()" class="md-primary">
+              Close
+            </md-button>
+
+        </md-content>
+      </md-sidenav>
+    </section>
+  </div>
+
+  <footer>
+  <h6>shortWav &copy;2015</h6>
+  <span>
+      <i class="fa fa-soundcloud"></i>
+        Powered by Soundcloud
+    </span>
+  </footer>
 
 
   <!-- VENDOR -->
@@ -152,22 +154,18 @@
   <script src="js/vendor/angular-animate.js"></script>
   <script src="js/vendor/angular-aria.js"></script>
   <script src="js/vendor/angular-material.js"></script>
-
   <script src="js/vendor/angular-messages.js"></script>
-
   <script src="js/vendor/easy-social-share.js"></script>
-
   <script src="js/vendor/angular-soundmanager2.js"></script>
-
   <script src="js/vendor/satellizer.js"></script>
 
   <!-- MAIN -->
 
   <script src="js/clientId.js"></script>
-
   <script src="js/main.js"></script>
+  <script src="js/directives.js"></script>
   <script src="js/sidebar.js"></script>
-  <!-- // <script src="js/users/listener.directive.js"></script> -->
+
 
   <!-- factories -->
 

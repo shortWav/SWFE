@@ -1,4 +1,4 @@
-<ul class="collection" ng-if="!_routeUser()">
+<ul class="collection">
           <li>
 
             <a href="#/player" class="collection-item">
@@ -18,14 +18,25 @@
           </li>
 
           <li>
-            <a href="#/register" class="collection-item">Register</a>
-          </li>
+            <md-menu>
+              <md-button class="collection-item" ng-click="$mdOpenMenu()">
+                Users
+              </md-button>
+              <md-menu-content width="4">
+                <md-menu-item>
+                  <md-button class="collection-item" ng-click="toggleRight()">
+                    Login
+                  </md-button>
+                </md-menu-item>
+                <md-menu-divider></md-menu-divider>
+                <md-menu-item>
+                  <md-button class="collection-item" ng-click="goRegister()">
 
-          <li>
-            <md-button ng-click="toggleRight()"
-                  class="collection-item">
-                  Login
-            </md-button>
+                      Register
+                  </md-button>
+                </md-menu-item>
+              </md-menu-content>
+            </md-menu>
           </li>
 
         </ul>

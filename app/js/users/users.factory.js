@@ -52,7 +52,6 @@
             // $state.go('home');
            return true;
           } else{
-            $('#logOut').removeClass('logOutButton');
             // $state.go('home');
             $rootScope.currentUserSignedIn = true;
             // $rootScope.currentUser.name = data.name;
@@ -79,8 +78,6 @@
         $cookies.put('username', data.user.username);
         $cookies.put('email', data.user.email);
         $rootScope.currentUserSignedIn = true;
-
-        $('#logOut').removeClass('logOutButton');
 
       };
 
@@ -140,7 +137,6 @@
                $rootScope.currentUserSignedIn = false;
         // $rootScope.currentUser.name = data.name;
               // $state.go('home');
-              $('#logOut').addClass('logOutButton');
 
       };
 
