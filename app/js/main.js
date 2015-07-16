@@ -35,7 +35,7 @@
         controller: 'AppCtrl'
       })
       .state('home.profile', {
-        url: ':username',
+        url: '/:username',
         templateUrl: 'js/templates/dashboards/profile.tpl.html',
         controller: 'ListenerCtrl'
       })
@@ -43,6 +43,11 @@
         url:'/dev',
         templateUrl: 'js/templates/dev.tpl.html',
         controller: 'AppCtrl'
+      })
+      .state('devs.id',{
+        url:'/:id',
+        templateUrl: 'js/templates/singledev.tpl.html',
+        controller: 'DevCtrl'
       })
       .state('register',{
         url: '/register',

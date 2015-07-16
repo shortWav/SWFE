@@ -2,34 +2,20 @@
             <i class="fa fa-bars"></i>Menu
   </md-button>
 <md-card>
-<div class="devs">
+  <md-card-content>
+<div class="devs" layout="row">
 
-  <ul>
-    <li ng-repeat='d in theDevs'>{{ d.name }}
 
-      <div class='devpic'>
+    <div  ng-repeat='d in theDevs'>
 
+      <div  class='devpic' flex="33">
+          <a ng-mouseover="goToDev(d.id)">
           <img ng-src="{{d.picture }}">
-
-          {{ d.description }}
-          <a href="{{d.github}}">
-          <i class="fa fa-github fa-2x"></i></a>
-          <a href="{{d.linkedin}}">
-          <i class="fa fa-linkedin-square fa-2x"></i>
           </a>
-
       </div>
-    </li>
-  </ul>
-
-
+    </div>
 </div>
-<div class="dev" ui-view></div>
+  </md-card-content>
 </md-card>
+<div class="dev" ui-view></div>
 
-<!-- working on nested view -->
-<!--
-<img ng-src="{{d.picture }}">
-          <a ui-sref="d.????({dev: d.description})">
-    {{ d. }}
-  </a> -->
