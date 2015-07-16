@@ -55,9 +55,28 @@ footer {
   .devs .fa {
     color: grey; }
 
-.devpic img {
-  width: 20%;
-  border-radius: 64px; }
+.singledev {
+  text-align: center;
+  margin-left: 20px;
+  font-size: 18px;
+  font-family: 'Audiowide', cursive; }
+  .singledev .fa {
+    color: grey; }
+
+.logohome {
+  text-align: center;
+  font-family: 'Audiowide', cursive; }
+  .logohome img {
+    width: 10%; }
+
+.devpic {
+  display: inline-block;
+  margin: 5px auto; }
+  .devpic img {
+    width: 87%;
+    border-radius: 93px; }
+  .devpic li {
+    display: inline-block; }
 
 md-card {
   background-color: #282828; }

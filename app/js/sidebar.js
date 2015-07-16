@@ -27,7 +27,10 @@
             },300);
         return debounceFn;
       }
+      $scope.goToDev = function(x){
 
+        $state.go('devs.id',{id: x});
+      };
       // go to register page
       $scope.goRegister= function(){
         $state.go('register');
@@ -39,13 +42,14 @@
 
 
       // devs array
-      $scope.theDevs= [
+      $rootScope.theDevs= [
       {
         id: 1,
         name: 'Nick Leach',
         description: 'Front End Developer',
         picture: '/images/nick.jpeg',
         github: 'https://github.com/nickleach',
+        email: 'nickleach22@gmail.com',
         linkedin: 'https://www.linkedin.com/pub/nick-leach/bb/599/279'
       },
       {
@@ -54,6 +58,7 @@
         description: 'Front End Developer',
         picture: '/images/jim.jpeg',
         github: 'https://github.com/jaleach',
+        email: 'jimleach09@gmail.com',
         linkedin: 'https://www.linkedin.com/pub/james-leach/2b/47b/b'
       },
       {
@@ -62,9 +67,12 @@
         description: 'Back End Developer',
         picture: '/images/tyler.jpeg',
         github: 'https://github.com/TK2Day',
+        email: 'something@gmail.com',
         linkedin: 'got no shit here'
       }
       ];
+
+     $scope.theDevs = $rootScope.theDevs;
 
     }])
 
@@ -79,6 +87,12 @@
     $scope.close = function () {
       $mdSidenav('right').close();
     };
-  });
+  })
+  .controller('DevCtrl', ['$scope', '$stateParams', '$rootScope', function ($scope, $stateParams, $rootScope) {
+
+    var devId = Number($stateParams.id);
+    $scope.devs =  _.findWhere($rootScope.theDevs, { id: devId });
+
+  }]);
 
 }());

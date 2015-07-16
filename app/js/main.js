@@ -34,7 +34,9 @@
         templateUrl: 'js/templates/home.tpl.html',
         controller: 'AppCtrl'
       })
+
       .state('home.username', {
+
         url: '/:username',
         templateUrl: 'js/templates/dashboards/profile.tpl.html',
         controller: 'ProfileCtrl'
@@ -43,6 +45,11 @@
         url:'/dev',
         templateUrl: 'js/templates/dev.tpl.html',
         controller: 'AppCtrl'
+      })
+      .state('devs.id',{
+        url:'/:id',
+        templateUrl: 'js/templates/singledev.tpl.html',
+        controller: 'DevCtrl'
       })
       .state('register',{
         url: '/register',

@@ -14,7 +14,6 @@
          $rootScope.user = $scope.user;
       });
 
-      console.log($scope.user)
 
 
 
