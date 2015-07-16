@@ -31,7 +31,7 @@
    .directive('notLogged', [function () {
      return {
        restrict: 'E',
-       templateUrl: 'js/templates/not-logged-in.tpl.html'
+       templateUrl: 'js/templates/dashboards/not-logged-in.tpl.html'
      };
 
 

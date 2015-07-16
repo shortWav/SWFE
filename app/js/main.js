@@ -34,6 +34,11 @@
         templateUrl: 'js/templates/home.tpl.html',
         controller: 'AppCtrl'
       })
+      .state('home.profile', {
+        url: ':username',
+        templateUrl: 'js/templates/dashboards/profile.tpl.html',
+        controller: 'ListenerCtrl'
+      })
       .state('devs',{
         url:'/dev',
         templateUrl: 'js/templates/dev.tpl.html',
