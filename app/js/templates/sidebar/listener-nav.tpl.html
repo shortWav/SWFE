@@ -1,7 +1,7 @@
 <ul class="collection">
     <li>
 
-      <a href="#/" class="collection-item">
+      <a href="#/home" class="collection-item">
         <i class="material-icons">dashboard</i>
       Dashboard
       </a>
@@ -43,9 +43,9 @@
     </li>
 
     <li>
-      <a href="#/register" class="collection-item">
+      <a href="#/home/{{user.username}}" class="collection-item">
         <i class="material-icons">perm_identity</i>
-        Profile
+        {{user.username}}
       </a>
     </li>
     <li>

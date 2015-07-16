@@ -4,10 +4,11 @@
   angular.module('App')
 
    .controller('AppCtrl',['$scope', '$timeout',
-    '$mdSidenav', '$mdUtil', '$log','UsersFactory', '$state',
+    '$mdSidenav', '$mdUtil', '$log','UsersFactory', '$state', '$rootScope',
 
-    function ($scope, $timeout, $mdSidenav, $mdUtil, $log, UsersFactory, $state) {
+    function ($scope, $timeout, $mdSidenav, $mdUtil, $log, UsersFactory, $state, $rootScope) {
 
+      $scope.user = $rootScope.user;
         // log out user
       $scope.logOut = function(){
         UsersFactory.logOut();

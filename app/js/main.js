@@ -1,7 +1,7 @@
 ;( function(){
 
   'use strict';
- angular.module('App', ['ngMaterial', 'ui.router', 'angularSoundManager', 'td.easySocialShare', 'satellizer',
+ angular.module('App', ['ngMaterial', 'ui.router', 'angularSoundManager', 'td.easySocialShare', 'ngAnimate',
   'ngCookies', 'ngMessages'])
 
 
@@ -24,20 +24,20 @@
 
       .accentPalette('blue-grey');
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/home');
 
 
 
     $stateProvider
       .state('home', {
-        url: '/',
+        url: '/home',
         templateUrl: 'js/templates/home.tpl.html',
         controller: 'AppCtrl'
       })
-      .state('home.profile', {
-        url: ':username',
+      .state('home.username', {
+        url: '/:username',
         templateUrl: 'js/templates/dashboards/profile.tpl.html',
-        controller: 'ListenerCtrl'
+        controller: 'ProfileCtrl'
       })
       .state('devs',{
         url:'/dev',

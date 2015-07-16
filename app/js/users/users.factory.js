@@ -142,6 +142,13 @@
 
       };
 
+      var getSingleUser = function(username){
+
+        return $http.get(HEROKU.URL + 'users/'+ username);
+
+
+      };
+
 
 
       // Declare all the functions
@@ -154,7 +161,8 @@
         _routeUser : _routeUser,
         _updateToken : _updateToken,
         _successLog : _successLog,
-        logOut : logOut
+        logOut : logOut,
+        getSingleUser : getSingleUser
 
       };
     }]);

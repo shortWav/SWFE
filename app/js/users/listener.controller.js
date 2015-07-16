@@ -3,11 +3,35 @@
   'use strict';
   angular.module('App')
 
-  .controller('ListenerCtrl', ['$scope', 'UsersFactory', '$cookies',
-    function ($scope, UsersFactory, $cookies) {
+  .controller('ListenerCtrl', ['$scope', 'UsersFactory', '$cookies', '$rootScope',
+    function ($scope, UsersFactory, $cookies, $rootScope) {
 
-      $scope.name = $cookies.get('first_name');
+      var username = $cookies.get('username');
 
+      UsersFactory.getSingleUser(username).success( function(data){
+
+         $scope.user = data.user;
+         $rootScope.user = $scope.user;
+      });
+
+      console.log($scope.user)
+
+
+
+  }])
+
+  .controller('ProfileCtrl', ['$scope', 'UsersFactory', '$stateParams',
+   function ($scope, UsersFactory, $stateParams) {
+
+      var username = $stateParams.username;
+
+
+      UsersFactory.getSingleUser(username).success( function(data){
+
+         $scope.user= data.user;
+          console.log($scope.user);
+
+      });
 
 
   }]);

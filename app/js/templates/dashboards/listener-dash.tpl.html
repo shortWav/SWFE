@@ -16,13 +16,14 @@
             <md-card>
               <md-card-content class="listener-header">
                 <label for="user-first">Welcome Back,</label>
-                <h3 id="user-first" class="user-first">{{ name }}</h3>
-                <a href="#/dev"><md-button>Meet the Devs </md-button></a>
+                <h3 id="user-first" class="user-first">{{ user.first_name }}</h3>
+                <a href="#/home/{{user.username}}"><md-button>View My Profile</md-button></a>
                </md-card-content>
             </md-card>
           </div>
-          <div ui-router></div>
 
+
+          <div ui-view>
           <div layout='row' layout-wrap>
 
               <div flex="33">
@@ -37,19 +38,23 @@
 
               <div class="middle-icons" flex="33">
                 <md-card>
+                  <a href="#/find-station">
                   <md-card-content>
-                  <!-- <h5>Tune to a station</h5> -->
-                  <i class="large material-icons">radio</i>
+                    <!-- <h5>Tune to a station</h5> -->
+                    <i class="large material-icons">radio</i>
                   </md-card-content>
+                  </a>
                 </md-card>
 
                 <!-- <hr/> -->
 
                 <md-card>
+                <a href="#/player">
                   <md-card-content>
                 <!-- <h5>Listen Now</h5> -->
                     <i class="large material-icons">settings_input_antenna</i>
                  </md-card-content>
+                 </a>
                 </md-card>
 
               </div>
@@ -66,7 +71,7 @@
 
           </div>
 
-
+          </div>
         </div>
 
 
