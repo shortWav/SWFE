@@ -16,8 +16,8 @@
             <md-card>
               <md-card-content class="listener-header">
                 <label for="user-first">Welcome Back,</label>
-                <h3 id="user-first" class="user-first">{{ user.first_name }}</h3>
-                <a href="#/home/{{user.username}}"><md-button>View My Profile</md-button></a>
+                <h3 id="user-first" class="user-first">{{ user.first }}</h3>
+                <a href="#/home/{{user.objectId}}"><md-button>View My Profile</md-button></a>
                </md-card-content>
             </md-card>
           </div>
@@ -31,6 +31,13 @@
                 <md-card>
                   <md-card-content>
                     <h5>My Stations</h5>
+                    <ul>
+                      <li ng-repeat="station in stations">
+                        <a href="#/find-station/{{station.objectId}}">
+                        {{station.genre}} in {{station.title}}
+                        </a>
+                      </li>
+                    </ul>
                     <p>You have no saved stations... yet</p>
                   </md-card-content>
                 </md-card>

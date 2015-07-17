@@ -6,11 +6,12 @@
 
 
 
-  .constant('HEROKU', {
-    URL: 'https://arcane-badlands-3651.herokuapp.com/',
+  .constant('PARSE', {
+    URL: 'https://api.parse.com/1/',
     CONFIG: {
       headers: {
-        'Access-Token': ''
+        'X-Parse-Application-Id' : 'GkMxrPGFdEYhr5shfAMSUNSSKVW2NS25VzJbhlKq',
+        'X-Parse-REST-API-Key'  : 'Jn5AheIL8l41LDNXcmZXtmu4wUBclpYUeskKzVFo'
       }
     }
   })
@@ -37,7 +38,7 @@
 
       .state('home.username', {
 
-        url: '/:username',
+        url: '/:id',
         templateUrl: 'js/templates/dashboards/profile.tpl.html',
         controller: 'ProfileCtrl'
       })
@@ -72,9 +73,14 @@
         controller: 'StationCtrl'
       })
       .state('find-station.radio',{
-        url:'/station',
+        url:'/station-search',
         templateUrl: 'js/templates/player.tpl.html',
         controller:'StationCtrl'
+      })
+      .state('find-station.my-station',{
+        url:'/:id',
+        templateUrl:'js/templates/player.tpl.html',
+        controller: 'MyStationCtrl'
       });
 
   }])

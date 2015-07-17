@@ -3,9 +3,9 @@
     "use strict";
 
     angular.module('App')
-    .factory('UsersFactory', [ '$http', 'HEROKU', '$cookies',
-      '$state', '$mdUtil','$mdSidenav', '$rootScope',
-      function ($http, HEROKU, $cookies, $state, $mdUtil, $mdSidenav, $rootScope) {
+    .factory('UsersFactory', [ '$http', 'PARSE', '$cookies',
+      '$state', '$mdUtil','$mdSidenav', '$rootScope', '$timeout',
+      function ($http, PARSE, $cookies, $state, $mdUtil, $mdSidenav, $rootScope, $timeout) {
 
 
 
@@ -48,23 +48,18 @@
 
       // Route the user if they're logged in
       var _routeUser = function(st){
-          if(st === undefined) {
+          if(st !== undefined) {
+            $rootScope.currentUserSignedIn = true;
             // route to Login Page
             // $state.go('home');
-           return true;
-          } else{
-            // $state.go('home');
-            $rootScope.currentUserSignedIn = true;
-            // $rootScope.currentUser.name = data.name;
-            return false;
-          }
 
+          }
       };
 
       // If the cookie is there update the headers
       var _updateToken = function(st){
          if (st !== undefined) {
-            HEROKU.CONFIG.headers['Access-Token'] = st;
+            PARSE.CONFIG.headers['X-Parse-Session-Token'] = st;
           }
           _routeUser(st);
       };
@@ -73,20 +68,17 @@
       // Function after a successfull login
       var _successLog = function(data){
 
-        $cookies.put('access_token', data.user.access_token);
-        $cookies.put('first_name', data.user.first_name);
-        $cookies.put('last_name', data.user.last_name);
-        $cookies.put('username', data.user.username);
-        $cookies.put('email', data.user.email);
-        $rootScope.currentUserSignedIn = true;
-        $state.go('home');
+
+          $rootScope.currentUserSignedIn = true;
+          $state.go($state.current, {}, {reload: true});
+
 
       };
 
 
       // Check to see if user has a cookie
       var checkUser = function(){
-          var st = $cookies.get('access_token');
+          var st = $cookies.get('sessionToken');
           _updateToken(st);
       };
 
@@ -98,9 +90,30 @@
 
 
       var loginUserListener = function(user){
-           $http.post(HEROKU.URL +'users/login', user).success( function (data) {
+           $http({
+            method: 'GET',
+            url: PARSE.URL + 'login',
+            headers: PARSE.CONFIG.headers,
+            params: user
+          }).success( function (data) {
+             $cookies.put('sessionToken', data.sessionToken);
+        $cookies.put('userObjectId', data.objectId);
+        $cookies.put('first', data.first);
+        $cookies.put('last', data.last);
+
+        // $cookies.put('access_token', data.user.access_token);
+        // $cookies.put('first_name', data.user.first_name);
+        // $cookies.put('last_name', data.user.last_name);
+        $cookies.put('username', data.username);
+        // $cookies.put('email', data.user.email);
               toggleRight();
-            _successLog(data);
+
+          }).then( function(){
+
+            _successLog();
+
+          // $state.go('home');
+
           });
 
       };
@@ -109,9 +122,10 @@
       // Register a new listener
       var registerListener = function(user){
         var newUser = new Listener(user);
-       $http.post(HEROKU.URL + 'users', newUser)
+       $http.post(PARSE.URL + 'users', newUser, PARSE.CONFIG)
         .success( function(data){
           _successLog(data);
+
         });
 
       };
@@ -131,20 +145,28 @@
 
       // Log out
       var logOut = function(){
-              $cookies.remove('access_token');
-              $cookies.remove('first_name');
-              $cookies.remove('last_name');
-              $cookies.remove('username');
-              $cookies.remove('email');
+     $http.post(PARSE.URL + 'logout', {}, PARSE.CONFIG)
+            .success( function () {
               $rootScope.currentUserSignedIn = false;
+              $cookies.remove('sessionToken');
+              $cookies.remove('userObjectId');
+              $cookies.remove('username');
+              $cookies.remove('first');
+              $cookies.remove('last');
+              PARSE.CONFIG.headers['X-Parse-Session-Token'] = '';
         // $rootScope.currentUser.name = data.name;
+
               $state.go('home');
+            }
+          );
+
 
       };
 
       var getSingleUser = function(username){
 
-        return $http.get(HEROKU.URL + 'users/'+ username);
+
+        return $http.get(PARSE.URL + 'users/'+ username, PARSE.CONFIG);
 
 
       };

@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('App')
-    .controller('RegisterCtrl', ['$scope', '$http', 'HEROKU', 'UsersFactory', '$timeout', '$q', '$log', '$mdUtil','$mdSidenav',
-      function ($scope, $http, HEROKU, UsersFactory, $timeout, $q, $log, $mdUtil, $mdSidenav) {
+    .controller('RegisterCtrl', ['$scope', '$http', 'PARSE', 'UsersFactory', '$timeout', '$q', '$log', '$mdUtil','$mdSidenav',
+      function ($scope, $http, PARSE, UsersFactory, $timeout, $q, $log, $mdUtil, $mdSidenav) {
 
         // nav toggles
       $scope.toggleLeft = buildToggler('left');

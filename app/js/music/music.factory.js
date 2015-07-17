@@ -5,11 +5,20 @@
   angular.module('App')
 
 
-  .factory('MusicFactory', ['$http',
-    function ($http) {
+  .factory('MusicFactory', ['$http', 'PARSE', '$cookies',
+    function ($http, PARSE, $cookies) {
 
     var endpoint = 'https://api.soundcloud.com/users/14646252/tracks.json?client_id=242a1e223a2af256f37ce3648bb93104';
 
+    var stationsEnd = PARSE.URL + 'classes/Stations_test';
+
+    var Station = function(options){
+      this.genre = options.genre;
+      this.title = options.songs;
+      this.user = options.user;
+      this.ACL = options.ACL;
+
+    };
 
       // Get random track from the list and play it.
     var playRandom = function(){
@@ -60,12 +69,46 @@
       $('#satellite').removeClass('satellite-orbit-animation');
     };
 
+    var favStation = function(station){
+
+      var userID = $cookies.get('userObjectId');
+
+        var ACLObj = {};
+
+        ACLObj[userID] = {
+          read: true,
+          write: true
+        };
+
+        station.ACL = ACLObj;
+
+        station.user = {
+          _type: 'Pointer',
+          className : '_User',
+          objectId: userID
+
+        };
+
+
+        var newStation = new Station (station);
+
+
+        return $http.post(stationsEnd, newStation, PARSE.CONFIG);
+
+    };
+
+    var getStations = function(){
+      return $http.get(stationsEnd, PARSE.CONFIG);
+    };
+
 
     return {
       playRandom : playRandom,
       togglePlay : togglePlay,
       toggleMute : toggleMute,
-      stopToggle : stopToggle
+      stopToggle : stopToggle,
+      favStation : favStation,
+      getStations : getStations
 
     };
   }]);

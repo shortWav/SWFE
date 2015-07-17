@@ -8,7 +8,7 @@
 
     function ($scope, $timeout, $mdSidenav, $mdUtil, $log, UsersFactory, $state, $rootScope, $cookies) {
 
-      $scope.user =  $cookies.get('username');
+      $scope.id =  $cookies.get('userObjectId');
 
         // log out user
       $scope.logOut = function(){

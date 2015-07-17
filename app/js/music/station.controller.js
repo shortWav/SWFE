@@ -244,6 +244,11 @@
 
     };
 
+    // fav a station
+    $scope.favIt = function(station){
+      MusicFactory.favStation(station);
+    };
+
   }]);
 
 }());
