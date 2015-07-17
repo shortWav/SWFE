@@ -32,7 +32,7 @@
                   <md-card-content>
                     <h5>My Stations</h5>
                     <ul class="collection" ng-show="hasStations">
-                    <a ng-repeat="station in stations" class="collection-item"href="#/find-station/{{station.objectId}}">
+                    <a ng-repeat="station in stations" class="collection-item" href="#/mystations/{{station.objectId}}">
                       <li>
 
                         {{station.title}} {{station.genre}}
@@ -72,7 +72,16 @@
                 <md-card>
                   <md-card-content>
                     <h5>My Favorite Tracks</h5>
-                    <p>You don't seem to like any tracks</p>
+                    <ul class="collection" ng-show="hasSongs">
+                    <a ng-repeat="song in songs" class="collection-item" href="#/mystations/{{station.objectId}}">
+                      <li>
+
+                        {{song.title}} {{song.userdata.username}}
+
+                      </li>
+                      </a>
+                    </ul>
+                    <p ng-hide="hasSongs">You don't seem to like any tracks</p>
                   </md-card-content>
                 </md-card>
               </div>

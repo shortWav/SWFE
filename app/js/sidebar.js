@@ -4,9 +4,9 @@
   angular.module('App')
 
    .controller('AppCtrl',['$scope', '$timeout',
-    '$mdSidenav', '$mdUtil', '$log','UsersFactory', '$state', '$rootScope', '$cookies',
+    '$mdSidenav', '$mdUtil', '$log','UsersFactory', '$state', '$rootScope', '$cookies', 'MusicFactory',
 
-    function ($scope, $timeout, $mdSidenav, $mdUtil, $log, UsersFactory, $state, $rootScope, $cookies) {
+    function ($scope, $timeout, $mdSidenav, $mdUtil, $log, UsersFactory, $state, $rootScope, $cookies, MusicFactory) {
 
       $scope.id =  $cookies.get('userObjectId');
 

@@ -3,7 +3,7 @@
   </md-button>
       <md-card style="min-width: 500px">
       <md-card-content>
-       <i class="mini material-icons thumbupicon" ng-click="thumbit()">thumb_up</i>
+       <i class="mini material-icons thumbupicon" ng-click="thumbit(currentPlaying)">thumb_up</i>
 
         <div class="hi"></div>
 
@@ -15,7 +15,7 @@
                 <sound-manager></sound-manager>
                   <div class="playpage">
                     <p>
-                        <h5>{{ currentPlaying.title }}</h5> <h6 style='font-size: 10px'> by </h6>{{ currentPlaying.user.username }}
+                        <h5>{{ currentPlaying.title }}</h5> <h6 style='font-size: 10px'> by </h6>{{ currentPlaying.userdata.username }}
 
                     </p>
 
@@ -80,7 +80,7 @@
 
                    <div class="avatar-holder">
                       <div class="avatar">
-                      <img ng-src="{{currentPlaying.user.avatar_url}}">
+                      <img ng-src="{{currentPlaying.userdata.avatar_url}}">
                       </div>
                       <div class="albumart">
                         <img ng-src="{{ currentPlaying.albumArt }}">
@@ -89,7 +89,7 @@
 
 
 
-                 <h5> {{ currentPlaying.user.username }}</h5>
+                 <h5> {{ currentPlaying.userdata.username }}</h5>
                   <div class="playtitle">
                   {{ currentPlaying.title }}
                   </div>

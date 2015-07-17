@@ -188,7 +188,14 @@ md-input-container .ng-binding {
   border: transparent; }
 
 .home .collection-item {
-  background-color: black; }
+  background-color: transparent; }
+
+.my-stations .collection {
+  border: transparent;
+  text-align: center; }
+
+.my-stations .collection-item {
+  background-color: transparent; }
 
 .ui-view-container {
   height: 200px; }

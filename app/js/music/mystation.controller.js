@@ -6,7 +6,9 @@
 
   .controller('MyStationCtrl', ['$scope', 'MusicFactory', '$stateParams', '$timeout', 'angularPlayer',
     function ($scope, MusicFactory, $stateParams, $timeout, angularPlayer) {
-            function shuffle(array) {
+
+
+      function shuffle(array) {
 
         // delcare some variables
         var currentIndex = array.length,
@@ -136,6 +138,11 @@
       MusicFactory.stopToggle();
 
      };
+     // fav song
+     $scope.thumbit = function(song){
+      MusicFactory.favSong(song);
+
+      };
 
 
 

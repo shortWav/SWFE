@@ -12,6 +12,8 @@
 
     var stationsEnd = PARSE.URL + 'classes/Stations_test/';
 
+    var songsEnd = PARSE.URL + 'classes/Songs_test1';
+
     var Station = function(options){
       this.genre = options.genre;
       this.title = options.songs;
@@ -19,6 +21,21 @@
       this.ACL = options.ACL;
 
     };
+
+    var Track = function(options){
+        this.title = options.title;
+        this.userdata = options.userdata;
+        this.id = options.id;
+        this.genre = options.genre;
+        this.albumArt= options.albumArt;
+        this.description = options.description;
+        this.license= options.license;
+        this.soundcloudLink = options.soundcloudLink;
+        this.wavePic = options.wavPic;
+        this.url = options.url;
+        this.user = options.user;
+        this.ACL = options.ACL;
+      };
 
       // Get random track from the list and play it.
     var playRandom = function(){
@@ -107,6 +124,38 @@
 
     };
 
+    var favSong = function(song){
+      console.log(song);
+       var userID = $cookies.get('userObjectId');
+
+        var ACLObj = {};
+
+        ACLObj[userID] = {
+          read: true,
+          write: true
+        };
+
+        song.ACL = ACLObj;
+
+        song.user = {
+          _type: 'Pointer',
+          className : '_User',
+          objectId: userID
+
+        };
+
+
+        var newSong = new Track (song);
+
+
+        return $http.post(songsEnd, newSong, PARSE.CONFIG);
+
+    };
+
+    var getSongs= function(){
+      return $http.get(songsEnd, PARSE.CONFIG);
+    };
+
 
     return {
       playRandom : playRandom,
@@ -115,7 +164,9 @@
       stopToggle : stopToggle,
       favStation : favStation,
       getStations : getStations,
-      playMyStation : playMyStation
+      playMyStation : playMyStation,
+      favSong : favSong,
+      getSongs : getSongs
 
     };
   }]);

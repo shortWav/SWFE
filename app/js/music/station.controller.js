@@ -135,7 +135,7 @@
         // Track constructor
       var Track = function(options){
         this.title = options.title;
-        this.user = options.user;
+        this.userdata = options.user;
         this.id = options.id;
         this.genre = options.genre;
         this.albumArt= options.artwork_url;
@@ -220,6 +220,7 @@
 
         filtered.forEach( function(x){
           $scope.songs.push(new Track(x));
+
         });
 
 
@@ -243,7 +244,10 @@
 
 
     };
-
+    //fav a song
+    $scope.thumbit = function(song){
+      MusicFactory.favSong(song);
+    };
     // fav a station
     $scope.favIt = function(station){
       MusicFactory.favStation(station);

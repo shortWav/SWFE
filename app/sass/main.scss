@@ -249,7 +249,20 @@ md-input-container{
     border: transparent;
   }
   .collection-item{
-    background-color: black;
+    background-color: transparent;
+
+  }
+}
+// mystations
+
+.my-stations{
+
+  .collection{
+    border: transparent;
+    text-align: center;
+  }
+  .collection-item{
+    background-color: transparent;
 
   }
 }

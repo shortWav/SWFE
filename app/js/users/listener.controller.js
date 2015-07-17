@@ -13,6 +13,11 @@
         $rootScope.hasStations = true;
         $scope.stations = data.results;
       });
+      MusicFactory.getSongs().success( function(data){
+        $rootScope.hasSongs = true;
+        $scope.songs = data.results;
+
+      });
       UsersFactory.getSingleUser(user).success( function(data){
 
          $scope.user = data;

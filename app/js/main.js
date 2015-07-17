@@ -77,7 +77,12 @@
         templateUrl: 'js/templates/player.tpl.html',
         controller:'StationCtrl'
       })
-      .state('find-station.my-station',{
+      .state('mystations',{
+        url:'/mystations',
+        templateUrl:'js/templates/mystations.tpl.html',
+        controller:'StationsList'
+      })
+      .state('mystations.my-station',{
         url:'/:id',
         templateUrl:'js/templates/player.tpl.html',
         controller: 'MyStationCtrl'
