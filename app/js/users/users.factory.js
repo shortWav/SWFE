@@ -124,9 +124,26 @@
         var newUser = new Listener(user);
        $http.post(PARSE.URL + 'users', newUser, PARSE.CONFIG)
         .success( function(data){
-          _successLog(data);
+            $cookies.put('sessionToken', data.sessionToken);
+            $cookies.put('userObjectId', data.objectId);
+            $cookies.put('first', data.first);
+            $cookies.put('last', data.last);
 
-        });
+            // $cookies.put('access_token', data.user.access_token);
+            // $cookies.put('first_name', data.user.first_name);
+            // $cookies.put('last_name', data.user.last_name);
+            $cookies.put('username', data.username);
+        // $cookies.put('email', data.user.email);
+              toggleRight();
+
+          }).then( function(){
+
+            $rootScope.currentUserSignedIn = true;
+            $state.go('home');
+
+          // $state.go('home');
+
+          });
 
       };
 
