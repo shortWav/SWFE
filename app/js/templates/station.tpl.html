@@ -46,7 +46,8 @@
     </div>
 
       </form>
-      <i class="small material-icons favmusicicon" ng-click="favIt(g)">library_add</i>
+
+      <i  onclick="Materialize.toast('Station Added!', 4000)" class="small material-icons favmusicicon" ng-click="favIt(g)">library_add</i>
     </div>
 
   </div>
@@ -54,3 +55,4 @@
 </md-card>
 
   <div class="player" ui-view></div>
+
