@@ -10,7 +10,7 @@
 
     var endpoint = 'https://api.soundcloud.com/users/14646252/tracks.json?client_id=242a1e223a2af256f37ce3648bb93104';
 
-    var stationsEnd = PARSE.URL + 'classes/Stations_test';
+    var stationsEnd = PARSE.URL + 'classes/Stations_test/';
 
     var Station = function(options){
       this.genre = options.genre;
@@ -101,6 +101,12 @@
       return $http.get(stationsEnd, PARSE.CONFIG);
     };
 
+    var playMyStation = function(station){
+
+      return $http.get(stationsEnd + station, PARSE.CONFIG);
+
+    };
+
 
     return {
       playRandom : playRandom,
@@ -108,7 +114,8 @@
       toggleMute : toggleMute,
       stopToggle : stopToggle,
       favStation : favStation,
-      getStations : getStations
+      getStations : getStations,
+      playMyStation : playMyStation
 
     };
   }]);

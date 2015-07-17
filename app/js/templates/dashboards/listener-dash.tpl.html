@@ -31,14 +31,16 @@
                 <md-card>
                   <md-card-content>
                     <h5>My Stations</h5>
-                    <ul>
-                      <li ng-repeat="station in stations">
-                        <a href="#/find-station/{{station.objectId}}">
-                        {{station.genre}} in {{station.title}}
-                        </a>
+                    <ul class="collection" ng-show="hasStations">
+                    <a ng-repeat="station in stations" class="collection-item"href="#/find-station/{{station.objectId}}">
+                      <li>
+
+                        {{station.title}} {{station.genre}}
+
                       </li>
+                      </a>
                     </ul>
-                    <p>You have no saved stations... yet</p>
+                    <p ng-hide="hasStations">You have no saved stations... yet</p>
                   </md-card-content>
                 </md-card>
               </div>

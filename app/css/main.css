@@ -181,6 +181,12 @@ md-input-container .ng-binding {
   margin-left: 150px;
   font-size: 16px; }
 
+.home .collection {
+  border: transparent; }
+
+.home .collection-item {
+  background-color: black; }
+
 .ui-view-container {
   height: 200px; }
 

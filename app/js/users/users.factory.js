@@ -24,8 +24,8 @@
 
       //listener constructor
       var Listener = function(options){
-        this.first_name = options.first_name;
-        this.last_name = options.last_name;
+        this.first = options.first_name;
+        this.last = options.last_name;
         this.username = options.user_name;
         this.password = options.password;
         this.email = options.email;
@@ -134,7 +134,6 @@
             // $cookies.put('last_name', data.user.last_name);
             $cookies.put('username', data.username);
         // $cookies.put('email', data.user.email);
-              toggleRight();
 
           }).then( function(){
 
@@ -165,6 +164,7 @@
      $http.post(PARSE.URL + 'logout', {}, PARSE.CONFIG)
             .success( function () {
               $rootScope.currentUserSignedIn = false;
+              $rootScope.hasStations = false;
               $cookies.remove('sessionToken');
               $cookies.remove('userObjectId');
               $cookies.remove('username');

@@ -10,6 +10,7 @@
       var user = $cookies.get('userObjectId');
       if(user !== undefined){
       MusicFactory.getStations().success( function(data){
+        $rootScope.hasStations = true;
         $scope.stations = data.results;
       });
       UsersFactory.getSingleUser(user).success( function(data){
