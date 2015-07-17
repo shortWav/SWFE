@@ -63,6 +63,9 @@ footer {
   .singledev .fa {
     color: grey; }
 
+.regbut button {
+  background-color: grey; }
+
 .logohome {
   text-align: center;
   font-family: 'Audiowide', cursive; }
