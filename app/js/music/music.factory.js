@@ -156,6 +156,10 @@
       return $http.get(songsEnd, PARSE.CONFIG);
     };
 
+    var deleteStation = function(x){
+          var d = stationsEnd + x.objectId;
+          return $http.delete(d, PARSE.CONFIG);
+        };
 
     return {
       playRandom : playRandom,
@@ -166,7 +170,8 @@
       getStations : getStations,
       playMyStation : playMyStation,
       favSong : favSong,
-      getSongs : getSongs
+      getSongs : getSongs,
+      deleteStation : deleteStation
 
     };
   }]);

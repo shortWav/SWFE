@@ -14,6 +14,13 @@
         $state.go('find-station');
       };
 
+    $scope.deleteStation = function(thisdel) {
+
+            MusicFactory.deleteStation(thisdel).success(function(){
+              $state.go($state.current, {}, {reload: true});
+
+            });
+        }
   }]);
 
 }());

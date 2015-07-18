@@ -8,10 +8,14 @@
           {{station.genre}},
           {{station.title}}
         </a>
+        <i ng-click="deleteStation(station)" class="fa fa-trash-o"></i>
       </li>
     </ul>
     <md-button ng-click="findStation()">Find a New Station</md-button>
+
     </md-card-content>
   </md-card>
   <div ui-view></div>
+
+
 </div>

@@ -191,6 +191,7 @@
 
 
 
+
       // Declare all the functions
       return {
         loginUserBand : loginUserBand,
@@ -203,6 +204,7 @@
         _successLog : _successLog,
         logOut : logOut,
         getSingleUser : getSingleUser
+
 
       };
     }]);
