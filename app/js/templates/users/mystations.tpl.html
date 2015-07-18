@@ -2,15 +2,18 @@
   <md-card>
     <md-card-content>
     <h5>My Stations</h5>
-    <ul class="collection">
+    <div>
+    <ul class="collection" >
       <li ng-repeat="station in stations">
         <a href="#/mystations/{{station.objectId}}" class="collection-item">
-          {{station.genre}},
           {{station.title}}
+          {{station.genre}}
+
         </a>
-        <i ng-click="deleteStation(station)" class="fa fa-trash-o"></i>
+        <i ng-click="deleteStation(station)" class="fa fa-minus-square"></i>
       </li>
     </ul>
+    </div>
     <md-button ng-click="findStation()">Find a New Station</md-button>
 
     </md-card-content>

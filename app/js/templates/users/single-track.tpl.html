@@ -1,0 +1,21 @@
+<div ui-view>
+  <md-card>
+    <md-card-content layout="row">
+
+      <div class="single-left" flex="33">
+        <img ng-src="{{track.albumArt}}">
+        <h6>Hear on
+            <a href="{{ track.soundcloudLink }}">
+              <i class="fa fa-soundcloud"></i>
+              Soundcloud
+            </a>
+        </h6>
+      </div>
+      <div class="single-right" flex="60">
+        <h5>{{track.title}}</h5>
+        <span style="text-align: center;">by</span>
+          <a href="{{track.userdata.permalink_url}}"<h6>{{track.userdata.username}}</h6></a>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>

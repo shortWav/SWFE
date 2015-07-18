@@ -12,7 +12,7 @@
 
     var stationsEnd = PARSE.URL + 'classes/Stations_test/';
 
-    var songsEnd = PARSE.URL + 'classes/Songs_test1';
+    var songsEnd = PARSE.URL + 'classes/Songs_test1/';
 
     var Station = function(options){
       this.genre = options.genre;
@@ -153,7 +153,15 @@
     };
 
     var getSongs= function(){
+
       return $http.get(songsEnd, PARSE.CONFIG);
+
+    };
+
+    var getSongInfo = function(song){
+
+      return $http.get(songsEnd + song, PARSE.CONFIG);
+
     };
 
     var deleteStation = function(x){
@@ -171,7 +179,10 @@
       playMyStation : playMyStation,
       favSong : favSong,
       getSongs : getSongs,
-      deleteStation : deleteStation
+      deleteStation : deleteStation,
+
+      getSongInfo : getSongInfo
+
 
     };
   }]);

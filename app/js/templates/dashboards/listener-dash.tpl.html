@@ -17,7 +17,7 @@
               <md-card-content class="listener-header">
                 <label for="user-first">Welcome Back,</label>
                 <h3 id="user-first" class="user-first">{{ user.first }}</h3>
-                <a href="#/home/{{user.objectId}}"><md-button>View My Profile</md-button></a>
+                <a href="#/home/{{user.objectId}}"><i class="fa fa-info-circle"></i></a>
                </md-card-content>
             </md-card>
           </div>
@@ -30,8 +30,8 @@
 
                 <md-card>
                   <md-card-content>
-                    <h5>My Stations</h5>
-                    <ul class="collection" ng-show="hasStations">
+                    <a style="color: white" href="#/mystations"><h5>My Stations</h5></a>
+                    <ul class="collection dash-stations" ng-show="hasStations">
                     <a ng-repeat="station in stations" class="collection-item" href="#/mystations/{{station.objectId}}">
                       <li>
 
@@ -47,7 +47,7 @@
 
               <div class="middle-icons" flex="33">
                 <md-card>
-                  <a href="#/find-station">
+                  <a style="color: white" href="#/find-station">
                   <md-card-content>
                     <!-- <h5>Tune to a station</h5> -->
                     <i class="large material-icons">radio</i>
@@ -58,7 +58,7 @@
                 <!-- <hr/> -->
 
                 <md-card>
-                <a href="#/player">
+                <a style="color: white" href="#/player">
                   <md-card-content>
                 <!-- <h5>Listen Now</h5> -->
                     <i class="large material-icons">settings_input_antenna</i>
@@ -71,9 +71,9 @@
               <div flex="33">
                 <md-card>
                   <md-card-content>
-                    <h5>My Favorite Tracks</h5>
-                    <ul class="collection" ng-show="hasSongs">
-                    <a ng-repeat="song in songs" class="collection-item" href="#/mystations/{{station.objectId}}">
+                    <a style="color: white" href="#/fav-tracks"><h5>My Favorite Tracks</h5></a>
+                    <ul class="collection dash-songs" ng-show="hasSongs">
+                    <a ng-repeat="song in songs" class="collection-item" href="#/fav-tracks/{{song.objectId}}">
                       <li>
 
                         {{song.title}} {{song.userdata.username}}

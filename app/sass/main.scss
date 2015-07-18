@@ -253,16 +253,40 @@ md-input-container{
 
   }
 }
+
+.dash-stations{
+  max-height: 200px;
+  overflow: scroll;
+
+}
+.dash-songs{
+  max-height: 200px;
+  overflow: scroll;
+}
 // mystations
 
 .my-stations{
+  ul{
+    text-align: center;
+     max-width: 75%;
+     margin: 10px auto;
+  }
+  li{
+    position: relative;
 
+  }
+  .fa{
+    position: absolute;
+    right: 50px;
+    bottom: 8px;
+  }
   .collection{
     border: transparent;
     text-align: center;
   }
   .collection-item{
     background-color: transparent;
+    max-width: 75%;
 
   }
 }
@@ -272,6 +296,20 @@ md-input-container{
   height: 200px;
 }
 
+// fav songs
+
+.single-left{
+  border-right: 1px solid lightgrey;
+  margin-right: 10px;
+  img{
+  width: 75%;
+  text-align: center;
+  }
+}
+
+.single-right{
+
+}
 [ui-view].ng-enter, [ui-view].ng-leave {
   position: absolute;
   left: 0;

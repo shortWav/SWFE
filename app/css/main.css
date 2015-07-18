@@ -190,15 +190,44 @@ md-input-container .ng-binding {
 .home .collection-item {
   background-color: transparent; }
 
+.dash-stations {
+  max-height: 200px;
+  overflow: scroll; }
+
+.dash-songs {
+  max-height: 200px;
+  overflow: scroll; }
+
+.my-stations ul {
+  text-align: center;
+  max-width: 75%;
+  margin: 10px auto; }
+
+.my-stations li {
+  position: relative; }
+
+.my-stations .fa {
+  position: absolute;
+  right: 50px;
+  bottom: 8px; }
+
 .my-stations .collection {
   border: transparent;
   text-align: center; }
 
 .my-stations .collection-item {
-  background-color: transparent; }
+  background-color: transparent;
+  max-width: 75%; }
 
 .ui-view-container {
   height: 200px; }
+
+.single-left {
+  border-right: 1px solid lightgrey;
+  margin-right: 10px; }
+  .single-left img {
+    width: 75%;
+    text-align: center; }
 
 [ui-view].ng-enter, [ui-view].ng-leave {
   position: absolute;

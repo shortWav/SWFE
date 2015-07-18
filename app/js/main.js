@@ -35,11 +35,9 @@
         templateUrl: 'js/templates/home.tpl.html',
         controller: 'AppCtrl'
       })
-
       .state('home.username', {
-
         url: '/:id',
-        templateUrl: 'js/templates/dashboards/profile.tpl.html',
+        templateUrl: 'js/templates/users/profile.tpl.html',
         controller: 'ProfileCtrl'
       })
       .state('devs',{
@@ -64,28 +62,38 @@
       })
       .state('player',{
         url: '/player',
-        templateUrl: 'js/templates/player.tpl.html',
+        templateUrl: 'js/templates/main/player.tpl.html',
         controller: 'PlayerCtrl'
       })
       .state('find-station',{
         url:'/find-station',
-        templateUrl: 'js/templates/station.tpl.html',
+        templateUrl: 'js/templates/main/station.tpl.html',
         controller: 'StationCtrl'
       })
       .state('find-station.radio',{
         url:'/station-search',
-        templateUrl: 'js/templates/player.tpl.html',
+        templateUrl: 'js/templates/main/player.tpl.html',
         controller:'StationCtrl'
       })
       .state('mystations',{
         url:'/mystations',
-        templateUrl:'js/templates/mystations.tpl.html',
+        templateUrl:'js/templates/users/mystations.tpl.html',
         controller:'StationsList'
       })
       .state('mystations.my-station',{
         url:'/:id',
-        templateUrl:'js/templates/player.tpl.html',
+        templateUrl:'js/templates/main/player.tpl.html',
         controller: 'MyStationCtrl'
+      })
+      .state('fav-tracks',{
+        url: '/fav-tracks',
+        templateUrl: 'js/templates/users/mytracks.tpl.html',
+        controller: 'FavTracksCtrl'
+      })
+      .state('fav-tracks.track-info',{
+        url: '/:id',
+        templateUrl: 'js/templates/users/single-track.tpl.html',
+        controller: 'TrackInfoCtrl'
       });
 
   }])
@@ -95,7 +103,9 @@
     function (UsersFactory, $rootScope) {
 
       $rootScope.$on('$stateChangeStart', function () {
+
         UsersFactory.checkUser();
+
       });
 
     }

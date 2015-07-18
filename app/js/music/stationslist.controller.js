@@ -20,7 +20,7 @@
               $state.go($state.current, {}, {reload: true});
 
             });
-        }
+        };
   }]);
 
 }());
