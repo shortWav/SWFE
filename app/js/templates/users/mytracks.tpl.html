@@ -1,0 +1,16 @@
+<div class="my-stations">
+  <md-card>
+    <md-card-content>
+    <h5>My Fav Tracks</h5>
+    <ul class="collection">
+      <li ng-repeat="track in tracks">
+        <a href="#/fav-tracks/{{track.objectId}}" class="collection-item">
+          {{track.title}} by {{track.userdata.username}}
+        </a>
+      </li>
+    </ul>
+   <!--  <md-button ng-click="findStation()">Find a New Station</md-button>
+    </md-card-content> -->
+  </md-card>
+  <div ui-view></div>
+</div>

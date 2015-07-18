@@ -200,6 +200,13 @@ md-input-container .ng-binding {
 .ui-view-container {
   height: 200px; }
 
+.single-left {
+  border-right: 1px solid lightgrey;
+  margin-right: 10px; }
+  .single-left img {
+    width: 75%;
+    text-align: center; }
+
 [ui-view].ng-enter, [ui-view].ng-leave {
   position: absolute;
   left: 0;

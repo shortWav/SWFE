@@ -272,6 +272,20 @@ md-input-container{
   height: 200px;
 }
 
+// fav songs
+
+.single-left{
+  border-right: 1px solid lightgrey;
+  margin-right: 10px;
+  img{
+  width: 75%;
+  text-align: center;
+  }
+}
+
+.single-right{
+
+}
 [ui-view].ng-enter, [ui-view].ng-leave {
   position: absolute;
   left: 0;

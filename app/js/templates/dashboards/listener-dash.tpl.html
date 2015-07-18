@@ -73,7 +73,7 @@
                   <md-card-content>
                     <h5>My Favorite Tracks</h5>
                     <ul class="collection" ng-show="hasSongs">
-                    <a ng-repeat="song in songs" class="collection-item" href="#/mystations/{{station.objectId}}">
+                    <a ng-repeat="song in songs" class="collection-item" href="#/fav-tracks/{{song.objectId}}">
                       <li>
 
                         {{song.title}} {{song.userdata.username}}
