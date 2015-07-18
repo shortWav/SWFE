@@ -4,10 +4,18 @@
 
   angular.module('App')
 
-  .controller('StationCtrl', ['$timeout', '$scope', '$http', '$state', 'MusicFactory', 'angularPlayer', '$rootScope', '$mdUtil','$mdSidenav',
+  .controller('StationCtrl', ['$timeout', '$scope', '$http', '$state', 'MusicFactory', 'angularPlayer', '$rootScope', '$mdUtil','$mdSidenav', '$mdToast',
 
-    function($timeout, $scope, $http, $state, MusicFactory, angularPlayer, $rootScope, $mdUtil, $mdSidenav) {
+    function($timeout, $scope, $http, $state, MusicFactory, angularPlayer, $rootScope, $mdUtil, $mdSidenav, $mdToast) {
 
+      $scope.showSimpleToast = function() {
+        $mdToast.show(
+          $mdToast.simple()
+            .content('Simple Toast!')
+            // .position($scope.getToastPosition())
+            .hideDelay(3000)
+        );
+      };
       // nav toggles
       $scope.toggleLeft = buildToggler('left');
       $scope.toggleRight = buildToggler('right');

@@ -135,6 +135,7 @@
             $cookies.put('username', data.username);
         // $cookies.put('email', data.user.email);
 
+
           }).then( function(){
 
             $rootScope.currentUserSignedIn = true;
