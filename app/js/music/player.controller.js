@@ -4,10 +4,11 @@
 
   angular.module('App')
 
-  .controller('PlayerCtrl', ['$scope', 'MusicFactory', '$timeout', 'angularPlayer', '$sce', '$mdUtil','$mdSidenav',
+  .controller('PlayerCtrl', ['$scope', 'MusicFactory', '$timeout', 'angularPlayer', '$sce', '$mdUtil','$mdSidenav', '$rootScope',
 
-   function ($scope, MusicFactory, $timeout, angularPlayer, $sce, $mdUtil, $mdSidenav) {
+   function ($scope, MusicFactory, $timeout, angularPlayer, $sce, $mdUtil, $mdSidenav, $rootScope) {
     // nav toggles
+      $rootScope.loader = false;
       $scope.toggleLeft = buildToggler('left');
       $scope.toggleRight = buildToggler('right');
 
@@ -71,7 +72,7 @@
       }).then($timeout(function(){
         $scope.songs.forEach( function(x){
             angularPlayer.addTrack(x);
-
+            $rootScope.loader = true;
         });
           // then play the bitch
           angularPlayer.play($scope.songs);

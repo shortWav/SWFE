@@ -7,7 +7,7 @@
   .controller('StationCtrl', ['$timeout', '$scope', '$http', '$state', 'MusicFactory', 'angularPlayer', '$rootScope', '$mdUtil','$mdSidenav', '$mdToast',
 
     function($timeout, $scope, $http, $state, MusicFactory, angularPlayer, $rootScope, $mdUtil, $mdSidenav, $mdToast) {
-
+      $rootScope.loader = false;
       $scope.showSimpleToast = function() {
         $mdToast.show(
           $mdToast.simple()
@@ -179,6 +179,7 @@
 
    // load the station of choice
     $scope.loadStation = function(x){
+      $rootScope.loader = false;
       $scope.songs= [];
 
       var genre = x.genre;
@@ -239,7 +240,7 @@
 
          $scope.songs.forEach( function(x){
             angularPlayer.addTrack(x);
-
+            $rootScope.loader= true;
         });
           // then play the bitch
           angularPlayer.play($scope.songs);

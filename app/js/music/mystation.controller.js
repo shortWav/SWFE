@@ -4,9 +4,10 @@
 
   angular.module('App')
 
-  .controller('MyStationCtrl', ['$scope', 'MusicFactory', '$stateParams', '$timeout', 'angularPlayer',
-    function ($scope, MusicFactory, $stateParams, $timeout, angularPlayer) {
+  .controller('MyStationCtrl', ['$scope', 'MusicFactory', '$stateParams', '$timeout', 'angularPlayer', '$rootScope',
+    function ($scope, MusicFactory, $stateParams, $timeout, angularPlayer, $rootScope) {
 
+      $rootScope.loader = false;
 
       function shuffle(array) {
 
@@ -107,7 +108,7 @@
 
            $scope.songs.forEach( function(x){
               angularPlayer.addTrack(x);
-
+              $rootScope.loader = true;
           });
             // then play the bitch
             angularPlayer.play($scope.songs);

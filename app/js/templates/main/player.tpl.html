@@ -1,7 +1,10 @@
     <md-button ng-click="toggleLeft()" class="md-primary" hide-gt-md>
             <i class="fa fa-bars"></i>Menu
   </md-button>
-      <md-card style="min-width: 500px">
+      <div ng-hide="loader" layout="row" layout-sm="column" layout-align="space-around">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </div>
+      <md-card ng-show="loader" style="min-width: 500px">
       <md-card-content>
        <i style="cursor: pointer" onclick="Materialize.toast('Added to Favorites!', 4000)" class="mini material-icons thumbupicon" ng-click="thumbit(currentPlaying)">thumb_up</i>
 

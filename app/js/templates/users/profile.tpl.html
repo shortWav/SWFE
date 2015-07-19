@@ -1,11 +1,18 @@
-<div ng-animate="'view'" class="profile">
-  <md-card>
-    <md-card-content>
-      <h4>{{ user.first }}{{ user.last}}</h4>
-      <h5>{{ user.email }}</h5>
-      <h5>{{ user.username }}</h5>
+<div ng-animate="'view'" class="profile" layout="column">
+<div layout="row" layout-align="center" >
+  <md-card flex="50" >
+
+    <md-card-content >
+      <label for="full-name">Full Name</label>
+
+      <h4 id="full-name">{{ user.first }} {{ user.last}}</h4>
+      <label for="email">Email</label>
+      <h5 id="email">{{ user.email }}</h5>
+      <label for="username">Username</label>
+      <h5 id="username">{{ user.username }}</h5>
 
       <a href="">Edit Profile</a>
     </md-card-content>
   </md-card>
+  </div>
 </div>
