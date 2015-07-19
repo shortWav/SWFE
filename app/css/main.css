@@ -209,7 +209,7 @@ md-input-container .ng-binding {
 .my-stations li {
   position: relative; }
 
-.my-stations .fa {
+.my-stations .fa-minus-square {
   position: absolute;
   right: 50px;
   bottom: 8px; }

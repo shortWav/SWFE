@@ -5,12 +5,12 @@
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
       </div>
       <md-card ng-show="loader" style="min-width: 500px">
-      <md-card-content>
-       <i style="cursor: pointer" onclick="Materialize.toast('Added to Favorites!', 4000)" class="mini material-icons thumbupicon" ng-click="thumbit(currentPlaying)">thumb_up</i>
+        <md-card-content>
 
-        <div class="hi"></div>
+         <i style="cursor: pointer" data-position="bottom" data-delay="50" data-tooltip="Add to favorites" onclick="Materialize.toast('Added to Favorites!', 4000)" class="mini material-icons thumbupicon tooltipped" ng-click="thumbit(currentPlaying)">thumb_up</i>
+          <div class="hi"></div>
 
-          <div layout="row" class="playerholder" layout-wrap>
+            <div layout="row" class="playerholder" layout-wrap>
 
             <!-- Left Side -->
               <div flex="75">
@@ -131,3 +131,8 @@
             </div>
             </md-card-content>
             </md-card>
+            <script>
+            $(document).ready(function(){
+                $('.tooltipped').tooltip({delay: 50});
+              });
+            </script>
