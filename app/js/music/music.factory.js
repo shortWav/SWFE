@@ -51,7 +51,7 @@
       var pause = "pause";
       $('#moon').toggleClass('moon-orbit-animation');
       $('#satellite').toggleClass('satellite-orbit-animation');
-
+      $(".bar").toggleClass("noAnim");
       if (x === true){
         $('#playIcon').text(pause);
 
@@ -84,6 +84,7 @@
       $('#playIcon').text(play);
       $('#moon').removeClass('moon-orbit-animation');
       $('#satellite').removeClass('satellite-orbit-animation');
+       $(".bar").addClass("noAnim");
     };
 
     var favStation = function(station){

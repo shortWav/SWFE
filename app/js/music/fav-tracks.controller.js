@@ -13,7 +13,7 @@
 
             MusicFactory.deleteTrack(thisdel).success(function(){
               if($state.is('fav-tracks')){
-                $state.reload()
+                $state.reload();
               }else{
                 $state.go('fav-tracks');
                 $state.reload();
@@ -40,7 +40,7 @@
       $scope.deleteTrack = function(thisdel) {
 
             MusicFactory.deleteTrack(thisdel).success(function(){
-              $state.go;
+
               // ('fav-tracks');
               $state.reload();
 
