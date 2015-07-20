@@ -192,6 +192,20 @@
 
       };
 
+      var startOauth = function(){
+
+       var clientId = '242a1e223a2af256f37ce3648bb93104';
+       var redirectUri = encodeURIComponent('http://localhost:8000/#/register-artist');
+
+       SC.initialize({
+            client_id: clientId,
+            redirect_uri: redirectUri
+       });
+
+       window.location = 'https://soundcloud.com/connect?response_type=code_and_token&client_id=' + clientId + '&redirect_uri=' + redirectUri;
+
+      };
+
 
 
 
@@ -206,7 +220,8 @@
         _updateToken : _updateToken,
         _successLog : _successLog,
         logOut : logOut,
-        getSingleUser : getSingleUser
+        getSingleUser : getSingleUser,
+        startOauth : startOauth
 
 
       };

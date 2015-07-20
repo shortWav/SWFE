@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('App')
-    .controller('RegisterCtrl', ['$scope', '$http', 'PARSE', 'UsersFactory', '$timeout', '$q', '$log', '$mdUtil','$mdSidenav',
-      function ($scope, $http, PARSE, UsersFactory, $timeout, $q, $log, $mdUtil, $mdSidenav) {
+    .controller('RegisterCtrl', ['$scope', '$http', 'PARSE', 'UsersFactory', '$timeout', '$q', '$log', '$mdUtil','$mdSidenav', '$state',
+      function ($scope, $http, PARSE, UsersFactory, $timeout, $q, $log, $mdUtil, $mdSidenav, $state) {
 
         // nav toggles
       $scope.toggleLeft = buildToggler('left');
@@ -33,6 +33,10 @@
 
         $scope.authenticate = function(provider) {
           $auth.authenticate(provider);
+        };
+
+        $scope.startOauth = function(){
+           UsersFactory.startOauth();
         };
 
 
