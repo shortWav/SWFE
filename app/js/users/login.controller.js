@@ -19,6 +19,10 @@
 
         };
 
+        $scope.resetPassword = function(email){
+          UsersFactory.passwordReset(email);
+        };
+
 
     }]);
 

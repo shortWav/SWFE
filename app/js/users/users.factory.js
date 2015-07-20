@@ -40,10 +40,10 @@
         // this.country = options.country;
         this.city = options.city;
         this.state = options.state;
-        this.username = options.username;
+        // this.username = options.username;
         this.password = options.password;
         this.email = options.email;
-        this.code = options.code;
+
 
 
 
@@ -154,18 +154,36 @@
 
       };
 
+      var startOauth = function(email){
+
+       var clientId = '242a1e223a2af256f37ce3648bb93104';
+       var redirectUri = encodeURIComponent('https://mighty-crag-3152.herokuapp.com/users/oauth');
+       var user_email = encodeURIComponent(email);
+       // SC.initialize({
+       //      client_id: clientId,
+       //      redirect_uri: redirectUri
+       // });
+
+       window.location = 'https://soundcloud.com/connect?response_type=code_and_token&client_id=' + clientId + '&redirect_uri=' + redirectUri + '&state=' + user_email;
+
+      };
+
       // register a new Artist
       var registerArtist = function(user){
+
         var newArtist = new Artist(user);
 
-        $http.post(brit, newArtist)
+        $http.post(brit + 'users', newArtist)
+
         .success(function(data){
           console.log(data);
-
           $cookies.put('id', data.user.id);
           $cookies.put('email', data.user.email);
-          $cookies.put('username', data.user.username);
+          // $cookies.put('username', data.user.username);
           $cookies.put('access_token', data.user.access_token);
+
+          startOauth(data.user.email);
+
         });
       };
 
@@ -201,20 +219,21 @@
 
       };
 
-      var startOauth = function(){
 
-       var clientId = '242a1e223a2af256f37ce3648bb93104';
-       var redirectUri = encodeURIComponent('http://localhost:8000/#/register-artist');
+      var updateListener = function(updates){
 
-       // SC.initialize({
-       //      client_id: clientId,
-       //      redirect_uri: redirectUri
-       // });
 
-       window.location = 'https://soundcloud.com/connect?response_type=code_and_token&client_id=' + clientId + '&redirect_uri=' + redirectUri;
-
+        return $http.put(PARSE.URL + 'users/' + updates.objectId, updates, PARSE.CONFIG);
       };
 
+      var passwordReset = function(email){
+
+        $http.post(PARSE.URL + 'requestPasswordReset', email, PARSE.CONFIG).success(function(){
+
+         logOut();
+        });
+
+      };
 
 
 
@@ -230,7 +249,9 @@
         _successLog : _successLog,
         logOut : logOut,
         getSingleUser : getSingleUser,
-        startOauth : startOauth
+        startOauth : startOauth,
+        updateListener : updateListener,
+        passwordReset : passwordReset
 
 
       };

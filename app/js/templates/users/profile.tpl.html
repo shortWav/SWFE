@@ -1,4 +1,4 @@
-<div ng-animate="'view'" class="profile" layout="column">
+<div ng-animate="'view'" class="profile" layout="column" ui-view>
 <div layout="row" layout-align="center" >
   <md-card flex="50" >
 
@@ -11,7 +11,7 @@
       <label for="username">Username</label>
       <h5 id="username">{{ user.username }}</h5>
 
-      <a href="">Edit Profile</a>
+      <a href="#/home/{{user.objectId}}/edit">Edit Profile</a>
     </md-card-content>
   </md-card>
   </div>

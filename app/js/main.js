@@ -25,7 +25,7 @@
 
       .accentPalette('blue-grey');
 
-    // $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/home');
 
 
 
@@ -38,6 +38,11 @@
       .state('home.username', {
         url: '/:id',
         templateUrl: 'js/templates/users/profile.tpl.html',
+        controller: 'ProfileCtrl'
+      })
+      .state('home.username.edit',{
+        url:'/edit',
+        templateUrl: 'js/templates/users/edit-profile.tpl.html',
         controller: 'ProfileCtrl'
       })
       .state('devs',{
@@ -99,7 +104,18 @@
         url: '/:id',
         templateUrl: 'js/templates/users/single-track.tpl.html',
         controller: 'TrackInfoCtrl'
+      })
+      .state('password',{
+        url: '/reset-password',
+        templateUrl: 'js/templates/users/password-reset.tpl.html',
+        controller: 'LoginCtrl'
+      })
+      .state('password-success', {
+        url:'/success',
+        templateUrl: 'js/templates/users/password-reset-success.tpl.html',
+        controller: 'LoginCtrl'
       });
+
 
   }])
 

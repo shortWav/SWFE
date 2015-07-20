@@ -23,8 +23,8 @@
         <h1 style="font-size: 40px" class="md-toolbar-tools shortWav">shortWav<i class="fa fa-headphones"></i></h1>
       </a>
 
-       <a ng-show="loader" href="#/nowplaying" class="brand-logo center">
-        <span class="currently-playing">Now Playing</span>
+       <a  data-position="right" data-delay="50" data-tooltip="Now Playing" ng-show="loader" href="#/nowplaying" class="brand-logo center tooltipped">
+        <!-- <span class="currently-playing">Now Playing</span> -->
 
         <!-- this equalizer was borrowed from the codepen http://codepen.io/joannaong/pen/olkzh -->
         <div class="bar-c">
@@ -113,7 +113,7 @@
                     <md-button>Sign In</md-button>
                     </div>
                   </form>
-
+                  <a href="#/reset-password">Forgot Password?</a>
                 </div>
               </md-content>
             </md-tab>
