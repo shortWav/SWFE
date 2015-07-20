@@ -13,6 +13,12 @@
 
         };
 
+        $scope.loginArtist = function(artist){
+
+          UsersFactory.loginUserBand(artist);
+
+        };
+
 
     }]);
 

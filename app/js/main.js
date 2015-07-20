@@ -25,7 +25,7 @@
 
       .accentPalette('blue-grey');
 
-    $urlRouterProvider.otherwise('/home');
+    // $urlRouterProvider.otherwise('/home');
 
 
 

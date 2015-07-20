@@ -7,7 +7,7 @@
       '$state', '$mdUtil','$mdSidenav', '$rootScope', '$timeout',
       function ($http, PARSE, $cookies, $state, $mdUtil, $mdSidenav, $rootScope, $timeout) {
 
-
+        var brit = 'https://mighty-crag-3152.herokuapp.com/';
 
 
         // Toggle Right function, to use with login
@@ -36,12 +36,16 @@
       // Artist constructor
 
       var Artist = function(options){
-        this.artist = options.artist_name;
-        this.country = options.country;
+        // this.artist = options.artist_name;
+        // this.country = options.country;
         this.city = options.city;
         this.state = options.state;
         this.username = options.username;
         this.password = options.password;
+        this.email = options.email;
+        this.code = options.code;
+
+
 
       };
 
@@ -85,7 +89,7 @@
           _updateToken(st);
       };
 
-      var loginUserBand = function(){
+      var loginUserBand = function(artist){
 
 
 
@@ -100,16 +104,16 @@
             params: user
           }).success( function (data) {
              $cookies.put('sessionToken', data.sessionToken);
-        $cookies.put('userObjectId', data.objectId);
-        $cookies.put('first', data.first);
-        $cookies.put('last', data.last);
+            $cookies.put('userObjectId', data.objectId);
+            $cookies.put('first', data.first);
+            $cookies.put('last', data.last);
 
-        // $cookies.put('access_token', data.user.access_token);
-        // $cookies.put('first_name', data.user.first_name);
-        // $cookies.put('last_name', data.user.last_name);
-        $cookies.put('username', data.username);
-        // $cookies.put('email', data.user.email);
-              toggleRight();
+            // $cookies.put('access_token', data.user.access_token);
+            // $cookies.put('first_name', data.user.first_name);
+            // $cookies.put('last_name', data.user.last_name);
+            $cookies.put('username', data.username);
+            // $cookies.put('email', data.user.email);
+                  toggleRight();
 
           }).then( function(){
 
@@ -152,15 +156,20 @@
 
       // register a new Artist
       var registerArtist = function(user){
-        // var newArtist = new Artist(user);
+        var newArtist = new Artist(user);
 
-        // $http.post(PARSE.URL + 'users', newArtist, PARSE.CONFIG)
-        // .success(function(data){
-        //   _successLog(data);
+        $http.post(brit, newArtist)
+        .success(function(data){
+          console.log(data);
 
-        // });
+          $cookies.put('id', data.user.id);
+          $cookies.put('email', data.user.email);
+          $cookies.put('username', data.user.username);
+          $cookies.put('access_token', data.user.access_token);
+        });
       };
 
+      // http://localhost:8000/#/register-artist?code=2db5c6501a5e11dbe569bf4543fa2e87
 
 
       // Log out
@@ -197,10 +206,10 @@
        var clientId = '242a1e223a2af256f37ce3648bb93104';
        var redirectUri = encodeURIComponent('http://localhost:8000/#/register-artist');
 
-       SC.initialize({
-            client_id: clientId,
-            redirect_uri: redirectUri
-       });
+       // SC.initialize({
+       //      client_id: clientId,
+       //      redirect_uri: redirectUri
+       // });
 
        window.location = 'https://soundcloud.com/connect?response_type=code_and_token&client_id=' + clientId + '&redirect_uri=' + redirectUri;
 
