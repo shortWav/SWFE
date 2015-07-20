@@ -4,6 +4,7 @@
 
       <div class="single-left" flex="33">
         <img ng-src="{{track.albumArt}}">
+
         <h6>Hear on
             <a href="{{ track.soundcloudLink }}">
               <i class="fa fa-soundcloud"></i>
@@ -15,6 +16,13 @@
         <h5>{{track.title}}</h5>
         <span style="text-align: center;">by</span>
           <a href="{{track.userdata.permalink_url}}"<h6>{{track.userdata.username}}</h6></a>
+
+          <div class="my-stations">
+          <ul>
+          <li>
+          <i ng-click="deleteTrack(track)" class="fa fa-minus-square"></i> </li>
+          </ul>
+          </div>
       </div>
     </md-card-content>
   </md-card>
