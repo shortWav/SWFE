@@ -321,6 +321,9 @@ li {
   overflow: scroll;
   white-space: pre-wrap; }
 
+.deletesingle li {
+  text-decoration: none; }
+
 .animation-rotation {
   height: 600px;
   position: relative;

@@ -7,6 +7,7 @@
         <a href="#/fav-tracks/{{track.objectId}}" class="collection-item">
           {{track.title}} by {{track.userdata.username}}
         </a>
+        <i ng-click="deleteTrack(track)" class="fa fa-minus-square"></i>
       </li>
     </ul>
    <!--  <md-button ng-click="findStation()">Find a New Station</md-button>
