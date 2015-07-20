@@ -5,8 +5,8 @@
   angular.module('App')
 
 
-  .factory('MusicFactory', ['$http', 'PARSE', '$cookies',
-    function ($http, PARSE, $cookies) {
+  .factory('MusicFactory', ['$http', 'PARSE', '$cookies', '$rootScope',
+    function ($http, PARSE, $cookies, $rootScope) {
 
     var endpoint = 'https://api.soundcloud.com/users/14646252/tracks.json?client_id=242a1e223a2af256f37ce3648bb93104';
 
@@ -51,7 +51,7 @@
       var pause = "pause";
       $('#moon').toggleClass('moon-orbit-animation');
       $('#satellite').toggleClass('satellite-orbit-animation');
-
+      $(".bar").toggleClass("noAnim");
       if (x === true){
         $('#playIcon').text(pause);
 
@@ -84,6 +84,7 @@
       $('#playIcon').text(play);
       $('#moon').removeClass('moon-orbit-animation');
       $('#satellite').removeClass('satellite-orbit-animation');
+       $(".bar").addClass("noAnim");
     };
 
     var favStation = function(station){
@@ -168,6 +169,10 @@
           var d = stationsEnd + x.objectId;
           return $http.delete(d, PARSE.CONFIG);
         };
+    var deleteTrack = function(x){
+          var d = songsEnd + x.objectId;
+          return $http.delete(d, PARSE.CONFIG);
+        };
 
     return {
       playRandom : playRandom,
@@ -180,7 +185,7 @@
       favSong : favSong,
       getSongs : getSongs,
       deleteStation : deleteStation,
-
+      deleteTrack : deleteTrack,
       getSongInfo : getSongInfo
 
 
