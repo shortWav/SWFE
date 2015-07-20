@@ -65,6 +65,11 @@
         templateUrl: 'js/templates/main/player.tpl.html',
         controller: 'PlayerCtrl'
       })
+      .state('nowplaying',{
+        url: '/nowplaying',
+        templateUrl: 'js/templates/main/player.tpl.html',
+        controller: 'NowPlayingCtrl'
+      })
       .state('find-station',{
         url:'/find-station',
         templateUrl: 'js/templates/main/station.tpl.html',

@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="css/vendor/normalize.css">
   <link rel="stylesheet" href="css/vendor/angular-material.css">
   <link rel="stylesheet" href="css/vendor/font-awesome.css">
+  <link rel="stylesheet" href="css/vendor/eq.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="http://fonts.googleapis.com/css?family=Philosopher|Monofett|Audiowide" rel="stylesheet">
   <link rel="stylesheet" href="css/vendor/materialize.css">
@@ -21,6 +22,21 @@
       <a href="#/home" class="brand-logo">
         <h1 style="font-size: 40px" class="md-toolbar-tools shortWav">shortWav<i class="fa fa-headphones"></i></h1>
       </a>
+
+       <a ng-show="loader" href="#/nowplaying" class="brand-logo center">
+        <span class="currently-playing">Now Playing</span>
+
+        <!-- this equalizer was borrowed from the codepen http://codepen.io/joannaong/pen/olkzh -->
+        <div class="bar-c">
+          <div id="bar-1" class="bar"></div>
+          <div id="bar-2" class="bar"></div>
+          <div id="bar-3" class="bar"></div>
+          <div id="bar-4" class="bar"></div>
+          <div id="bar-5" class="bar"></div>
+          <div id="bar-6" class="bar"></div>
+        </div>
+      </a>
+
       <ul id="nav-mobile" class="right hide-on-med-and-down">
        <div share-links="Facebook, Twitter" share-title="shortWav Radio" share-square="true"></div>
       </ul>
@@ -184,6 +200,9 @@
   <script src="js/music/stationslist.controller.js"></script>
   <script src="js/music/station.controller.js"></script>
   <script src="js/music/mystation.controller.js"></script>
+
+  <script src="js/music/nowplaying.controller.js"></script>
+
 
   <script src="js/music/fav-tracks.controller.js"></script>
 

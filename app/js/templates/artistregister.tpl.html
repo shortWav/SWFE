@@ -7,15 +7,15 @@
                   <form class="col s12" ng-submit="artistRegister(artist)">
 
                   <!-- Artist Name -->
-                  <div class="row">
+                  <!-- <div class="row">
                     <div class="input-field col s12">
                       <label for="artist_name">Artist Name</label>
                       <input ng-model="artist.artist_name" id="artist_name" type="text" class="validate">
                     </div>
-                  </div>
+                  </div> -->
 
                   <!-- Country -->
-                  <div class="row">
+                 <!--  <div class="row">
                     <div class="input-field col s6">
                       <md-autocomplete flex required
                         ng-model="artist.country"
@@ -38,7 +38,7 @@
                         </div>
                       </md-autocomplete>
                     </div>
-                  </div>
+                  </div> -->
 
                   <!-- City -->
                   <div class="row">
@@ -49,6 +49,13 @@
                       <md-select placeholder="State" ng-model="artist.state">
                         <md-option ng-repeat="state in states" value="{{state.abbrev}}">{{state.abbrev}}</md-option>
                       </md-select>
+                    </div>
+                  </div>
+                   <!-- Email -->
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <label for="artist_email">Email</label>
+                      <input ng-model="artist.email" id="artist_email" type="email" class="validate">
                     </div>
                   </div>
 

@@ -70,8 +70,11 @@
 
 
           $rootScope.currentUserSignedIn = true;
-          $state.go($state.current, {}, {reload: true});
-
+          if($state.is('home')){
+          $state.reload();
+        }else{
+          $state.go('home');
+        }
 
       };
 

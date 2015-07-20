@@ -7,7 +7,7 @@
   .controller('StationCtrl', ['$timeout', '$scope', '$http', '$state', 'MusicFactory', 'angularPlayer', '$rootScope', '$mdUtil','$mdSidenav', '$mdToast',
 
     function($timeout, $scope, $http, $state, MusicFactory, angularPlayer, $rootScope, $mdUtil, $mdSidenav, $mdToast) {
-      $rootScope.loader = false;
+
       $scope.showSimpleToast = function() {
         $mdToast.show(
           $mdToast.simple()
@@ -106,7 +106,7 @@
 
         // Load Tracks function
       $scope.loadTracks = function(x){
-
+         $rootScope.loader = false;
 
         // If no genre is defined, then run this
         if(x === undefined){

@@ -7,8 +7,10 @@
   .controller('PlayerCtrl', ['$scope', 'MusicFactory', '$timeout', 'angularPlayer', '$sce', '$mdUtil','$mdSidenav', '$rootScope',
 
    function ($scope, MusicFactory, $timeout, angularPlayer, $sce, $mdUtil, $mdSidenav, $rootScope) {
+
+
     // nav toggles
-      $rootScope.loader = false;
+
       $scope.toggleLeft = buildToggler('left');
       $scope.toggleRight = buildToggler('right');
 
@@ -60,7 +62,11 @@
         return array;
       }
 
+
+
+    if (angularPlayer.isPlayingStatus() === false){
     MusicFactory.playRandom().success( function(data){
+       $rootScope.loader = false;
 
       shuffle(data);
       $scope.songs = [];
@@ -69,6 +75,7 @@
         $scope.songs.push(new Track(x));
 
       });
+
       }).then($timeout(function(){
         $scope.songs.forEach( function(x){
             angularPlayer.addTrack(x);
@@ -79,6 +86,9 @@
           angularPlayer.repeatToggle();
 
       }, 1000));
+    }else{
+      $scope.currentPlaying = angularPlayer.currentTrackData();
+    }
 
 
       //toggle play pause icon
@@ -102,7 +112,9 @@
  $scope.favIt = function(station){
       MusicFactory.favStation(station);
   };
-
+ $scope.thumbit = function(song){
+      MusicFactory.favSong(song);
+  };
 
 
 
