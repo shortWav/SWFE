@@ -1,0 +1,39 @@
+ <md-card>
+
+
+
+       <md-card-content>
+
+            <div class="row form">
+                <form class="col s12" ng-submit="update(user)">
+                  <h5 id="profileUpdated"></h5>
+                  <!-- First name -->
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input value="user.first" ng-model="user.first"id="first" type="text" class="validate">
+                      <label class="active" for="first_name">First Name</label>
+                    </div>
+                    <!-- Last Name -->
+                    <div class="input-field col s6">
+                      <input value="user.last" ng-model="user.last" id="last_name" type="text" class="validate">
+                      <label class="active" for="last_name">Last Name</label>
+                    </div>
+
+
+                  <!-- Email -->
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input value="user.email" ng-model="user.email" id="email" type="email" class="validate">
+                      <label class="active" for="email">Email</label>
+                    </div>
+                  </div>
+
+                <div class="regbut">
+                <md-button>Update</md-button>
+                </div>
+                </form>
+                <br>
+                <a href="#/reset-password"><md-button>Reset Password</md-button></a>
+              </div>
+              </md-card-content>
+            </md-card>

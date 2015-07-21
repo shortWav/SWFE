@@ -21,7 +21,10 @@
         UsersFactory.logOut();
         $scope.checkUser();
       };
+      $scope.logOutArtist = function(){
+        UsersFactory.logOutArtist();
 
+      };
       // nav toggles
       $scope.toggleLeft = buildToggler('left');
       $scope.toggleRight = buildToggler('right');

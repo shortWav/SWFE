@@ -1,0 +1,97 @@
+
+        <div class="home" layout-wrap ng-controller="ArtistCtrl">
+          <md-button ng-click="toggleLeft()"
+            class="md-primary" hide-gt-md>
+            <i class="fa fa-bars"></i>Menu
+          </md-button>
+          <!-- <div class="home-header">
+            <h1 style="font-size: 40px" class="shortWav">shortWav<i class="fa fa-headphones"></i></h1>
+                <span>
+                  <i class="fa fa-soundcloud"></i>
+                      Powered by Soundcloud
+                </span>
+          </div> -->
+
+          <div flex>
+            <md-card>
+              <md-card-content class="listener-header">
+                <!-- <label for="user-first">Welcome Back,</label> -->
+                <h3 id="user-first" class="user-first">Artist Dash</h3>
+                <!-- <a class="tooltips" href="#/home/{{user.objectId}}"><i class="fa fa-info-circle"></i><span>View User Info</span></a> -->
+               </md-card-content>
+            </md-card>
+          </div>
+
+
+          <div ui-view>
+          <div layout='row' layout-wrap layout-align="center">
+
+              <div flex="50">
+
+                <md-card>
+                  <md-card-content>
+                    <a style="color: white" href="#/mystations"><h5>My Songs</h5></a>
+                    <ul class="collection dash-stations" ng-show="hasSongs">
+                    <a ng-repeat="station in stations" class="collection-item" href="#/mystations/{{station.objectId}}">
+                      <li>
+
+
+
+                      </li>
+                      </a>
+                    </ul>
+                    <p ng-hide="hasSongs">You haven't synced your tracks yet! Sync your tracks to get them some airplay!</p>
+                    <md-button>Sync Tracks</md-button>
+                  </md-card-content>
+                </md-card>
+              </div>
+
+              <div class="middle-icons" flex="40">
+                <md-card>
+                  <a style="color: white" href="#/find-station">
+                  <md-card-content>
+                    <!-- <h5>Tune to a station</h5> -->
+                    <i class="large material-icons">radio</i>
+
+                  </md-card-content>
+                  </a>
+                </md-card>
+
+                <!-- <hr/> -->
+
+                <md-card>
+                <a style="color: white" href="#/player">
+
+                  <md-card-content>
+                <!-- <h5>Listen Now</h5> -->
+                    <i class="large material-icons">settings_input_antenna</i>
+
+                 </md-card-content>
+                 </a>
+                </md-card>
+
+              </div>
+
+           <!--    <div flex="33">
+                <md-card>
+                  <md-card-content>
+                    <a style="color: white" href="#/fav-tracks"><h5>My Favorite Tracks</h5></a>
+                    <ul class="collection dash-songs" ng-show="hasSongs">
+                    <a ng-repeat="song in songs" class="collection-item" href="#/fav-tracks/{{song.objectId}}">
+                      <li>
+
+                        {{song.title}} {{song.userdata.username}}
+
+                      </li>
+                      </a>
+                    </ul>
+                    <p ng-hide="hasSongs">You don't seem to like any tracks</p>
+                  </md-card-content>
+                </md-card>
+              </div> -->
+
+
+          </div>
+
+          </div>
+        </div>

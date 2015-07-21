@@ -7,7 +7,7 @@
       '$state', '$mdUtil','$mdSidenav', '$rootScope', '$timeout',
       function ($http, PARSE, $cookies, $state, $mdUtil, $mdSidenav, $rootScope, $timeout) {
 
-
+        var brit = 'https://mighty-crag-3152.herokuapp.com/';
 
 
         // Toggle Right function, to use with login
@@ -36,12 +36,16 @@
       // Artist constructor
 
       var Artist = function(options){
-        this.artist = options.artist_name;
-        this.country = options.country;
+        // this.artist = options.artist_name;
+        // this.country = options.country;
         this.city = options.city;
         this.state = options.state;
-        this.username = options.username;
+        // this.username = options.username;
         this.password = options.password;
+        this.email = options.email;
+
+
+
 
       };
 
@@ -56,12 +60,22 @@
           }
       };
 
+      var _routeUserArtist = function(at){
+        if(at !== undefined){
+          $rootScope.currentUserArtist = true;
+        }
+      };
+
       // If the cookie is there update the headers
       var _updateToken = function(st){
          if (st !== undefined) {
             PARSE.CONFIG.headers['X-Parse-Session-Token'] = st;
           }
           _routeUser(st);
+      };
+
+      var _updateTokenArtist = function(at){
+        _routeUserArtist(at);
       };
 
 
@@ -78,15 +92,39 @@
 
       };
 
+      var _successLogArtist = function(data){
+        $rootScope.currentUserArtist = true;
+          if($state.is('home')){
+          $state.reload();
+        }else{
+          $state.go('home');
+        }
+      };
 
       // Check to see if user has a cookie
       var checkUser = function(){
           var st = $cookies.get('sessionToken');
+          var at = $cookies.get('access_token');
+          if(st === undefined){
+            _updateTokenArtist(at);
+          }else{
           _updateToken(st);
+        }
       };
 
-      var loginUserBand = function(){
+      var loginUserBand = function(artist){
+        console.log(artist);
+        $http.post(brit + 'users/sign_in', artist)
+        .success( function(){
 
+          $cookies.put('id', data.user.id);
+          $cookies.put('email', data.user.email);
+          // $cookies.put('username', data.user.username);
+          $cookies.put('access_token', data.user.access_token);
+
+        }).then( function(){
+          _successLogArtist();
+        });
 
 
       };
@@ -100,16 +138,16 @@
             params: user
           }).success( function (data) {
              $cookies.put('sessionToken', data.sessionToken);
-        $cookies.put('userObjectId', data.objectId);
-        $cookies.put('first', data.first);
-        $cookies.put('last', data.last);
+            $cookies.put('userObjectId', data.objectId);
+            $cookies.put('first', data.first);
+            $cookies.put('last', data.last);
 
-        // $cookies.put('access_token', data.user.access_token);
-        // $cookies.put('first_name', data.user.first_name);
-        // $cookies.put('last_name', data.user.last_name);
-        $cookies.put('username', data.username);
-        // $cookies.put('email', data.user.email);
-              toggleRight();
+            // $cookies.put('access_token', data.user.access_token);
+            // $cookies.put('first_name', data.user.first_name);
+            // $cookies.put('last_name', data.user.last_name);
+            $cookies.put('username', data.username);
+            // $cookies.put('email', data.user.email);
+                  toggleRight();
 
           }).then( function(){
 
@@ -150,17 +188,40 @@
 
       };
 
-      // register a new Artist
-      var registerArtist = function(user){
-        // var newArtist = new Artist(user);
+      var startOauth = function(email){
 
-        // $http.post(PARSE.URL + 'users', newArtist, PARSE.CONFIG)
-        // .success(function(data){
-        //   _successLog(data);
+       var clientId = '242a1e223a2af256f37ce3648bb93104';
+       var redirectUri = encodeURIComponent('https://mighty-crag-3152.herokuapp.com/users/oauth');
+       var user_email = encodeURIComponent(email);
+       // SC.initialize({
+       //      client_id: clientId,
+       //      redirect_uri: redirectUri
+       // });
 
-        // });
+       window.location = 'https://soundcloud.com/connect?response_type=code_and_token&client_id=' + clientId + '&redirect_uri=' + redirectUri + '&state=' + user_email;
+
       };
 
+      // register a new Artist
+      var registerArtist = function(user){
+
+        var newArtist = new Artist(user);
+
+        $http.post(brit + 'users', newArtist)
+
+        .success(function(data){
+
+          $cookies.put('id', data.user.id);
+          $cookies.put('email', data.user.email);
+          // $cookies.put('username', data.user.username);
+          $cookies.put('access_token', data.user.access_token);
+
+          startOauth(data.user.email);
+
+        });
+      };
+
+      // http://localhost:8000/#/register-artist?code=2db5c6501a5e11dbe569bf4543fa2e87
 
 
       // Log out
@@ -184,6 +245,15 @@
 
       };
 
+      var logOutArtist = function(){
+
+          $cookies.remove('id');
+          $cookies.remove('email');
+          // $cookies.put('username', data.user.username);
+          $cookies.remove('access_token');
+          $rootScope.currentUserArtist= false;
+      };
+
       var getSingleUser = function(username){
 
 
@@ -192,20 +262,25 @@
 
       };
 
-      var startOauth = function(){
 
-       var clientId = '242a1e223a2af256f37ce3648bb93104';
-       var redirectUri = encodeURIComponent('http://localhost:8000/#/register-artist');
+      var updateListener = function(updates){
 
-       SC.initialize({
-            client_id: clientId,
-            redirect_uri: redirectUri
-       });
 
-       window.location = 'https://soundcloud.com/connect?response_type=code_and_token&client_id=' + clientId + '&redirect_uri=' + redirectUri;
+        return $http.put(PARSE.URL + 'users/' + updates.objectId, updates, PARSE.CONFIG);
+      };
+
+      var passwordReset = function(email){
+
+        $http.post(PARSE.URL + 'requestPasswordReset', email, PARSE.CONFIG).success(function(){
+
+         logOut();
+        });
 
       };
 
+      var loadArtist = function(){
+
+      };
 
 
 
@@ -221,7 +296,14 @@
         _successLog : _successLog,
         logOut : logOut,
         getSingleUser : getSingleUser,
-        startOauth : startOauth
+        startOauth : startOauth,
+        updateListener : updateListener,
+        passwordReset : passwordReset,
+        _updateTokenArtist : _updateTokenArtist,
+        _routeUserArtist : _routeUserArtist,
+        loadArtist : loadArtist,
+        logOutArtist : logOutArtist,
+        _successLogArtist : _successLogArtist
 
 
       };

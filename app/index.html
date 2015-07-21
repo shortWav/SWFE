@@ -23,8 +23,8 @@
         <h1 style="font-size: 40px" class="md-toolbar-tools shortWav">shortWav<i class="fa fa-headphones"></i></h1>
       </a>
 
-       <a ng-show="loader" href="#/nowplaying" class="brand-logo center">
-        <span class="currently-playing">Now Playing</span>
+       <a  data-position="right" data-delay="50" data-tooltip="Now Playing" ng-show="loader" href="#/nowplaying" class="brand-logo center tooltipped">
+        <!-- <span class="currently-playing">Now Playing</span> -->
 
         <!-- this equalizer was borrowed from the codepen http://codepen.io/joannaong/pen/olkzh -->
         <div class="bar-c">
@@ -62,9 +62,9 @@
           <!-- Left Side content -->
         </md-content>
           <div id="menuStuff" class="menu-stuff">
-            <default-nav ng-hide="currentUserSignedIn"></default-nav>
+            <default-nav ng-if="!currentUserArtist" ng-hide="currentUserSignedIn"></default-nav>
             <listener-nav ng-show="currentUserSignedIn"></listener-nav>
-            <!-- <artist-nav></artist-nav> -->
+            <artist-nav ng-show="currentUserArtist"></artist-nav>
           </div>
       </md-sidenav>
 
@@ -113,7 +113,7 @@
                     <md-button>Sign In</md-button>
                     </div>
                   </form>
-
+                  <a href="#/reset-password">Forgot Password?</a>
                 </div>
               </md-content>
             </md-tab>
@@ -124,8 +124,8 @@
               <!-- bandslogin -->
                <form ng-submit="loginArtist(user)" ng-controller="LoginCtrl">
                 <div class="input-field col s6">
-                  <input ng-model="user.artist_name" id="artist_name" type="text" class="validate">
-                  <label for="artist_name">Artist</label>
+                  <input ng-model="user.email" id="artist_name" type="text" class="validate">
+                  <label for="artist_name">Email</label>
                 </div>
 
                 <div class="input-field col s12">
@@ -194,6 +194,8 @@
   <script src="js/users/register.controller.js"></script>
 
   <script src="js/users/listener.controller.js"></script>
+
+  <script src="js/users/artist.controller.js"></script>
 
   <script src="js/users/artistregister.controller.js"></script>
   <script src="js/users/login.controller.js"></script>

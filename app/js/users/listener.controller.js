@@ -32,8 +32,8 @@
 
   }])
 
-  .controller('ProfileCtrl', ['$scope', 'UsersFactory', '$stateParams',
-   function ($scope, UsersFactory, $stateParams) {
+  .controller('ProfileCtrl', ['$scope', 'UsersFactory', '$stateParams', '$state',
+   function ($scope, UsersFactory, $stateParams, $state) {
 
       $('.collection-item').removeClass('active');
       $('#myProfile').addClass('active');
@@ -47,6 +47,21 @@
 
 
       });
+
+      $scope.update = function(user){
+          UsersFactory.updateListener(user).success( function(data){
+           $scope.user = data;
+           $state.go('home');
+
+
+      });
+
+      };
+
+      $scope.resetPassword = function(){
+        $state.go('password');
+      };
+
 
 
   }]);

@@ -49,7 +49,9 @@
         };
 
         $scope.startOauth = function(){
-           UsersFactory.startOauth();
+           UsersFactory.startOauth().success( function(){
+            $state.go('register-artist');
+           });
         };
 
 
