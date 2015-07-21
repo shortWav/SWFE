@@ -4,8 +4,8 @@
 
   angular.module('App')
 
-  .controller('ArtistCtrl', ['$scope', 'UsersFactory',
-    function ($scope, UsersFactory) {
+  .controller('ArtistCtrl', ['$scope', 'UsersFactory', '$cookies',
+    function ($scope, UsersFactory, $cookies) {
 
       $('.collection-item').removeClass('active');
       $("#myDash1").addClass('active');
@@ -15,20 +15,13 @@
 
         // $scope.user = cookies;
 
+      var id = $cookies.get('id');
+      UsersFactory.loadArtist(id).success( function(data){
 
-      // UsersFactory.loadArtist().then( function(data){
-      //   console.log(data)
-      // });
+        $scope.user = data.user;
 
+      });
 
-  }])
-  .controller('ArtistProfileCtrl', ['$scope','UsersFactory', '$cookies', '$stateParams', '$state',
-    function ($scope, $cookies, $stateParams, $state) {
-
-
-      var cookies = $cookies.getAll();
-
-      // $scope.
 
   }]);
 

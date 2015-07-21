@@ -75,6 +75,9 @@
       };
 
       var _updateTokenArtist = function(at){
+        if(at !== undefined){
+          PARSE.ARTISTCONFIG.headers['Access-Token'] = at;
+        }
         _routeUserArtist(at);
       };
 
@@ -290,12 +293,23 @@
 
       };
 
-      var loadArtist = function(){
-        var cookies = $cookies.getAll();
-        return cookies;
+      var loadArtist = function(id){
+        // var token = $cookies.get('access_token');
+
+        return $http.get(brit + 'user/'+ id, PARSE.ARTISTCONFIG);
 
       };
 
+      var deleteUser = function(pwd, id){
+
+        return $http.delete(brit + 'user/' + id, pwd.password, PARSE.ARTISTCONFIG)
+        .success(function(){
+
+          logOutArtist();
+
+        });
+
+      };
 
 
       // Declare all the functions
@@ -317,7 +331,8 @@
         _routeUserArtist : _routeUserArtist,
         loadArtist : loadArtist,
         logOutArtist : logOutArtist,
-        _successLogArtist : _successLogArtist
+        _successLogArtist : _successLogArtist,
+        deleteUser : deleteUser
 
 
       };

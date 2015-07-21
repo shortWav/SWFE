@@ -1,0 +1,17 @@
+<div class="delete">
+  <md-card>
+    <md-card-content>
+    <h5>Enter Your Password</h5>
+    <p>To delete your acccount please enter your password</p>
+    <!-- Password -->
+    <form ng-submit="deleteAccount(artist)">
+    <div class="row">
+      <div class="input-field col s6">
+        <label for="password">Password</label>
+        <input ng-model="artist.password" id="password" type="password" class="validate">
+      </div>
+    </div>
+    </form>
+    </md-card-content>
+  </md-card>
+</div>

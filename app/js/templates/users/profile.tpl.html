@@ -3,6 +3,7 @@
   <md-card flex="50" >
 
     <md-card-content >
+    <div ng-hide="currentUserArtist">
       <label for="full-name">Full Name</label>
 
       <h4 id="full-name">{{ user.first }} {{ user.last}}</h4>
@@ -12,6 +13,26 @@
       <h5 id="username">{{ user.username }}</h5>
 
       <a href="#/home/{{user.objectId}}/edit">Edit Profile</a>
+    </div>
+    <div ng-show="currentUserArtist">
+      <label for="email">Email</label>
+      <h5 id="email">{{ user.email }}</h5>
+
+      <label for="city">City</label>
+      <h5 id="city">{{ user.city }}</h5>
+
+      <label for="state">State</label>
+      <h5 id="state">{{ user.state }}</h5>
+
+      <label for="username">Soundcloud Username</label>
+      <h5 id="username">{{ user.username }}</h5>
+
+
+      <md-button class="md-primary md-raised" ng-click="showConfirm($event)" flex flex-md="100">
+      Delete Account
+    </md-button>
+    </div>
+
     </md-card-content>
   </md-card>
   </div>

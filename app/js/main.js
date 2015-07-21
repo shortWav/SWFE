@@ -13,7 +13,14 @@
         'X-Parse-Application-Id' : 'GkMxrPGFdEYhr5shfAMSUNSSKVW2NS25VzJbhlKq',
         'X-Parse-REST-API-Key'  : 'Jn5AheIL8l41LDNXcmZXtmu4wUBclpYUeskKzVFo'
       }
+    },
+    ARTISTURL: 'https://mighty-crag-3152.herokuapp.com/',
+    ARTISTCONFIG:{
+      headers:{
+
+      }
     }
+
   })
    .config(['$mdThemingProvider', '$stateProvider', '$urlRouterProvider',
     function($mdThemingProvider, $stateProvider, $urlRouterProvider) {
@@ -119,6 +126,11 @@
         url:'/my-music',
         templateUrl: 'js/templates/users/artistsongs.tpl.html',
         controller: 'SongsListCtrl'
+      })
+      .state('delete-account',{
+        url:'/delete-account',
+        templateUrl: 'js/templates/users/delete-account.tpl.html',
+        controller: 'ProfileCtrl'
       });
 
 
