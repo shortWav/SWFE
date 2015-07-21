@@ -8,6 +8,12 @@
 
     function ($scope, $timeout, $mdSidenav, $mdUtil, $log, UsersFactory, $state, $rootScope, $cookies, MusicFactory) {
 
+      $('#menuStuff').on('click', 'a', function(){
+        $('a').removeClass('active');
+        $(this).addClass('active');
+
+      });
+
       $scope.id =  $cookies.get('userObjectId');
 
         // log out user

@@ -8,7 +8,8 @@
 
    function ($scope, MusicFactory, $timeout, angularPlayer, $sce, $mdUtil, $mdSidenav, $rootScope) {
 
-
+    $('.collection-item').removeClass('active');
+      $("#myListen").addClass('active');
     // nav toggles
 
       $scope.toggleLeft = buildToggler('left');

@@ -3,8 +3,21 @@
     "use strict";
 
     angular.module('App')
-    .controller('RegisterCtrl', ['$scope', '$http', 'PARSE', 'UsersFactory', '$timeout', '$q', '$log', '$mdUtil','$mdSidenav', '$state',
-      function ($scope, $http, PARSE, UsersFactory, $timeout, $q, $log, $mdUtil, $mdSidenav, $state) {
+    .controller('RegisterCtrl', ['$scope', '$http', 'PARSE', 'UsersFactory', '$timeout', '$q', '$log', '$mdUtil','$mdSidenav', '$state', '$mdDialog',
+      function ($scope, $http, PARSE, UsersFactory, $timeout, $q, $log, $mdUtil, $mdSidenav, $state, $mdDialog) {
+
+        $scope.alert = '';
+  $scope.showAlert = function(ev) {
+    $mdDialog.show(
+      $mdDialog.alert()
+        .parent(angular.element(document.body))
+        .title('Please read the Disclaimer')
+        .content('Disclaimer info, give us your Money now!  you need to read everything we put in here readreadread')
+        .ariaLabel('Alert Dialog Demo')
+        .ok('Got it!')
+        .targetEvent(ev)
+    );
+  };
 
         // nav toggles
       $scope.toggleLeft = buildToggler('left');

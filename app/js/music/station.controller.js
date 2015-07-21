@@ -8,6 +8,11 @@
 
     function($timeout, $scope, $http, $state, MusicFactory, angularPlayer, $rootScope, $mdUtil, $mdSidenav, $mdToast) {
 
+      $('.collection-item').removeClass('active');
+      $("#myFind").addClass('active');
+
+
+
       $scope.showSimpleToast = function() {
         $mdToast.show(
           $mdToast.simple()

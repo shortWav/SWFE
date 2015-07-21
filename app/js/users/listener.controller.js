@@ -6,6 +6,9 @@
   .controller('ListenerCtrl', ['$scope', 'UsersFactory', '$cookies', '$rootScope', 'MusicFactory',
     function ($scope, UsersFactory, $cookies, $rootScope, MusicFactory) {
 
+      $('.collection-item').removeClass('active');
+      $("#myDash").addClass('active');
+
 
       var user = $cookies.get('userObjectId');
       if(user !== undefined){
@@ -31,6 +34,9 @@
 
   .controller('ProfileCtrl', ['$scope', 'UsersFactory', '$stateParams',
    function ($scope, UsersFactory, $stateParams) {
+
+      $('.collection-item').removeClass('active');
+      $('#myProfile').addClass('active');
 
       var id = $stateParams.id;
 

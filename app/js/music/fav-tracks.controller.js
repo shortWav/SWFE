@@ -6,6 +6,10 @@
 
   .controller('FavTracksCtrl', ['$scope', 'MusicFactory', '$state',
     function ($scope, MusicFactory, $state) {
+
+      $('.collection-item').removeClass('active');
+      $("#myFaves").addClass('active');
+
       MusicFactory.getSongs().success( function(data){
         $scope.tracks = data.results;
       });
