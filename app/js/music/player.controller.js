@@ -11,8 +11,11 @@
     $('.collection-item').removeClass('active');
       $("#myListen").addClass('active');
        $("#myListen1").addClass('active');
+
+
     // nav toggles
 
+      $(".bar").removeClass("noAnim");
       $scope.toggleLeft = buildToggler('left');
       $scope.toggleRight = buildToggler('right');
 
@@ -105,15 +108,19 @@
   MusicFactory.toggleMute(x);
 
  };
-
+    // stop button
  $scope.stopIt = function(){
 
   MusicFactory.stopToggle();
 
  };
+
+ // fav station
  $scope.favIt = function(station){
       MusicFactory.favStation(station);
   };
+
+  // fav track
  $scope.thumbit = function(song){
       MusicFactory.favSong(song);
   };
