@@ -1,5 +1,6 @@
-<not-logged ng-hide="currentUserSignedIn"></not-logged>
+<not-logged ng-if="!currentUserArtist" ng-hide="currentUserSignedIn"></not-logged>
 <listener-dash ng-show="currentUserSignedIn"></listener-dash>
+<artist-dash ng-show="currentUserArtist"></artist-dash>
 <div class="meetdev">
         <a href="#/dev"><md-button>Meet the Devs </md-button></a>
 </div>

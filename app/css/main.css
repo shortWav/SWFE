@@ -80,6 +80,7 @@ footer {
   display: inline-block;
   margin: 5px auto; }
   .devpic img {
+    cursor: pointer;
     width: 87%;
     border-radius: 93px; }
   .devpic li {

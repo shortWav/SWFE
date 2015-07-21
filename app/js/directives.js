@@ -22,7 +22,7 @@
 
    .directive('artistNav', [function () {
      return {
-       restrict: 'EA',
+       restrict: 'E',
        templateUrl: 'js/templates/sidebar/artist-nav.tpl.html'
      };
 
@@ -40,6 +40,14 @@
      return {
        restrict: 'E',
        templateUrl: 'js/templates/dashboards/listener-dash.tpl.html'
+     };
+
+
+   }])
+   .directive('artistDash', [function () {
+     return {
+       restrict: 'E',
+       templateUrl: 'js/templates/dashboards/artist-dash.tpl.html'
      };
 
 

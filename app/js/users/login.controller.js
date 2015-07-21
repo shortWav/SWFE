@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('App')
-    .controller('LoginCtrl', ['$scope', 'UsersFactory',
-      function ($scope, UsersFactory) {
+    .controller('LoginCtrl', ['$scope', 'UsersFactory', '$state',
+      function ($scope, UsersFactory, $state) {
 
         $scope.loginListener = function(user){
 
@@ -21,6 +21,8 @@
 
         $scope.resetPassword = function(email){
           UsersFactory.passwordReset(email);
+            $state.go('password-success');
+
         };
 
 

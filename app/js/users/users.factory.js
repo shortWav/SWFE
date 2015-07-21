@@ -60,12 +60,22 @@
           }
       };
 
+      var _routeUserArtist = function(at){
+        if(at !== undefined){
+          $rootScope.currentUserArtist = true;
+        }
+      };
+
       // If the cookie is there update the headers
       var _updateToken = function(st){
          if (st !== undefined) {
             PARSE.CONFIG.headers['X-Parse-Session-Token'] = st;
           }
           _routeUser(st);
+      };
+
+      var _updateTokenArtist = function(at){
+        _routeUserArtist(at);
       };
 
 
@@ -82,15 +92,39 @@
 
       };
 
+      var _successLogArtist = function(data){
+        $rootScope.currentUserArtist = true;
+          if($state.is('home')){
+          $state.reload();
+        }else{
+          $state.go('home');
+        }
+      };
 
       // Check to see if user has a cookie
       var checkUser = function(){
           var st = $cookies.get('sessionToken');
+          var at = $cookies.get('access_token');
+          if(st === undefined){
+            _updateTokenArtist(at);
+          }else{
           _updateToken(st);
+        }
       };
 
       var loginUserBand = function(artist){
+        console.log(artist);
+        $http.post(brit + 'users/sign_in', artist)
+        .success( function(){
 
+          $cookies.put('id', data.user.id);
+          $cookies.put('email', data.user.email);
+          // $cookies.put('username', data.user.username);
+          $cookies.put('access_token', data.user.access_token);
+
+        }).then( function(){
+          _successLogArtist();
+        });
 
 
       };
@@ -176,7 +210,7 @@
         $http.post(brit + 'users', newArtist)
 
         .success(function(data){
-          console.log(data);
+
           $cookies.put('id', data.user.id);
           $cookies.put('email', data.user.email);
           // $cookies.put('username', data.user.username);
@@ -211,6 +245,15 @@
 
       };
 
+      var logOutArtist = function(){
+
+          $cookies.remove('id');
+          $cookies.remove('email');
+          // $cookies.put('username', data.user.username);
+          $cookies.remove('access_token');
+          $rootScope.currentUserArtist= false;
+      };
+
       var getSingleUser = function(username){
 
 
@@ -235,6 +278,10 @@
 
       };
 
+      var loadArtist = function(){
+
+      };
+
 
 
       // Declare all the functions
@@ -251,7 +298,12 @@
         getSingleUser : getSingleUser,
         startOauth : startOauth,
         updateListener : updateListener,
-        passwordReset : passwordReset
+        passwordReset : passwordReset,
+        _updateTokenArtist : _updateTokenArtist,
+        _routeUserArtist : _routeUserArtist,
+        loadArtist : loadArtist,
+        logOutArtist : logOutArtist,
+        _successLogArtist : _successLogArtist
 
 
       };

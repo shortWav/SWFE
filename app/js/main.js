@@ -112,9 +112,15 @@
       })
       .state('password-success', {
         url:'/success',
-        templateUrl: 'js/templates/users/password-reset-success.tpl.html',
+        templateUrl: 'js/templates/users/password-success.tpl.html',
         controller: 'LoginCtrl'
+      })
+      .state('my-music', {
+        url:'/my-music',
+        templateUrl: 'js/templates/users/artistsongs.tpl.html',
+        controller: 'SongsListCtrl'
       });
+
 
 
   }])
