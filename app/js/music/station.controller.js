@@ -10,6 +10,7 @@
 
       $('.collection-item').removeClass('active');
       $("#myFind").addClass('active');
+      $("#myFind1").addClass('active');
 
 
 

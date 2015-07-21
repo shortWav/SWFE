@@ -8,6 +8,8 @@
 
       $('.collection-item').removeClass('active');
       $("#myDash").addClass('active');
+      $("#myDash1").addClass('active');
+
 
 
       var user = $cookies.get('userObjectId');
@@ -32,21 +34,22 @@
 
   }])
 
-  .controller('ProfileCtrl', ['$scope', 'UsersFactory', '$stateParams', '$state',
-   function ($scope, UsersFactory, $stateParams, $state) {
+  .controller('ProfileCtrl', ['$scope', 'UsersFactory', '$stateParams', '$state','$rootScope',
+   function ($scope, UsersFactory, $stateParams, $state, $rootScope) {
 
       $('.collection-item').removeClass('active');
       $('#myProfile').addClass('active');
 
       var id = $stateParams.id;
 
-
+      if($rootScope.currentUserSignedIn === true){
       UsersFactory.getSingleUser(id).success( function(data){
 
          $scope.user= data;
 
 
       });
+    }
 
       $scope.update = function(user){
           UsersFactory.updateListener(user).success( function(data){

@@ -17,6 +17,7 @@ h4{
 h5{
   font-family: 'Audiowide', cursive;
 }
+
 footer{
   text-align: center;
   height: 50px;
@@ -202,7 +203,9 @@ md-input-container{
   .collection-item{
     background-color: black;
     border-radius: 5px;
+
   }
+
 }
 .cust-button{
   font-family: 'Monofett', cursive;
@@ -219,6 +222,11 @@ md-input-container{
   visibility: hidden;
 }
 
+
+.collection .collection-item.active {
+  background-color: #3C4D52;
+  color: #eafaf9;
+}
 
 // station search
 .station-search{

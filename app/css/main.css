@@ -172,6 +172,10 @@ md-input-container .ng-binding {
 .logOutButton {
   visibility: hidden; }
 
+.collection .collection-item.active {
+  background-color: #3C4D52;
+  color: #eafaf9; }
+
 .station-search {
   position: relative; }
 

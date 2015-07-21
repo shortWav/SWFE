@@ -113,15 +113,17 @@
       };
 
       var loginUserBand = function(artist){
-        console.log(artist);
-        $http.post(brit + 'users/sign_in', artist)
-        .success( function(){
 
+        $http.post(brit + 'users/sign_in', artist)
+        .success( function(data){
+          console.log(data);
           $cookies.put('id', data.user.id);
           $cookies.put('email', data.user.email);
+          $cookies.put('city', data.user.city);
+          $cookies.put('username', data.user.username);
           // $cookies.put('username', data.user.username);
           $cookies.put('access_token', data.user.access_token);
-
+           toggleRight();
         }).then( function(){
           _successLogArtist();
         });
@@ -238,7 +240,11 @@
               PARSE.CONFIG.headers['X-Parse-Session-Token'] = '';
         // $rootScope.currentUser.name = data.name;
 
-              $state.go('home');
+              if($state.is('home')){
+                $state.reload();
+              }else{
+                $state.go('home');
+              }
             }
           );
 
@@ -249,9 +255,15 @@
 
           $cookies.remove('id');
           $cookies.remove('email');
-          // $cookies.put('username', data.user.username);
           $cookies.remove('access_token');
+          $cookies.remove('city');
+          $cookies.remove('username');
           $rootScope.currentUserArtist= false;
+          if($state.is('home')){
+          $state.reload();
+        }else{
+          $state.go('home');
+        }
       };
 
       var getSingleUser = function(username){
@@ -279,6 +291,8 @@
       };
 
       var loadArtist = function(){
+        var cookies = $cookies.getAll();
+        return cookies;
 
       };
 

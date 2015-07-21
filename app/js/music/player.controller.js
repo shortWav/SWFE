@@ -10,6 +10,7 @@
 
     $('.collection-item').removeClass('active');
       $("#myListen").addClass('active');
+       $("#myListen1").addClass('active');
     // nav toggles
 
       $scope.toggleLeft = buildToggler('left');
