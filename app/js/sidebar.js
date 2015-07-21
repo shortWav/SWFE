@@ -77,8 +77,8 @@
         description: 'Back End Developer',
         picture: '/images/tyler.jpeg',
         github: 'https://github.com/TK2Day',
-        email: 'something@gmail.com',
-        linkedin: 'got no shit here'
+        email: 'Tk1Day@gmail.com',
+        linkedin: 'https://www.linkedin.com/profile/view?id=435828001'
       }
       ];
 
