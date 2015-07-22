@@ -12,7 +12,7 @@
       $mdDialog.alert()
         .parent(angular.element(document.body))
         .title('Please read the Disclaimer')
-        .content('Disclaimer info, give us your Money now!  you need to read everything we put in here readreadread')
+        .content('shortWav disclaims any and all responsibility or liability for any harm resulting from your use of shortWav or any External Services.')
         .ariaLabel('Alert Dialog Demo')
         .ok('Got it!')
         .targetEvent(ev)
