@@ -346,6 +346,14 @@ li {
 .deletesingle li {
   text-decoration: none; }
 
+@media screen and (max-width: 800px) {
+  .animation-rotation {
+    visibility: hidden; } }
+
+@media screen and (max-width: 1000px) {
+  .bar-c {
+    margin-left: 500px; } }
+
 .animation-rotation {
   height: 600px;
   position: relative;

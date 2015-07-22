@@ -66,10 +66,7 @@
 
       };
 
-      $scope.deleteAccount = function(artist){
-        var id = $cookies.get('id');
-        UsersFactory.deleteUser(artist, id);
-      };
+
 
       $scope.resetPassword = function(){
         $state.go('password');

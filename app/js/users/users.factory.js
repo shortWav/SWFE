@@ -296,19 +296,29 @@
       var loadArtist = function(id){
         // var token = $cookies.get('access_token');
 
-        return $http.get(brit + 'user/'+ id, PARSE.ARTISTCONFIG);
+        return $http.get(brit + 'user/'+ id);
 
       };
 
       var deleteUser = function(pwd, id){
 
-        return $http.delete(brit + 'user/' + id, pwd.password, PARSE.ARTISTCONFIG)
+       $http.delete(brit + 'user/' + id, PARSE.ARTISTCONFIG)
         .success(function(){
 
           logOutArtist();
 
         });
 
+      };
+
+      var syncTracks = function(id){
+
+        $http.post(brit + 'user/' + id + '/sync', {}, PARSE.ARTISTCONFIG);
+
+      };
+
+      var getArtistTracks = function(id){
+        return $http.get(brit + 'user/' + id + '/tracks', PARSE.ARTISTCONFIG);
       };
 
 
@@ -332,10 +342,13 @@
         loadArtist : loadArtist,
         logOutArtist : logOutArtist,
         _successLogArtist : _successLogArtist,
-        deleteUser : deleteUser
+        deleteUser : deleteUser,
+        syncTracks : syncTracks,
+        getArtistTracks : getArtistTracks
 
 
       };
+
     }]);
 
 }());

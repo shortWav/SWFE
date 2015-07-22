@@ -130,7 +130,7 @@
       .state('delete-account',{
         url:'/delete-account',
         templateUrl: 'js/templates/users/delete-account.tpl.html',
-        controller: 'ProfileCtrl'
+        controller: 'ArtistCtrl'
       });
 
 
