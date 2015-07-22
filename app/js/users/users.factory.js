@@ -313,12 +313,12 @@
 
       var syncTracks = function(id){
 
-        $http.post(brit + 'user/' + id + '/sync', {}, PARSE.ARTISTCONFIG);
+        return $http.post(brit + 'user/' + id + '/sync', {}, PARSE.ARTISTCONFIG);
 
       };
 
       var getArtistTracks = function(id){
-        return $http.get(brit + 'user/' + id + '/tracks', PARSE.ARTISTCONFIG);
+        return $http.get(brit + 'user/' + id + '/tracks');
       };
 
 

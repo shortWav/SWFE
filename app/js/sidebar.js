@@ -13,9 +13,11 @@
         $(this).addClass('active');
 
       });
+
+
       if($rootScope.currentUserSignedIn === true){
       $scope.id =  $cookies.get('userObjectId');
-      }else if($rootScope.currentUserArtist === true){
+      }else {
       $scope.id = $cookies.get('id');
         // log out user
       }
