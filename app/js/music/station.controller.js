@@ -186,7 +186,30 @@
 
         });
       }else{
-        $scope.genre = $scope.city[c];
+
+        var selectedCity, selectedState;
+
+          selectedCity = c || '';
+          selectedState = s || '';
+
+
+         var params = {
+              city: selectedCity.city,
+              state: selectedState.states,
+              genre: ''
+
+            };
+
+        MusicFactory.searchStations(params).success( function(data){
+
+          var genres = [];
+
+          data.forEach( function(song){
+            genres.push(song.genre);
+
+          });
+          $scope.genre = _.uniq(genres);
+        });
       }
 
     };
@@ -230,18 +253,24 @@
 
    };
 
-   $scope.loadStation = function(s, c){
+   $scope.loadStation = function(s, c, g){
 
-      var sCity = c.city;
-      var sState = s.states;
+    var selectedCity, selectedState, selectedGenre;
 
-      var params = {
-        city: sCity,
-        state: sState,
+      selectedCity = c || '';
+      selectedState = s || '';
+      selectedGenre = g || '';
+
+
+    var params = {
+        city: selectedCity.city,
+        state: selectedState.states,
+        genre: selectedGenre.genre
 
       };
 
       MusicFactory.searchStations(params).success( function(data){
+
        // show preloader
        $rootScope.loader = false;
 
@@ -355,14 +384,15 @@
       MusicFactory.favSong(song);
     };
     // fav a station
-    $scope.favIt = function(s, c){
-      var sCity = c.city;
-      var sState = s.states;
+    $scope.favIt = function(s, c, g){
+      var sCity = c || '';
+      var sState = s || '';
+      var sGenre = g || '';
 
       var params = {
-        city: sCity,
-        state: sState,
-
+        city: sCity.city,
+        state: sState.states,
+        genre: sGenre.genre
       };
       MusicFactory.favStation(params);
     };

@@ -11,7 +11,7 @@
     <div layout="row" style="height: 100px;">
 
 
-      <form ng-submit="loadStation(s,c)">
+      <form ng-submit="loadStation(s,c,g)">
 
     <div layout="row">
         <!-- Select genre/ need to change to country -->
@@ -46,7 +46,7 @@
 
     <div layout="row">
 
-      <md-select ng-model="g.genre" md-on-open="loadGenres(s.states, c.city)"  style="min-width: 200px;">
+      <md-select ng-model="g.genre" md-on-open="loadGenres(s, c)"  style="min-width: 200px;">
 
           <md-select-label>{{ g ? g.genre : 'Select Genre' }}</md-select-label>
 
@@ -54,13 +54,13 @@
           </md-option>
 
         </md-select>
-        <md-button class="md-mini md-primary" clear-playlist>Start Station</md-button>
+        <md-button class="md-mini md-primary" clear-playlist >Start Station</md-button>
 
     </div>
 
       </form>
 
-      <i  ng-show="currentUserSignedIn"  onclick="Materialize.toast('Station Added!', 4000)" class="small material-icons favmusicicon tooltipped" ng-click="favIt(s,c)" data-position="top" data-delay="50" data-tooltip="Save Station">library_add</i>
+      <i  ng-show="currentUserSignedIn"  onclick="Materialize.toast('Station Added!', 4000)" class="small material-icons favmusicicon tooltipped" ng-click="favIt(s, c, g)" data-position="top" data-delay="50" data-tooltip="Save Station">library_add</i>
     </div>
 
   </div>

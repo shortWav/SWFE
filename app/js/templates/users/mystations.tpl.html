@@ -2,13 +2,12 @@
   <md-card>
     <md-card-content>
     <h5>My Stations</h5>
-    <div>
+    <div id="stationsList" >
     <ul class="collection" >
       <li ng-repeat="station in stations">
-        <a href="#/mystations/{{station.objectId}}" class="collection-item">
-          {{station.city}},
-          {{station.state}}
+        <a clear-playlist href="#/mystations/{{station.objectId}}" class="collection-item">
 
+          {{station.city}} {{station.state}} {{station.genre}}
         </a>
         <i ng-click="deleteStation(station)" class="fa fa-minus-square"></i>
       </li>

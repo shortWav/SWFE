@@ -6,9 +6,16 @@
   .controller('StationsList', ['$scope', 'MusicFactory', '$state',
     function ($scope, MusicFactory, $state) {
 
+
+
       $('.collection-item').removeClass('active');
       $("#myStations").addClass('active');
 
+      $('#stationsList').on('click', 'a', function(){
+        $('a').removeClass('active');
+        $(this).addClass('active');
+
+      });
 
       MusicFactory.getStations().success( function(data){
 

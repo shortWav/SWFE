@@ -35,7 +35,7 @@
                     <a ng-repeat="station in stations" class="collection-item" href="#/mystations/{{station.objectId}}">
                       <li>
 
-                        {{station.city}}, {{station.state}}
+                        {{station.city}} {{station.state}} {{station.genre}}
 
                       </li>
                       </a>
@@ -79,7 +79,9 @@
                     <a ng-repeat="song in songs" class="collection-item" href="#/fav-tracks/{{song.objectId}}">
                       <li>
 
-                        {{song.title}} {{song.userdata.username}}
+                        {{song.title}}
+                        </br>
+                        {{song.artist.artist_name}}
 
                       </li>
                       </a>

@@ -4,8 +4,8 @@
     <h5>My Fav Tracks</h5>
     <ul class="collection">
       <li ng-repeat="track in tracks">
-        <a href="#/fav-tracks/{{track.objectId}}" class="collection-item">
-          {{track.title}} by {{track.userdata.username}}
+        <a href="#/fav-tracks/{{track.objectId}}" style="font-size:20px " class="collection-item">
+          {{track.title}} <span style="font-size: 12px"> by </span> {{track.artist.artist_name}}
         </a>
         <i ng-click="deleteTrack(track)" class="fa fa-minus-square"></i>
       </li>

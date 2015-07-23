@@ -10,15 +10,17 @@
 
     var endpoint = 'https://api.soundcloud.com/users/14646252/tracks.json?client_id=242a1e223a2af256f37ce3648bb93104';
 
-    var stationsEnd = PARSE.URL + 'classes/Stations_test1/';
+    var stationsEnd = PARSE.URL + 'classes/Stations_test2/';
 
     var songsEnd = PARSE.URL + 'classes/Songs_test2/';
 
     var Station = function(options){
       this.city = options.city;
       this.state = options.state;
+      this.genre = options.genre;
       this.user = options.user;
       this.ACL = options.ACL;
+
 
     };
 

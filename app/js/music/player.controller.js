@@ -12,6 +12,11 @@
       $("#myListen").addClass('active');
        $("#myListen1").addClass('active');
 
+     $('#menuStuff').on('click', 'a', function(){
+        $('a').removeClass('active');
+        $(this).addClass('active');
+
+      });
 
     // nav toggles
 
@@ -73,6 +78,7 @@
 
     if (angularPlayer.isPlayingStatus() === false){
     MusicFactory.playRandom().success( function(data){
+
       // show preloader
        $rootScope.loader = false;
 

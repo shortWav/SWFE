@@ -9,6 +9,7 @@
 
       $rootScope.loader = false;
 
+
       function shuffle(array) {
 
         // delcare some variables
@@ -49,19 +50,22 @@
 
       var stationId = $stateParams.id;
       MusicFactory.playMyStation(stationId).success( function(data){
+
         $scope.songs= [];
 
        var sCity = data.city;
       var sState = data.state;
+      var sGenre = data.genre || '';
 
       var params = {
         city: sCity,
         state: sState,
-
+        genre: sGenre
       };
 
 
       MusicFactory.searchStations(params).success( function(data){
+
        // show preloader
        $rootScope.loader = false;
 
