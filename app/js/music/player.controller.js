@@ -68,12 +68,16 @@
       }
 
 
+      // if theres not a song currently playing
 
     if (angularPlayer.isPlayingStatus() === false){
     MusicFactory.playRandom().success( function(data){
+      // show preloader
        $rootScope.loader = false;
 
+       // shuffle data
       shuffle(data);
+
       $scope.songs = [];
       data.forEach( function(x){
 
@@ -84,13 +88,18 @@
       }).then($timeout(function(){
         $scope.songs.forEach( function(x){
             angularPlayer.addTrack(x);
-            $rootScope.loader = true;
+
         });
+
+        $rootScope.loader = true;
           // then play the bitch
           angularPlayer.play($scope.songs);
           angularPlayer.repeatToggle();
-
+          console.log($scope.playlist);
+          console.log($scope.songs);
+          console.log($scope.currentPlaying);
       }, 1000));
+
     }else{
       $scope.currentPlaying = angularPlayer.currentTrackData();
     }

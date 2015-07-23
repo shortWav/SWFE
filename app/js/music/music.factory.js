@@ -174,6 +174,13 @@
           return $http.delete(d, PARSE.CONFIG);
         };
 
+    var loadParams = function(){
+      return $http.get(PARSE.ARTISTURL + '/tracks/completion');
+    };
+
+    var citySearch = function(s){
+
+    };
     return {
       playRandom : playRandom,
       togglePlay : togglePlay,
@@ -186,7 +193,9 @@
       getSongs : getSongs,
       deleteStation : deleteStation,
       deleteTrack : deleteTrack,
-      getSongInfo : getSongInfo
+      getSongInfo : getSongInfo,
+      loadParams : loadParams,
+      citySearch : citySearch
 
 
     };
