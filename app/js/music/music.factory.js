@@ -40,7 +40,7 @@
       // Get random track from the list and play it.
     var playRandom = function(){
 
-    return $http.get(endpoint);
+    return $http.get(PARSE.ARTISTURL + 'tracks');
 
     };
 

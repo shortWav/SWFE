@@ -34,7 +34,7 @@
       var Track = function(options){
         this.title = options.title;
         this.userdata = options.user;
-        this.id = options.id;
+        this.id = options.soundcloud_id;
         this.genre = options.genre;
         this.albumArt= options.artwork_url;
         this.description = options.description;
