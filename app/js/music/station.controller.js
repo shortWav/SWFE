@@ -37,7 +37,7 @@
 
 
       // track index
-      var endpoint = 'https://api.soundcloud.com/users/14646252/tracks.json?client_id=242a1e223a2af256f37ce3648bb93104';
+      // var endpoint = 'https://api.soundcloud.com/users/14646252/tracks.json?client_id=242a1e223a2af256f37ce3648bb93104';
 
         // prototype that makes all first letters in strings capitalized
       Array.prototype.upperCaseThis = function(){
@@ -80,84 +80,132 @@
 
 
 
-         // Load genres function
-      $scope.loadGenres = function() {
-        // Use timeout to simulate a 650ms request.
+      //    // Load genres function
+      // $scope.loadGenres = function() {
+      //   // Use timeout to simulate a 650ms request.
 
-        return $timeout(function() {
-          $http.get(endpoint)
-            .success( function(data){
-              data.forEach( function(x){
+      //   return $timeout(function() {
+      //     $http.get(endpoint)
+      //       .success( function(data){
+      //         data.forEach( function(x){
 
-                // push to first array
-                $scope.genres.push(x.genre.toLowerCase());
+      //           // push to first array
+      //           $scope.genres.push(x.genre.toLowerCase());
 
-              });
+      //         });
 
-            }).then(function(x){
-              // capitalize all genres
-              $scope.genres.upperCaseThis();
-              // alphabetize
-              $scope.genres.sort();
-              //get rid of doubles
-              $scope.genre = _.uniq($scope.genres);
+      //       }).then(function(x){
+      //         // capitalize all genres
+      //         $scope.genres.upperCaseThis();
+      //         // alphabetize
+      //         $scope.genres.sort();
+      //         //get rid of doubles
+      //         $scope.genre = _.uniq($scope.genres);
 
-            });
+      //       });
 
-          }, 650);
+      //     }, 650);
 
-        };
+      //   };
 
 
 
         // Load Tracks function
-      $scope.loadTracks = function(x){
-         $rootScope.loader = false;
+    //   $scope.loadTracks = function(x){
+    //      $rootScope.loader = false;
 
-        // If no genre is defined, then run this
-        if(x === undefined){
+    //     // If no genre is defined, then run this
+    //     if(x === undefined){
 
-          $scope.genreSongs = [];
+    //       $scope.genreSongs = [];
 
-          $http.get(endpoint).success( function(data){
-            $scope.genreSongs = data.map( function(x){
-              return x;
-            });
-          });
+    //       $http.get(endpoint).success( function(data){
+    //         $scope.genreSongs = data.map( function(x){
+    //           return x;
+    //         });
+    //       });
 
-          return $scope.genreSongs;
+    //       return $scope.genreSongs;
 
 
-          // if theres a genre then do this
-        }else{
+    //       // if theres a genre then do this
+    //     }else{
 
-          var selectedGenre = x.genre.toLowerCase();
+    //       var selectedGenre = x.genre.toLowerCase();
 
-          $http.get(endpoint).success( function(data){
+    //       $http.get(endpoint).success( function(data){
 
-            $scope.genreSongs = data.filter( function(item){
-              return item.genre.toLowerCase() === selectedGenre;
+    //         $scope.genreSongs = data.filter( function(item){
+    //           return item.genre.toLowerCase() === selectedGenre;
 
-            });
+    //         });
 
-           return $scope.genreSongs;
+    //        return $scope.genreSongs;
+
+    //     });
+    //   }
+
+    // };
+
+    $scope.loadStates = function(){
+
+      return $timeout( function(){
+
+        MusicFactory.loadParams().success( function(data){
+
+
+        $scope.states = data.states;
 
         });
+      $rootScope.stateSelected = true;
+      }, 650);
+
+
+    };
+
+    $scope.loadCities = function(s){
+
+
+      return $timeout( function(){
+
+
+          var selectedState = s;
+
+          $scope.city = $scope.states[selectedState];
+
+
+      }, 650);
+
+    };
+
+    $scope.loadGenres = function(s,c){
+
+      if (s === undefined){
+        MusicFactory.loadParams().success( function(data){
+          $scope.genre = data.genres;
+
+        });
+      }else{
+        $scope.genre = $scope.city[c];
       }
 
     };
-        // Track constructor
+
+
+
+     // Track constructor
       var Track = function(options){
         this.title = options.title;
-        this.userdata = options.user;
-        this.id = options.id;
+        this.artist = options.artist;
+        this.id = options.soundcloud_id;
         this.genre = options.genre;
         this.albumArt= options.artwork_url;
         this.description = options.description;
         this.license= options.license;
         this.soundcloudLink = options.permalink_url;
         this.wavePic = options.wavform_url;
-        this.url = options.stream_url + '?client_id=242a1e223a2af256f37ce3648bb93104';
+        this.url = options.stream_url + '?client_id='+ clientId;
+        this.location = options.location;
       };
 
 
@@ -182,90 +230,141 @@
 
    };
 
+   $scope.loadStation = function(s, c){
 
-   // load the station of choice
-    $scope.loadStation = function(x){
-      $rootScope.loader = false;
-      $scope.songs= [];
+      var sCity = c.city;
+      var sState = s.states;
 
-      var genre = x.genre;
+      var params = {
+        city: sCity,
+        state: sState,
 
+      };
 
-      var song = x.songs;
+      MusicFactory.searchStations(params).success( function(data){
+       // show preloader
+       $rootScope.loader = false;
 
+       // shuffle data
+      shuffle(data);
 
-      MusicFactory.playRandom().success( function(data){
+      $scope.songs = [];
+      data.forEach( function(x){
 
-        // filter the stuff based on inputs
-        var filtered = data.filter( function(track){
+        $scope.songs.push(new Track(x));
 
+      });
 
-          // if second param is undefined
-
-          if(song === undefined){
-
-            if( track.genre.toLowerCase().indexOf(genre.toLowerCase())  !== -1 )
-
-          return track;
-
-
-        // if first param is undefined
-
-        } else if(genre === undefined){
-
-          if( track.title.indexOf(song) !== -1 )
-
-          return track;
-
-
-        // or if they selected both
-
-        }else{
-
-
-           if( track.genre.toLowerCase().indexOf(genre.toLowerCase())  !== -1 &&
-            track.title.indexOf(song) !== -1)
-
-            return track;
-        }
-
-        });
-
-        shuffle(filtered);
-
-        filtered.forEach( function(x){
-          $scope.songs.push(new Track(x));
-
-        });
-
-
-
-
-
-        }).then($timeout(function(){
-
-         $scope.songs.forEach( function(x){
+      }).then($timeout(function(){
+        $scope.songs.forEach( function(x){
             angularPlayer.addTrack(x);
-            $rootScope.loader= true;
+
         });
+
+        $rootScope.loader = true;
           // then play the bitch
           angularPlayer.play($scope.songs);
           angularPlayer.repeatToggle();
 
       }, 1000));
 
-        // show the radio
-      $state.go('find-station.radio');
+       $state.go('find-station.radio');
 
 
     };
+
+
+   // load the station of choice
+    // $scope.loadStation = function(x){
+    //   $rootScope.loader = false;
+    //   $scope.songs= [];
+
+    //   var genre = x.genre;
+
+
+    //   var song = x.songs;
+
+
+    //   MusicFactory.playRandom().success( function(data){
+
+    //     // filter the stuff based on inputs
+    //     var filtered = data.filter( function(track){
+
+
+    //       // if second param is undefined
+
+    //       if(song === undefined){
+
+    //         if( track.genre.toLowerCase().indexOf(genre.toLowerCase())  !== -1 )
+
+    //       return track;
+
+
+    //     // if first param is undefined
+
+    //     } else if(genre === undefined){
+
+    //       if( track.title.indexOf(song) !== -1 )
+
+    //       return track;
+
+
+    //     // or if they selected both
+
+    //     }else{
+
+
+    //        if( track.genre.toLowerCase().indexOf(genre.toLowerCase())  !== -1 &&
+    //         track.title.indexOf(song) !== -1)
+
+    //         return track;
+    //     }
+
+    //     });
+
+    //     shuffle(filtered);
+
+    //     filtered.forEach( function(x){
+    //       $scope.songs.push(new Track(x));
+
+    //     });
+
+
+
+
+
+    //     }).then($timeout(function(){
+
+    //      $scope.songs.forEach( function(x){
+    //         angularPlayer.addTrack(x);
+    //         $rootScope.loader= true;
+    //     });
+    //       // then play the bitch
+    //       angularPlayer.play($scope.songs);
+    //       angularPlayer.repeatToggle();
+
+    //   }, 1000));
+
+    //     // show the radio
+    //   $state.go('find-station.radio');
+
+
+    // };
     //fav a song
     $scope.thumbit = function(song){
       MusicFactory.favSong(song);
     };
     // fav a station
-    $scope.favIt = function(station){
-      MusicFactory.favStation(station);
+    $scope.favIt = function(s, c){
+      var sCity = c.city;
+      var sState = s.states;
+
+      var params = {
+        city: sCity,
+        state: sState,
+
+      };
+      MusicFactory.favStation(params);
     };
 
   }]);

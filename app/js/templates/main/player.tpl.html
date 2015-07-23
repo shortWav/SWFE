@@ -18,7 +18,12 @@
                 <sound-manager></sound-manager>
                   <div class="playpage">
                     <p>
-                        <h5>{{ currentPlaying.title }}</h5> <h6 style='font-size: 10px'> by </h6>{{ currentPlaying.userdata.username }}
+                        <h5>{{ currentPlaying.title }}</h5>
+                          <span>by</span>
+                        <h6 style='font-size: 20px'>
+                        {{ currentPlaying.artist.artist_name }}
+                        </h6>
+                        <span style='font-size: 10px'>from {{ currentPlaying.location.city }}, {{ currentPlaying.location.state }}</span>
 
                     </p>
 
@@ -83,7 +88,7 @@
 
                    <div class="avatar-holder">
                       <div class="avatar">
-                      <img ng-src="{{currentPlaying.userdata.avatar_url}}">
+                      <img ng-src="{{currentPlaying.artist.avatar_url}}">
                       </div>
                       <div class="albumart">
                         <img ng-src="{{ currentPlaying.albumArt }}">
@@ -92,9 +97,11 @@
 
 
 
-                 <h5> {{ currentPlaying.userdata.username }}</h5>
+                 <h5> {{ currentPlaying.artist.artist_name }}</h5>
+                  <span style='font-size: 12px'>{{ currentPlaying.location.city }}, {{ currentPlaying.location.state }}</span>
                   <div class="playtitle">
-                  {{ currentPlaying.title }}
+                  <h6>{{ currentPlaying.title }}</h6>
+
                   </div>
                   <div class="description">
                   <p>{{ currentPlaying.description}}</p>

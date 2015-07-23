@@ -32,9 +32,9 @@
                   <md-card-content>
                     <a style="color: white" href="#/mystations"><h5>My Songs</h5></a>
                     <ul class="collection dash-stations" ng-show="hasSongs">
-                    <a ng-repeat="station in stations" class="collection-item" href="#/mystations/{{station.objectId}}">
+                    <a ng-repeat="t in tracks" class="collection-item" href="#/mystations/{{station.objectId}}">
                       <li>
-
+                        {{t.title}}
 
 
                       </li>

@@ -6,8 +6,8 @@
     <ul class="collection" >
       <li ng-repeat="station in stations">
         <a href="#/mystations/{{station.objectId}}" class="collection-item">
-          {{station.title}}
-          {{station.genre}}
+          {{station.city}},
+          {{station.state}}
 
         </a>
         <i ng-click="deleteStation(station)" class="fa fa-minus-square"></i>

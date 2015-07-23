@@ -10,13 +10,13 @@
 
     var endpoint = 'https://api.soundcloud.com/users/14646252/tracks.json?client_id=242a1e223a2af256f37ce3648bb93104';
 
-    var stationsEnd = PARSE.URL + 'classes/Stations_test/';
+    var stationsEnd = PARSE.URL + 'classes/Stations_test1/';
 
-    var songsEnd = PARSE.URL + 'classes/Songs_test1/';
+    var songsEnd = PARSE.URL + 'classes/Songs_test2/';
 
     var Station = function(options){
-      this.genre = options.genre;
-      this.title = options.songs;
+      this.city = options.city;
+      this.state = options.state;
       this.user = options.user;
       this.ACL = options.ACL;
 
@@ -24,15 +24,16 @@
 
     var Track = function(options){
         this.title = options.title;
-        this.userdata = options.userdata;
-        this.id = options.id;
+        this.artist = options.artist;
+        this.id = options.soundcloud_id;
         this.genre = options.genre;
-        this.albumArt= options.albumArt;
+        this.albumArt= options.artwork_url;
         this.description = options.description;
         this.license= options.license;
-        this.soundcloudLink = options.soundcloudLink;
-        this.wavePic = options.wavPic;
-        this.url = options.url;
+        this.soundcloudLink = options.permalink_url;
+        this.wavePic = options.wavform_url;
+        this.url = options.stream_url + '?client_id='+ clientId;
+        this.location = options.location;
         this.user = options.user;
         this.ACL = options.ACL;
       };
@@ -178,9 +179,15 @@
       return $http.get(PARSE.ARTISTURL + '/tracks/completion');
     };
 
-    var citySearch = function(s){
+    var searchStations = function(p){
 
+      return $http({
+        url: PARSE.ARTISTURL + 'tracks/search',
+        method: "GET",
+        params: p
+      });
     };
+
     return {
       playRandom : playRandom,
       togglePlay : togglePlay,
@@ -195,7 +202,7 @@
       deleteTrack : deleteTrack,
       getSongInfo : getSongInfo,
       loadParams : loadParams,
-      citySearch : citySearch
+      searchStations : searchStations
 
 
     };

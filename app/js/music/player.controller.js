@@ -33,7 +33,7 @@
     // Track constructor
       var Track = function(options){
         this.title = options.title;
-        this.userdata = options.user;
+        this.artist = options.artist;
         this.id = options.soundcloud_id;
         this.genre = options.genre;
         this.albumArt= options.artwork_url;
@@ -42,6 +42,7 @@
         this.soundcloudLink = options.permalink_url;
         this.wavePic = options.wavform_url;
         this.url = options.stream_url + '?client_id='+ clientId;
+        this.location = options.location;
       };
 
       function shuffle(array) {
@@ -95,9 +96,7 @@
           // then play the bitch
           angularPlayer.play($scope.songs);
           angularPlayer.repeatToggle();
-          console.log($scope.playlist);
-          console.log($scope.songs);
-          console.log($scope.currentPlaying);
+
       }, 1000));
 
     }else{

@@ -24,7 +24,9 @@
 
       });
       UsersFactory.getArtistTracks(id).success( function(data){
-        console.log(data);
+        $scope.tracks = data;
+        $rootScope.hasSongs = true;
+
       });
     }
 

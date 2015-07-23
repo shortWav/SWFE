@@ -125,7 +125,7 @@
       .state('my-music', {
         url:'/my-music',
         templateUrl: 'js/templates/users/artistsongs.tpl.html',
-        controller: 'SongsListCtrl'
+        controller: 'ArtistCtrl'
       })
       .state('delete-account',{
         url:'/delete-account',
