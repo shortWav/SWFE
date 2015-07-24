@@ -1,3 +1,20 @@
+@media screen and (max-width: 800px){
+  h5{
+    font-size: 15px;
+  }
+ .animation-rotation{
+    visibility: hidden;
+  }
+
+
+}
+
+@media screen and (max-width: 1000px){
+    .bar-c{
+
+    margin-left: 500px;
+  }
+}
 body{
   font-family: 'Philosopher', sans-serif;
   background-color: rgb(60, 77, 82);
@@ -17,9 +34,11 @@ h4{
 h5{
   font-family: 'Audiowide', cursive;
 }
+
 .container{
   max-height: 550px;
 }
+
 
 footer{
   text-align: center;
@@ -299,7 +318,7 @@ md-input-container{
     text-align: center;
      max-width: 75%;
      max-height: 300px;
-   overflow: scroll;
+     overflow: scroll;
      margin: 10px auto;
   }
   li{
@@ -458,19 +477,9 @@ li {
 
 
 // animation
-// @media screen and (max-width: 800px){
-//   .animation-rotation{
-//     visibility: hidden;
-//   }
 
-// }
 
-// @media screen and (max-width: 1000px){
-//     .bar-c{
 
-//     margin-left: 500px;
-//   }
-// }
 
 .animation-rotation {
     height: 600px;
