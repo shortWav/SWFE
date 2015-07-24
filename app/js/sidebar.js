@@ -14,11 +14,15 @@
 
       });
 
+      $scope.loadUser = function(){
+        var user = $cookies.get('userObjectId');
 
-      if($rootScope.currentUserSignedIn === true){
-      $scope.id =  $cookies.get('userObjectId');
-      }else {
+        $state.go('home.username',{id: user});
+      };
+
+      if($rootScope.currentUserArtist === true){
       $scope.id = $cookies.get('id');
+
         // log out user
       }
       $scope.logOut = function(){
