@@ -263,7 +263,7 @@
 
 
     var params = {
-        city: selectedCity.city,
+        // city: selectedCity.city,
         state: selectedState.states,
         genre: selectedGenre.genre
 
