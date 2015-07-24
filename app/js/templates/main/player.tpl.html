@@ -4,7 +4,7 @@
       <div ng-hide="loader" layout="row" layout-sm="column" layout-align="space-around">
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
       </div>
-      <md-card ng-show="loader" style="min-width: 500px">
+      <md-card class="player" ng-show="loader" >
         <md-card-content>
 
          <i style="cursor: pointer" data-position="bottom" data-delay="50" data-tooltip="Add to favorites" onclick="Materialize.toast('Added to Favorites!', 4000)" class="mini material-icons thumbupicon tooltipped" ng-click="thumbit(currentPlaying)">thumb_up</i>
@@ -23,7 +23,7 @@
                         <h6 style='font-size: 20px'>
                         {{ currentPlaying.artist.artist_name }}
                         </h6>
-                        <span style='font-size: 10px'>from {{ currentPlaying.location.city }}, {{ currentPlaying.location.state }}</span>
+                        <span class="location">from {{ currentPlaying.location.city }}, {{ currentPlaying.location.state }}</span>
 
                     </p>
 

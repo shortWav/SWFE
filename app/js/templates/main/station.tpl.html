@@ -6,14 +6,16 @@
   <h5>Find a Station</h5>
 
 
-  <div layout="column" layout-align="center center" style="padding:40px">
+  <div layout="column" layout-align="center center" style="padding:20px">
 
-    <div layout="row" style="height: 100px;">
+    <div layout="row">
 
 
       <form ng-submit="loadStation(s,c)">
 
-    <div layout="row">
+       <!-- <label>Search by location</label> -->
+
+    <div layout="row ">
         <!-- Select genre/ need to change to country -->
 
         <md-select ng-model="s.states" md-on-open="loadStates()"  style="min-width: 200px;">
@@ -28,7 +30,9 @@
 
         <!-- Select song / need to change to genre -->
 
-         <md-select ng-show="stateSelected" ng-model="c.city" md-on-open="loadCities(s.states)" style="min-width: 200px;">
+
+
+         <md-select id="location" ng-show="stateSelected" ng-model="c.city" md-on-open="loadCities(s.states)" style="min-width: 200px;">
 
           <md-select-label>{{ c ? c.city : 'Cities' }}</md-select-label>
 
@@ -43,7 +47,9 @@
 
 
     </div>
+      <hr/>
 
+      <!-- <label>Search by genre</label> -->
     <div layout="row">
 
       <md-select ng-model="g.genre" md-on-open="loadGenres(s.states, c.city)"  style="min-width: 200px;">
