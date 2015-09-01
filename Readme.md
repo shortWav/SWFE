@@ -13,9 +13,9 @@
 
 >####Jim Leach
 
->- Github
-- LinkedIn
-- Website
+>- [Github](https://github.com/jaleach)
+- [LinkedIn](https://www.linkedin.com/pub/james-leach/2b/47b/b)
+- [Website](http://www.jimleach.co)
 
 ###Backend:
 https://github.com/redline6561/localwaves
